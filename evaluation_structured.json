@@ -1,0 +1,283 @@
+{
+  "qwen_only": [],
+  "qwen_rag": [],
+  "ecs_v3": [],
+  "ecs_structured": [
+    {
+      "problem": "Sort a list of integers in ascending order",
+      "success": true,
+      "tier_success": true,
+      "tier_reason": "Structured success: strategy selected, code generated, verified",
+      "confidence": 0.85,
+      "time": 0.17482328414916992,
+      "code_length": 277,
+      "strategy": "two-pointer",
+      "method": "constraint_inference",
+      "emergence": [
+        "Cross-domain: 'graph' for 'sorting'",
+        "Cross-domain: 'searching' for 'sorting'",
+        "Risk-taking: partial-match strategy"
+      ]
+    },
+    {
+      "problem": "Implement merge sort",
+      "success": true,
+      "tier_success": true,
+      "tier_reason": "Structured success: code generated, verified",
+      "confidence": 0.85,
+      "time": 0.10577750205993652,
+      "code_length": 512,
+      "strategy": "neural_only",
+      "method": "constraint_inference",
+      "emergence": []
+    },
+    {
+      "problem": "Implement quicksort with median-of-three pivot selection",
+      "success": true,
+      "tier_success": true,
+      "tier_reason": "Structured success: code generated, verified",
+      "confidence": 0.85,
+      "time": 0.137556791305542,
+      "code_length": 512,
+      "strategy": "neural_only",
+      "method": "constraint_inference",
+      "emergence": [
+        "Cross-domain: 'graph' for 'sorting'"
+      ]
+    },
+    {
+      "problem": "Implement binary search on a sorted array",
+      "success": true,
+      "tier_success": true,
+      "tier_reason": "Structured success: strategy selected, code generated, verified",
+      "confidence": 0.85,
+      "time": 0.13306403160095215,
+      "code_length": 274,
+      "strategy": "binary-search",
+      "method": "constraint_inference",
+      "emergence": [
+        "Cross-domain: 'searching' for 'sorting'"
+      ]
+    },
+    {
+      "problem": "Find the first occurrence of a target in a sorted array with duplicates",
+      "success": true,
+      "tier_success": true,
+      "tier_reason": "Structured success: strategy selected, code generated",
+      "confidence": 0.5861000000000001,
+      "time": 0.043204307556152344,
+      "code_length": 274,
+      "strategy": "binary-search",
+      "method": "memory_reuse",
+      "emergence": []
+    },
+    {
+      "problem": "Find the peak element in a mountain array",
+      "success": true,
+      "tier_success": true,
+      "tier_reason": "Structured success: strategy selected, code generated, verified",
+      "confidence": 0.85,
+      "time": 0.11267924308776855,
+      "code_length": 165,
+      "strategy": "two-pointer",
+      "method": "constraint_inference",
+      "emergence": [
+        "Cross-domain: 'sorting' for 'searching'",
+        "Cross-domain: 'sorting' for 'searching'",
+        "Cross-domain: 'sorting' for 'searching'",
+        "Risk-taking: partial-match strategy"
+      ]
+    },
+    {
+      "problem": "Check if a string is a palindrome",
+      "success": true,
+      "tier_success": true,
+      "tier_reason": "Structured success: strategy selected, code generated, verified",
+      "confidence": 0.85,
+      "time": 0.10250282287597656,
+      "code_length": 46,
+      "strategy": "sliding-window",
+      "method": "constraint_inference",
+      "emergence": [
+        "Risk-taking: partial-match strategy"
+      ]
+    },
+    {
+      "problem": "Reverse a string without using built-in functions",
+      "success": true,
+      "tier_success": true,
+      "tier_reason": "Structured success: strategy selected, code generated",
+      "confidence": 0.5577,
+      "time": 0.05155777931213379,
+      "code_length": 46,
+      "strategy": "sliding-window",
+      "method": "memory_reuse",
+      "emergence": [
+        "Risk-taking: partial-match strategy"
+      ]
+    },
+    {
+      "problem": "Find the longest substring without repeating characters",
+      "success": false,
+      "tier_success": false,
+      "tier_reason": "Insufficient: strategy selected",
+      "confidence": 0.0,
+      "time": 0.03880047798156738,
+      "code_length": 0,
+      "strategy": "two-pointer",
+      "method": "failed",
+      "emergence": [
+        "Cross-domain: 'sorting' for 'searching'",
+        "Risk-taking: partial-match strategy"
+      ]
+    },
+    {
+      "problem": "Find the maximum element in a list",
+      "success": true,
+      "tier_success": true,
+      "tier_reason": "Structured success: strategy selected, code generated",
+      "confidence": 0.5880000000000001,
+      "time": 0.0360105037689209,
+      "code_length": 277,
+      "strategy": "two-pointer",
+      "method": "memory_reuse",
+      "emergence": [
+        "Cross-domain: 'sorting' for 'searching'",
+        "Cross-domain: 'sorting' for 'searching'",
+        "Risk-taking: partial-match strategy"
+      ]
+    },
+    {
+      "problem": "Find two numbers in an array that sum to a target",
+      "success": true,
+      "tier_success": true,
+      "tier_reason": "Structured success: strategy selected, code generated, verified",
+      "confidence": 0.85,
+      "time": 0.12934470176696777,
+      "code_length": 218,
+      "strategy": "two-pointer",
+      "method": "constraint_inference",
+      "emergence": [
+        "Cross-domain: 'sorting' for 'searching'",
+        "Cross-domain: 'sorting' for 'searching'",
+        "Risk-taking: partial-match strategy"
+      ]
+    },
+    {
+      "problem": "Rotate an array by k positions",
+      "success": true,
+      "tier_success": true,
+      "tier_reason": "Structured success: code generated, verified",
+      "confidence": 0.85,
+      "time": 0.0997934341430664,
+      "code_length": 113,
+      "strategy": "neural_only",
+      "method": "constraint_inference",
+      "emergence": []
+    },
+    {
+      "problem": "Compute the nth Fibonacci number",
+      "success": true,
+      "tier_success": true,
+      "tier_reason": "Structured success: code generated, verified",
+      "confidence": 0.85,
+      "time": 0.1310594081878662,
+      "code_length": 165,
+      "strategy": "neural_only",
+      "method": "constraint_inference",
+      "emergence": []
+    },
+    {
+      "problem": "Calculate the factorial of n",
+      "success": true,
+      "tier_success": true,
+      "tier_reason": "Structured success: code generated, verified",
+      "confidence": 0.85,
+      "time": 0.11607098579406738,
+      "code_length": 133,
+      "strategy": "neural_only",
+      "method": "constraint_inference",
+      "emergence": []
+    },
+    {
+      "problem": "Generate all permutations of a list",
+      "success": true,
+      "tier_success": false,
+      "tier_reason": "Insufficient: code generated",
+      "confidence": 0.608,
+      "time": 0.03626656532287598,
+      "code_length": 277,
+      "strategy": "neural_only",
+      "method": "memory_reuse",
+      "emergence": []
+    },
+    {
+      "problem": "Check if a number is prime",
+      "success": true,
+      "tier_success": false,
+      "tier_reason": "Insufficient: code generated",
+      "confidence": 0.6099,
+      "time": 0.0358579158782959,
+      "code_length": 46,
+      "strategy": "neural_only",
+      "method": "memory_reuse",
+      "emergence": []
+    },
+    {
+      "problem": "Check if a string of brackets is balanced",
+      "success": true,
+      "tier_success": true,
+      "tier_reason": "Structured success: strategy selected, code generated",
+      "confidence": 0.6293,
+      "time": 0.03565621376037598,
+      "code_length": 46,
+      "strategy": "sliding-window",
+      "method": "memory_reuse",
+      "emergence": [
+        "Risk-taking: partial-match strategy"
+      ]
+    },
+    {
+      "problem": "Implement a stack with push, pop, and min operations",
+      "success": false,
+      "tier_success": false,
+      "tier_reason": "Insufficient: nothing",
+      "confidence": 0.0,
+      "time": 0.048708200454711914,
+      "code_length": 0,
+      "strategy": "neural_only",
+      "method": "failed",
+      "emergence": []
+    },
+    {
+      "problem": "Find the longest common prefix of a list of strings",
+      "success": true,
+      "tier_success": true,
+      "tier_reason": "Structured success: strategy selected, code generated, verified",
+      "confidence": 0.85,
+      "time": 0.12017035484313965,
+      "code_length": 256,
+      "strategy": "two-pointer",
+      "method": "constraint_inference",
+      "emergence": [
+        "Risk-taking: partial-match strategy"
+      ]
+    },
+    {
+      "problem": "Remove duplicates from a sorted array in-place",
+      "success": true,
+      "tier_success": true,
+      "tier_reason": "Structured success: strategy selected, code generated, verified",
+      "confidence": 0.85,
+      "time": 0.14254403114318848,
+      "code_length": 176,
+      "strategy": "two-pointer",
+      "method": "constraint_inference",
+      "emergence": [
+        "Attention spike: memory=1.80",
+        "Attention spike: strategy=1.80",
+        "Risk-taking: partial-match strategy"
+      ]
+    }
+  ]
+}

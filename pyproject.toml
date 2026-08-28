@@ -1,0 +1,26 @@
+[project]
+name = "ecs"
+version = "0.1.0"
+description = "Emergent Cognitive System v3"
+readme = "README.md"
+authors = [
+    { name = "tripathiji1312", email = "swarnim.tr@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "scipy",
+    "requests",
+    "z3-solver",
+    "datasets>=5.0.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "hypothesis",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
