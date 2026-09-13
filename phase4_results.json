@@ -1,0 +1,7020 @@
+{
+  "Full ECS": {
+    "name": "Full ECS",
+    "passed": 36,
+    "total": 164,
+    "pass_rate": 0.21951219512195122,
+    "avg_confidence": 0.5633152439024385,
+    "avg_time_ms": 991.092934841063,
+    "methods": {
+      "compositional": 15,
+      "constraint_inference": 80,
+      "failed": 51,
+      "induction_analogy": 5,
+      "memory_reuse": 12,
+      "execution_guided": 1
+    },
+    "method_passes": {
+      "compositional": 15,
+      "constraint_inference": 21
+    }
+  },
+  "No HDC memory": {
+    "name": "No HDC memory",
+    "passed": 36,
+    "total": 164,
+    "pass_rate": 0.21951219512195122,
+    "avg_confidence": 0.5160365853658532,
+    "avg_time_ms": 795.2211048544907,
+    "methods": {
+      "compositional": 15,
+      "constraint_inference": 80,
+      "failed": 63,
+      "induction_analogy": 5,
+      "execution_guided": 1
+    },
+    "method_passes": {
+      "compositional": 15,
+      "constraint_inference": 21
+    }
+  },
+  "No compositional": {
+    "name": "No compositional",
+    "passed": 29,
+    "total": 164,
+    "pass_rate": 0.17682926829268292,
+    "avg_confidence": 0.5346335365853654,
+    "avg_time_ms": 949.7608586055476,
+    "methods": {
+      "execution_guided": 11,
+      "constraint_inference": 80,
+      "failed": 56,
+      "induction_analogy": 5,
+      "memory_reuse": 12
+    },
+    "method_passes": {
+      "execution_guided": 8,
+      "constraint_inference": 21
+    }
+  },
+  "No constraint inference": {
+    "name": "No constraint inference",
+    "passed": 29,
+    "total": 164,
+    "pass_rate": 0.17682926829268292,
+    "avg_confidence": 0.22030060975609747,
+    "avg_time_ms": 878.017940172335,
+    "methods": {
+      "compositional": 29,
+      "failed": 120,
+      "induction_analogy": 6,
+      "memory_reuse": 8,
+      "execution_guided": 1
+    },
+    "method_passes": {
+      "compositional": 29
+    }
+  },
+  "No confidence gating": {
+    "name": "No confidence gating",
+    "passed": 36,
+    "total": 164,
+    "pass_rate": 0.21951219512195122,
+    "avg_confidence": 0.5633103658536579,
+    "avg_time_ms": 1061.4398499814474,
+    "methods": {
+      "compositional": 15,
+      "constraint_inference": 80,
+      "failed": 51,
+      "induction_analogy": 5,
+      "memory_reuse": 12,
+      "execution_guided": 1
+    },
+    "method_passes": {
+      "compositional": 15,
+      "constraint_inference": 21
+    }
+  },
+  "No workspace auction": {
+    "name": "No workspace auction",
+    "passed": 36,
+    "total": 164,
+    "pass_rate": 0.21951219512195122,
+    "avg_confidence": 0.5633115853658531,
+    "avg_time_ms": 900.1482259936448,
+    "methods": {
+      "compositional": 15,
+      "constraint_inference": 80,
+      "failed": 51,
+      "induction_analogy": 5,
+      "memory_reuse": 12,
+      "execution_guided": 1
+    },
+    "method_passes": {
+      "compositional": 15,
+      "constraint_inference": 21
+    }
+  },
+  "per_problem": {
+    "Full ECS": [
+      {
+        "task_id": "HumanEval/0",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.36392927169799805
+      },
+      {
+        "task_id": "HumanEval/1",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.3603780269622803
+      },
+      {
+        "task_id": "HumanEval/2",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.437241792678833
+      },
+      {
+        "task_id": "HumanEval/3",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.6303713321685791
+      },
+      {
+        "task_id": "HumanEval/4",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4857184886932373
+      },
+      {
+        "task_id": "HumanEval/5",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 1.4210143089294434
+      },
+      {
+        "task_id": "HumanEval/6",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.42455124855041504
+      },
+      {
+        "task_id": "HumanEval/7",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.6744096279144287
+      },
+      {
+        "task_id": "HumanEval/8",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.22414612770080566
+      },
+      {
+        "task_id": "HumanEval/9",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4850897789001465
+      },
+      {
+        "task_id": "HumanEval/10",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6408133506774902
+      },
+      {
+        "task_id": "HumanEval/11",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3085923194885254
+      },
+      {
+        "task_id": "HumanEval/12",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.2988719940185547
+      },
+      {
+        "task_id": "HumanEval/13",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6974482536315918
+      },
+      {
+        "task_id": "HumanEval/14",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.2519376277923584
+      },
+      {
+        "task_id": "HumanEval/15",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3234219551086426
+      },
+      {
+        "task_id": "HumanEval/16",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.3146843910217285
+      },
+      {
+        "task_id": "HumanEval/17",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7675201892852783
+      },
+      {
+        "task_id": "HumanEval/18",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7521355152130127
+      },
+      {
+        "task_id": "HumanEval/19",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6510770320892334
+      },
+      {
+        "task_id": "HumanEval/20",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.380016565322876
+      },
+      {
+        "task_id": "HumanEval/21",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8846521377563477
+      },
+      {
+        "task_id": "HumanEval/22",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.5714836120605469
+      },
+      {
+        "task_id": "HumanEval/23",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.09868383407592773
+      },
+      {
+        "task_id": "HumanEval/24",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5416748523712158
+      },
+      {
+        "task_id": "HumanEval/25",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.38689613342285156
+      },
+      {
+        "task_id": "HumanEval/26",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.6633074283599854
+      },
+      {
+        "task_id": "HumanEval/27",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.45029187202453613
+      },
+      {
+        "task_id": "HumanEval/28",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.24859166145324707
+      },
+      {
+        "task_id": "HumanEval/29",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.6187317371368408
+      },
+      {
+        "task_id": "HumanEval/30",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.24361467361450195
+      },
+      {
+        "task_id": "HumanEval/31",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7452976703643799
+      },
+      {
+        "task_id": "HumanEval/32",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.17089128494262695
+      },
+      {
+        "task_id": "HumanEval/33",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.4844281673431396
+      },
+      {
+        "task_id": "HumanEval/34",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.19991517066955566
+      },
+      {
+        "task_id": "HumanEval/35",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.29298949241638184
+      },
+      {
+        "task_id": "HumanEval/36",
+        "passed": false,
+        "confidence": 0.5651999999999999,
+        "method": "memory_reuse",
+        "time": 0.46193933486938477
+      },
+      {
+        "task_id": "HumanEval/37",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.0911428928375244
+      },
+      {
+        "task_id": "HumanEval/38",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.042977094650268555
+      },
+      {
+        "task_id": "HumanEval/39",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7139816284179688
+      },
+      {
+        "task_id": "HumanEval/40",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7262122631072998
+      },
+      {
+        "task_id": "HumanEval/41",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7734220027923584
+      },
+      {
+        "task_id": "HumanEval/42",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.3213222026824951
+      },
+      {
+        "task_id": "HumanEval/43",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.9786803722381592
+      },
+      {
+        "task_id": "HumanEval/44",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.2275843620300293
+      },
+      {
+        "task_id": "HumanEval/45",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.5923032760620117
+      },
+      {
+        "task_id": "HumanEval/46",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.0899631977081299
+      },
+      {
+        "task_id": "HumanEval/47",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.6117157936096191
+      },
+      {
+        "task_id": "HumanEval/48",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.28066110610961914
+      },
+      {
+        "task_id": "HumanEval/49",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.9427175521850586
+      },
+      {
+        "task_id": "HumanEval/50",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.038368940353393555
+      },
+      {
+        "task_id": "HumanEval/51",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5956153869628906
+      },
+      {
+        "task_id": "HumanEval/52",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.23964738845825195
+      },
+      {
+        "task_id": "HumanEval/53",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.2729165554046631
+      },
+      {
+        "task_id": "HumanEval/54",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6845238208770752
+      },
+      {
+        "task_id": "HumanEval/55",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.456005334854126
+      },
+      {
+        "task_id": "HumanEval/56",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.818181037902832
+      },
+      {
+        "task_id": "HumanEval/57",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.7716419696807861
+      },
+      {
+        "task_id": "HumanEval/58",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7491278648376465
+      },
+      {
+        "task_id": "HumanEval/59",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.3685872554779053
+      },
+      {
+        "task_id": "HumanEval/60",
+        "passed": false,
+        "confidence": 0.88,
+        "method": "execution_guided",
+        "time": 0.3976900577545166
+      },
+      {
+        "task_id": "HumanEval/61",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6681396961212158
+      },
+      {
+        "task_id": "HumanEval/62",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7749121189117432
+      },
+      {
+        "task_id": "HumanEval/63",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.1924023628234863
+      },
+      {
+        "task_id": "HumanEval/64",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.26962709426879883
+      },
+      {
+        "task_id": "HumanEval/65",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.603642463684082
+      },
+      {
+        "task_id": "HumanEval/66",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.755589485168457
+      },
+      {
+        "task_id": "HumanEval/67",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.717451572418213
+      },
+      {
+        "task_id": "HumanEval/68",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.285351037979126
+      },
+      {
+        "task_id": "HumanEval/69",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 1.2865257263183594
+      },
+      {
+        "task_id": "HumanEval/70",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7513549327850342
+      },
+      {
+        "task_id": "HumanEval/71",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6300253868103027
+      },
+      {
+        "task_id": "HumanEval/72",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.4546046257019043
+      },
+      {
+        "task_id": "HumanEval/73",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.5168585777282715
+      },
+      {
+        "task_id": "HumanEval/74",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.060781955718994
+      },
+      {
+        "task_id": "HumanEval/75",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.653179407119751
+      },
+      {
+        "task_id": "HumanEval/76",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.9926550388336182
+      },
+      {
+        "task_id": "HumanEval/77",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7015812397003174
+      },
+      {
+        "task_id": "HumanEval/78",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.3687820434570312
+      },
+      {
+        "task_id": "HumanEval/79",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5013232231140137
+      },
+      {
+        "task_id": "HumanEval/80",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7676312923431396
+      },
+      {
+        "task_id": "HumanEval/81",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.5921111106872559
+      },
+      {
+        "task_id": "HumanEval/82",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5820138454437256
+      },
+      {
+        "task_id": "HumanEval/83",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.11429119110107422
+      },
+      {
+        "task_id": "HumanEval/84",
+        "passed": false,
+        "confidence": 0.6431,
+        "method": "memory_reuse",
+        "time": 1.1901569366455078
+      },
+      {
+        "task_id": "HumanEval/85",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.20311379432678223
+      },
+      {
+        "task_id": "HumanEval/86",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8162903785705566
+      },
+      {
+        "task_id": "HumanEval/87",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 0.8560333251953125
+      },
+      {
+        "task_id": "HumanEval/88",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.956744432449341
+      },
+      {
+        "task_id": "HumanEval/89",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4981701374053955
+      },
+      {
+        "task_id": "HumanEval/90",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6756472587585449
+      },
+      {
+        "task_id": "HumanEval/91",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.44095754623413086
+      },
+      {
+        "task_id": "HumanEval/92",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.8843202590942383
+      },
+      {
+        "task_id": "HumanEval/93",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.43235301971435547
+      },
+      {
+        "task_id": "HumanEval/94",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.307868480682373
+      },
+      {
+        "task_id": "HumanEval/95",
+        "passed": false,
+        "confidence": 0.6389,
+        "method": "memory_reuse",
+        "time": 2.2324299812316895
+      },
+      {
+        "task_id": "HumanEval/96",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.8597311973571777
+      },
+      {
+        "task_id": "HumanEval/97",
+        "passed": false,
+        "confidence": 0.5794,
+        "method": "memory_reuse",
+        "time": 0.5955367088317871
+      },
+      {
+        "task_id": "HumanEval/98",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.26454591751098633
+      },
+      {
+        "task_id": "HumanEval/99",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.35704708099365234
+      },
+      {
+        "task_id": "HumanEval/100",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7314350605010986
+      },
+      {
+        "task_id": "HumanEval/101",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5462496280670166
+      },
+      {
+        "task_id": "HumanEval/102",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.445096492767334
+      },
+      {
+        "task_id": "HumanEval/103",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.8065736293792725
+      },
+      {
+        "task_id": "HumanEval/104",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8415405750274658
+      },
+      {
+        "task_id": "HumanEval/105",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 5.164549112319946
+      },
+      {
+        "task_id": "HumanEval/106",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8881242275238037
+      },
+      {
+        "task_id": "HumanEval/107",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.4765257835388184
+      },
+      {
+        "task_id": "HumanEval/108",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3410193920135498
+      },
+      {
+        "task_id": "HumanEval/109",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.481250762939453
+      },
+      {
+        "task_id": "HumanEval/110",
+        "passed": false,
+        "confidence": 0.6819999999999999,
+        "method": "memory_reuse",
+        "time": 1.4576542377471924
+      },
+      {
+        "task_id": "HumanEval/111",
+        "passed": false,
+        "confidence": 0.6783,
+        "method": "memory_reuse",
+        "time": 1.4803524017333984
+      },
+      {
+        "task_id": "HumanEval/112",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.534454584121704
+      },
+      {
+        "task_id": "HumanEval/113",
+        "passed": false,
+        "confidence": 0.616,
+        "method": "memory_reuse",
+        "time": 1.1630313396453857
+      },
+      {
+        "task_id": "HumanEval/114",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.38094115257263184
+      },
+      {
+        "task_id": "HumanEval/115",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.2305550575256348
+      },
+      {
+        "task_id": "HumanEval/116",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.391510009765625
+      },
+      {
+        "task_id": "HumanEval/117",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.9149930477142334
+      },
+      {
+        "task_id": "HumanEval/118",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.404667615890503
+      },
+      {
+        "task_id": "HumanEval/119",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7108790874481201
+      },
+      {
+        "task_id": "HumanEval/120",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.9506957530975342
+      },
+      {
+        "task_id": "HumanEval/121",
+        "passed": false,
+        "confidence": 0.7972,
+        "method": "memory_reuse",
+        "time": 0.8605387210845947
+      },
+      {
+        "task_id": "HumanEval/122",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 1.3577425479888916
+      },
+      {
+        "task_id": "HumanEval/123",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.9206767082214355
+      },
+      {
+        "task_id": "HumanEval/124",
+        "passed": false,
+        "confidence": 0.5909,
+        "method": "memory_reuse",
+        "time": 2.9105441570281982
+      },
+      {
+        "task_id": "HumanEval/125",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5230965614318848
+      },
+      {
+        "task_id": "HumanEval/126",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 9.141100645065308
+      },
+      {
+        "task_id": "HumanEval/127",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.9723289012908936
+      },
+      {
+        "task_id": "HumanEval/128",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 0.30346179008483887
+      },
+      {
+        "task_id": "HumanEval/129",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.964289903640747
+      },
+      {
+        "task_id": "HumanEval/130",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.051356077194214
+      },
+      {
+        "task_id": "HumanEval/131",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.37384653091430664
+      },
+      {
+        "task_id": "HumanEval/132",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.2153255939483643
+      },
+      {
+        "task_id": "HumanEval/133",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 2.7601029872894287
+      },
+      {
+        "task_id": "HumanEval/134",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.547682523727417
+      },
+      {
+        "task_id": "HumanEval/135",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8233227729797363
+      },
+      {
+        "task_id": "HumanEval/136",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.632300615310669
+      },
+      {
+        "task_id": "HumanEval/137",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.46880102157592773
+      },
+      {
+        "task_id": "HumanEval/138",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.24773192405700684
+      },
+      {
+        "task_id": "HumanEval/139",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7869107723236084
+      },
+      {
+        "task_id": "HumanEval/140",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5141854286193848
+      },
+      {
+        "task_id": "HumanEval/141",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.9684240818023682
+      },
+      {
+        "task_id": "HumanEval/142",
+        "passed": false,
+        "confidence": 0.8217,
+        "method": "memory_reuse",
+        "time": 0.9626445770263672
+      },
+      {
+        "task_id": "HumanEval/143",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.7533445358276367
+      },
+      {
+        "task_id": "HumanEval/144",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.9455130100250244
+      },
+      {
+        "task_id": "HumanEval/145",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.846588134765625
+      },
+      {
+        "task_id": "HumanEval/146",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.359771728515625
+      },
+      {
+        "task_id": "HumanEval/147",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.8186581134796143
+      },
+      {
+        "task_id": "HumanEval/148",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.1975090503692627
+      },
+      {
+        "task_id": "HumanEval/149",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.1247632503509521
+      },
+      {
+        "task_id": "HumanEval/150",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.41904425621032715
+      },
+      {
+        "task_id": "HumanEval/151",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.242832899093628
+      },
+      {
+        "task_id": "HumanEval/152",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 0.8863849639892578
+      },
+      {
+        "task_id": "HumanEval/153",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6454672813415527
+      },
+      {
+        "task_id": "HumanEval/154",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.3976004123687744
+      },
+      {
+        "task_id": "HumanEval/155",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3130965232849121
+      },
+      {
+        "task_id": "HumanEval/156",
+        "passed": false,
+        "confidence": 0.5593,
+        "method": "memory_reuse",
+        "time": 0.18684887886047363
+      },
+      {
+        "task_id": "HumanEval/157",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.2846076488494873
+      },
+      {
+        "task_id": "HumanEval/158",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6046187877655029
+      },
+      {
+        "task_id": "HumanEval/159",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.7062721252441406
+      },
+      {
+        "task_id": "HumanEval/160",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 2.084794282913208
+      },
+      {
+        "task_id": "HumanEval/161",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7017028331756592
+      },
+      {
+        "task_id": "HumanEval/162",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.17961502075195312
+      },
+      {
+        "task_id": "HumanEval/163",
+        "passed": false,
+        "confidence": 0.5817,
+        "method": "memory_reuse",
+        "time": 0.6381642818450928
+      }
+    ],
+    "No HDC memory": [
+      {
+        "task_id": "HumanEval/0",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.39148426055908203
+      },
+      {
+        "task_id": "HumanEval/1",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.3260788917541504
+      },
+      {
+        "task_id": "HumanEval/2",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.39928412437438965
+      },
+      {
+        "task_id": "HumanEval/3",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.5212612152099609
+      },
+      {
+        "task_id": "HumanEval/4",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.3964097499847412
+      },
+      {
+        "task_id": "HumanEval/5",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 1.313891887664795
+      },
+      {
+        "task_id": "HumanEval/6",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5238285064697266
+      },
+      {
+        "task_id": "HumanEval/7",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.6139369010925293
+      },
+      {
+        "task_id": "HumanEval/8",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.17835068702697754
+      },
+      {
+        "task_id": "HumanEval/9",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5672369003295898
+      },
+      {
+        "task_id": "HumanEval/10",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8387761116027832
+      },
+      {
+        "task_id": "HumanEval/11",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5386476516723633
+      },
+      {
+        "task_id": "HumanEval/12",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.6155335903167725
+      },
+      {
+        "task_id": "HumanEval/13",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.808640718460083
+      },
+      {
+        "task_id": "HumanEval/14",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.2373487949371338
+      },
+      {
+        "task_id": "HumanEval/15",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3648383617401123
+      },
+      {
+        "task_id": "HumanEval/16",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.3657388687133789
+      },
+      {
+        "task_id": "HumanEval/17",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.4930086135864258
+      },
+      {
+        "task_id": "HumanEval/18",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.9054055213928223
+      },
+      {
+        "task_id": "HumanEval/19",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6574478149414062
+      },
+      {
+        "task_id": "HumanEval/20",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.3505682945251465
+      },
+      {
+        "task_id": "HumanEval/21",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8746116161346436
+      },
+      {
+        "task_id": "HumanEval/22",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.589155912399292
+      },
+      {
+        "task_id": "HumanEval/23",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.13961291313171387
+      },
+      {
+        "task_id": "HumanEval/24",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6595532894134521
+      },
+      {
+        "task_id": "HumanEval/25",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.31771349906921387
+      },
+      {
+        "task_id": "HumanEval/26",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.7306129932403564
+      },
+      {
+        "task_id": "HumanEval/27",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.38989973068237305
+      },
+      {
+        "task_id": "HumanEval/28",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.2403864860534668
+      },
+      {
+        "task_id": "HumanEval/29",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.6551952362060547
+      },
+      {
+        "task_id": "HumanEval/30",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.24611878395080566
+      },
+      {
+        "task_id": "HumanEval/31",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7962985038757324
+      },
+      {
+        "task_id": "HumanEval/32",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.11610746383666992
+      },
+      {
+        "task_id": "HumanEval/33",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.429685354232788
+      },
+      {
+        "task_id": "HumanEval/34",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.24973058700561523
+      },
+      {
+        "task_id": "HumanEval/35",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.3122415542602539
+      },
+      {
+        "task_id": "HumanEval/36",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.310028076171875
+      },
+      {
+        "task_id": "HumanEval/37",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.2400453090667725
+      },
+      {
+        "task_id": "HumanEval/38",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.08054709434509277
+      },
+      {
+        "task_id": "HumanEval/39",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8928239345550537
+      },
+      {
+        "task_id": "HumanEval/40",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7780091762542725
+      },
+      {
+        "task_id": "HumanEval/41",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.47981834411621094
+      },
+      {
+        "task_id": "HumanEval/42",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.4225950241088867
+      },
+      {
+        "task_id": "HumanEval/43",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.148353099822998
+      },
+      {
+        "task_id": "HumanEval/44",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.22944998741149902
+      },
+      {
+        "task_id": "HumanEval/45",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.48894357681274414
+      },
+      {
+        "task_id": "HumanEval/46",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.9361987113952637
+      },
+      {
+        "task_id": "HumanEval/47",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.8841671943664551
+      },
+      {
+        "task_id": "HumanEval/48",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.37231922149658203
+      },
+      {
+        "task_id": "HumanEval/49",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.4164164066314697
+      },
+      {
+        "task_id": "HumanEval/50",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.03537344932556152
+      },
+      {
+        "task_id": "HumanEval/51",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7298274040222168
+      },
+      {
+        "task_id": "HumanEval/52",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.3982546329498291
+      },
+      {
+        "task_id": "HumanEval/53",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.502861738204956
+      },
+      {
+        "task_id": "HumanEval/54",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.0539281368255615
+      },
+      {
+        "task_id": "HumanEval/55",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.585848331451416
+      },
+      {
+        "task_id": "HumanEval/56",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.9184513092041016
+      },
+      {
+        "task_id": "HumanEval/57",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.859046220779419
+      },
+      {
+        "task_id": "HumanEval/58",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7929449081420898
+      },
+      {
+        "task_id": "HumanEval/59",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6402487754821777
+      },
+      {
+        "task_id": "HumanEval/60",
+        "passed": false,
+        "confidence": 0.88,
+        "method": "execution_guided",
+        "time": 0.44499945640563965
+      },
+      {
+        "task_id": "HumanEval/61",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7223105430603027
+      },
+      {
+        "task_id": "HumanEval/62",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.8816032409667969
+      },
+      {
+        "task_id": "HumanEval/63",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.2603881359100342
+      },
+      {
+        "task_id": "HumanEval/64",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.21334362030029297
+      },
+      {
+        "task_id": "HumanEval/65",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7150595188140869
+      },
+      {
+        "task_id": "HumanEval/66",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5359256267547607
+      },
+      {
+        "task_id": "HumanEval/67",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.1417860984802246
+      },
+      {
+        "task_id": "HumanEval/68",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.6305227279663086
+      },
+      {
+        "task_id": "HumanEval/69",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 0.7433748245239258
+      },
+      {
+        "task_id": "HumanEval/70",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7486352920532227
+      },
+      {
+        "task_id": "HumanEval/71",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.450192928314209
+      },
+      {
+        "task_id": "HumanEval/72",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.77571439743042
+      },
+      {
+        "task_id": "HumanEval/73",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.0132012367248535
+      },
+      {
+        "task_id": "HumanEval/74",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.2152819633483887
+      },
+      {
+        "task_id": "HumanEval/75",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4082317352294922
+      },
+      {
+        "task_id": "HumanEval/76",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.670830488204956
+      },
+      {
+        "task_id": "HumanEval/77",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5176537036895752
+      },
+      {
+        "task_id": "HumanEval/78",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.8094956874847412
+      },
+      {
+        "task_id": "HumanEval/79",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3742051124572754
+      },
+      {
+        "task_id": "HumanEval/80",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6177284717559814
+      },
+      {
+        "task_id": "HumanEval/81",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.3315997123718262
+      },
+      {
+        "task_id": "HumanEval/82",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.3840053081512451
+      },
+      {
+        "task_id": "HumanEval/83",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.08735322952270508
+      },
+      {
+        "task_id": "HumanEval/84",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5965614318847656
+      },
+      {
+        "task_id": "HumanEval/85",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.13060832023620605
+      },
+      {
+        "task_id": "HumanEval/86",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.579181432723999
+      },
+      {
+        "task_id": "HumanEval/87",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 0.7448427677154541
+      },
+      {
+        "task_id": "HumanEval/88",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.0249342918395996
+      },
+      {
+        "task_id": "HumanEval/89",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.36359095573425293
+      },
+      {
+        "task_id": "HumanEval/90",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.46506333351135254
+      },
+      {
+        "task_id": "HumanEval/91",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.42126035690307617
+      },
+      {
+        "task_id": "HumanEval/92",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6407270431518555
+      },
+      {
+        "task_id": "HumanEval/93",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.39362525939941406
+      },
+      {
+        "task_id": "HumanEval/94",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.0773630142211914
+      },
+      {
+        "task_id": "HumanEval/95",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.0542609691619873
+      },
+      {
+        "task_id": "HumanEval/96",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.1418342590332031
+      },
+      {
+        "task_id": "HumanEval/97",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.321561336517334
+      },
+      {
+        "task_id": "HumanEval/98",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.17522716522216797
+      },
+      {
+        "task_id": "HumanEval/99",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3228495121002197
+      },
+      {
+        "task_id": "HumanEval/100",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.42637157440185547
+      },
+      {
+        "task_id": "HumanEval/101",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.40042567253112793
+      },
+      {
+        "task_id": "HumanEval/102",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4241514205932617
+      },
+      {
+        "task_id": "HumanEval/103",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5445640087127686
+      },
+      {
+        "task_id": "HumanEval/104",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8254842758178711
+      },
+      {
+        "task_id": "HumanEval/105",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 4.05361533164978
+      },
+      {
+        "task_id": "HumanEval/106",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7081880569458008
+      },
+      {
+        "task_id": "HumanEval/107",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.0038447380065918
+      },
+      {
+        "task_id": "HumanEval/108",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.2177872657775879
+      },
+      {
+        "task_id": "HumanEval/109",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.8893728256225586
+      },
+      {
+        "task_id": "HumanEval/110",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7403092384338379
+      },
+      {
+        "task_id": "HumanEval/111",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6857709884643555
+      },
+      {
+        "task_id": "HumanEval/112",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.13535475730896
+      },
+      {
+        "task_id": "HumanEval/113",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.8027834892272949
+      },
+      {
+        "task_id": "HumanEval/114",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.26838231086730957
+      },
+      {
+        "task_id": "HumanEval/115",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.6566753387451172
+      },
+      {
+        "task_id": "HumanEval/116",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.31038856506347656
+      },
+      {
+        "task_id": "HumanEval/117",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.9206488132476807
+      },
+      {
+        "task_id": "HumanEval/118",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6477398872375488
+      },
+      {
+        "task_id": "HumanEval/119",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.535914421081543
+      },
+      {
+        "task_id": "HumanEval/120",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.7068922519683838
+      },
+      {
+        "task_id": "HumanEval/121",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.4718005657196045
+      },
+      {
+        "task_id": "HumanEval/122",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 1.0524587631225586
+      },
+      {
+        "task_id": "HumanEval/123",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.6302757263183594
+      },
+      {
+        "task_id": "HumanEval/124",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.4504334926605225
+      },
+      {
+        "task_id": "HumanEval/125",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3632321357727051
+      },
+      {
+        "task_id": "HumanEval/126",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 5.995014667510986
+      },
+      {
+        "task_id": "HumanEval/127",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.428776502609253
+      },
+      {
+        "task_id": "HumanEval/128",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 0.1959834098815918
+      },
+      {
+        "task_id": "HumanEval/129",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.4525997638702393
+      },
+      {
+        "task_id": "HumanEval/130",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.833613872528076
+      },
+      {
+        "task_id": "HumanEval/131",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.27518248558044434
+      },
+      {
+        "task_id": "HumanEval/132",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.9816081523895264
+      },
+      {
+        "task_id": "HumanEval/133",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 2.3895132541656494
+      },
+      {
+        "task_id": "HumanEval/134",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.30451345443725586
+      },
+      {
+        "task_id": "HumanEval/135",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6533751487731934
+      },
+      {
+        "task_id": "HumanEval/136",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5224413871765137
+      },
+      {
+        "task_id": "HumanEval/137",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.4001131057739258
+      },
+      {
+        "task_id": "HumanEval/138",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.16268563270568848
+      },
+      {
+        "task_id": "HumanEval/139",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5860433578491211
+      },
+      {
+        "task_id": "HumanEval/140",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.29659557342529297
+      },
+      {
+        "task_id": "HumanEval/141",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.3496284484863281
+      },
+      {
+        "task_id": "HumanEval/142",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.47154998779296875
+      },
+      {
+        "task_id": "HumanEval/143",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.2378761768341064
+      },
+      {
+        "task_id": "HumanEval/144",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7073318958282471
+      },
+      {
+        "task_id": "HumanEval/145",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6197166442871094
+      },
+      {
+        "task_id": "HumanEval/146",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.21168279647827148
+      },
+      {
+        "task_id": "HumanEval/147",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6948177814483643
+      },
+      {
+        "task_id": "HumanEval/148",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.826425313949585
+      },
+      {
+        "task_id": "HumanEval/149",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.891517162322998
+      },
+      {
+        "task_id": "HumanEval/150",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.30427122116088867
+      },
+      {
+        "task_id": "HumanEval/151",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.860522985458374
+      },
+      {
+        "task_id": "HumanEval/152",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 0.6456763744354248
+      },
+      {
+        "task_id": "HumanEval/153",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.39223551750183105
+      },
+      {
+        "task_id": "HumanEval/154",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.9459247589111328
+      },
+      {
+        "task_id": "HumanEval/155",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.27246856689453125
+      },
+      {
+        "task_id": "HumanEval/156",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.10429668426513672
+      },
+      {
+        "task_id": "HumanEval/157",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.20510554313659668
+      },
+      {
+        "task_id": "HumanEval/158",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4466245174407959
+      },
+      {
+        "task_id": "HumanEval/159",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.0027413368225098
+      },
+      {
+        "task_id": "HumanEval/160",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 1.4420084953308105
+      },
+      {
+        "task_id": "HumanEval/161",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5064265727996826
+      },
+      {
+        "task_id": "HumanEval/162",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.12827396392822266
+      },
+      {
+        "task_id": "HumanEval/163",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3001368045806885
+      }
+    ],
+    "No compositional": [
+      {
+        "task_id": "HumanEval/0",
+        "passed": true,
+        "confidence": 0.88,
+        "method": "execution_guided",
+        "time": 0.40192675590515137
+      },
+      {
+        "task_id": "HumanEval/1",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.33003807067871094
+      },
+      {
+        "task_id": "HumanEval/2",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.41406846046447754
+      },
+      {
+        "task_id": "HumanEval/3",
+        "passed": true,
+        "confidence": 0.88,
+        "method": "execution_guided",
+        "time": 0.5473823547363281
+      },
+      {
+        "task_id": "HumanEval/4",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4321897029876709
+      },
+      {
+        "task_id": "HumanEval/5",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.114562749862671
+      },
+      {
+        "task_id": "HumanEval/6",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4769413471221924
+      },
+      {
+        "task_id": "HumanEval/7",
+        "passed": true,
+        "confidence": 0.88,
+        "method": "execution_guided",
+        "time": 0.575519323348999
+      },
+      {
+        "task_id": "HumanEval/8",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.13418173789978027
+      },
+      {
+        "task_id": "HumanEval/9",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.48372650146484375
+      },
+      {
+        "task_id": "HumanEval/10",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4511442184448242
+      },
+      {
+        "task_id": "HumanEval/11",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.2066032886505127
+      },
+      {
+        "task_id": "HumanEval/12",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.19028806686401367
+      },
+      {
+        "task_id": "HumanEval/13",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4156813621520996
+      },
+      {
+        "task_id": "HumanEval/14",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.18675804138183594
+      },
+      {
+        "task_id": "HumanEval/15",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.23237180709838867
+      },
+      {
+        "task_id": "HumanEval/16",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.22790145874023438
+      },
+      {
+        "task_id": "HumanEval/17",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5282137393951416
+      },
+      {
+        "task_id": "HumanEval/18",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4038064479827881
+      },
+      {
+        "task_id": "HumanEval/19",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4971890449523926
+      },
+      {
+        "task_id": "HumanEval/20",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.34629201889038086
+      },
+      {
+        "task_id": "HumanEval/21",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6974709033966064
+      },
+      {
+        "task_id": "HumanEval/22",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.3799624443054199
+      },
+      {
+        "task_id": "HumanEval/23",
+        "passed": true,
+        "confidence": 0.88,
+        "method": "execution_guided",
+        "time": 0.07009291648864746
+      },
+      {
+        "task_id": "HumanEval/24",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.44922661781311035
+      },
+      {
+        "task_id": "HumanEval/25",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.22031831741333008
+      },
+      {
+        "task_id": "HumanEval/26",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6076865196228027
+      },
+      {
+        "task_id": "HumanEval/27",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.2612144947052002
+      },
+      {
+        "task_id": "HumanEval/28",
+        "passed": true,
+        "confidence": 0.88,
+        "method": "execution_guided",
+        "time": 0.2142772674560547
+      },
+      {
+        "task_id": "HumanEval/29",
+        "passed": false,
+        "confidence": 0.88,
+        "method": "execution_guided",
+        "time": 0.5713188648223877
+      },
+      {
+        "task_id": "HumanEval/30",
+        "passed": true,
+        "confidence": 0.88,
+        "method": "execution_guided",
+        "time": 0.1815776824951172
+      },
+      {
+        "task_id": "HumanEval/31",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5132646560668945
+      },
+      {
+        "task_id": "HumanEval/32",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.16452765464782715
+      },
+      {
+        "task_id": "HumanEval/33",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.9505331516265869
+      },
+      {
+        "task_id": "HumanEval/34",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.10550308227539062
+      },
+      {
+        "task_id": "HumanEval/35",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.20097994804382324
+      },
+      {
+        "task_id": "HumanEval/36",
+        "passed": false,
+        "confidence": 0.5637,
+        "method": "memory_reuse",
+        "time": 0.2779958248138428
+      },
+      {
+        "task_id": "HumanEval/37",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7406768798828125
+      },
+      {
+        "task_id": "HumanEval/38",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.0521693229675293
+      },
+      {
+        "task_id": "HumanEval/39",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6675910949707031
+      },
+      {
+        "task_id": "HumanEval/40",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8162703514099121
+      },
+      {
+        "task_id": "HumanEval/41",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7729473114013672
+      },
+      {
+        "task_id": "HumanEval/42",
+        "passed": true,
+        "confidence": 0.88,
+        "method": "execution_guided",
+        "time": 0.35300183296203613
+      },
+      {
+        "task_id": "HumanEval/43",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8577356338500977
+      },
+      {
+        "task_id": "HumanEval/44",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.14697480201721191
+      },
+      {
+        "task_id": "HumanEval/45",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.35488414764404297
+      },
+      {
+        "task_id": "HumanEval/46",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.1189379692077637
+      },
+      {
+        "task_id": "HumanEval/47",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.3473689556121826
+      },
+      {
+        "task_id": "HumanEval/48",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.3107473850250244
+      },
+      {
+        "task_id": "HumanEval/49",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.595623254776001
+      },
+      {
+        "task_id": "HumanEval/50",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.040761709213256836
+      },
+      {
+        "task_id": "HumanEval/51",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.31435656547546387
+      },
+      {
+        "task_id": "HumanEval/52",
+        "passed": false,
+        "confidence": 0.88,
+        "method": "execution_guided",
+        "time": 0.2270188331604004
+      },
+      {
+        "task_id": "HumanEval/53",
+        "passed": true,
+        "confidence": 0.88,
+        "method": "execution_guided",
+        "time": 0.22450017929077148
+      },
+      {
+        "task_id": "HumanEval/54",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.545356273651123
+      },
+      {
+        "task_id": "HumanEval/55",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6217217445373535
+      },
+      {
+        "task_id": "HumanEval/56",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6224298477172852
+      },
+      {
+        "task_id": "HumanEval/57",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6257717609405518
+      },
+      {
+        "task_id": "HumanEval/58",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6504983901977539
+      },
+      {
+        "task_id": "HumanEval/59",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.32392287254333496
+      },
+      {
+        "task_id": "HumanEval/60",
+        "passed": false,
+        "confidence": 0.88,
+        "method": "execution_guided",
+        "time": 0.3335537910461426
+      },
+      {
+        "task_id": "HumanEval/61",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.49610209465026855
+      },
+      {
+        "task_id": "HumanEval/62",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7770042419433594
+      },
+      {
+        "task_id": "HumanEval/63",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.3486945629119873
+      },
+      {
+        "task_id": "HumanEval/64",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.1358637809753418
+      },
+      {
+        "task_id": "HumanEval/65",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5763199329376221
+      },
+      {
+        "task_id": "HumanEval/66",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.702850341796875
+      },
+      {
+        "task_id": "HumanEval/67",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.5924482345581055
+      },
+      {
+        "task_id": "HumanEval/68",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.7744534015655518
+      },
+      {
+        "task_id": "HumanEval/69",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 1.1229488849639893
+      },
+      {
+        "task_id": "HumanEval/70",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.810718297958374
+      },
+      {
+        "task_id": "HumanEval/71",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6657114028930664
+      },
+      {
+        "task_id": "HumanEval/72",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.3072731494903564
+      },
+      {
+        "task_id": "HumanEval/73",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.3267626762390137
+      },
+      {
+        "task_id": "HumanEval/74",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.7124269008636475
+      },
+      {
+        "task_id": "HumanEval/75",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5136916637420654
+      },
+      {
+        "task_id": "HumanEval/76",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8342185020446777
+      },
+      {
+        "task_id": "HumanEval/77",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7512531280517578
+      },
+      {
+        "task_id": "HumanEval/78",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.4825305938720703
+      },
+      {
+        "task_id": "HumanEval/79",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5402350425720215
+      },
+      {
+        "task_id": "HumanEval/80",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8382019996643066
+      },
+      {
+        "task_id": "HumanEval/81",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.848773717880249
+      },
+      {
+        "task_id": "HumanEval/82",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.44248151779174805
+      },
+      {
+        "task_id": "HumanEval/83",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.13848137855529785
+      },
+      {
+        "task_id": "HumanEval/84",
+        "passed": false,
+        "confidence": 0.6428,
+        "method": "memory_reuse",
+        "time": 1.0937550067901611
+      },
+      {
+        "task_id": "HumanEval/85",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.21543121337890625
+      },
+      {
+        "task_id": "HumanEval/86",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7503762245178223
+      },
+      {
+        "task_id": "HumanEval/87",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 1.0905530452728271
+      },
+      {
+        "task_id": "HumanEval/88",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.6914782524108887
+      },
+      {
+        "task_id": "HumanEval/89",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5076878070831299
+      },
+      {
+        "task_id": "HumanEval/90",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7114365100860596
+      },
+      {
+        "task_id": "HumanEval/91",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.2707545757293701
+      },
+      {
+        "task_id": "HumanEval/92",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7761781215667725
+      },
+      {
+        "task_id": "HumanEval/93",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3641550540924072
+      },
+      {
+        "task_id": "HumanEval/94",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.6549713611602783
+      },
+      {
+        "task_id": "HumanEval/95",
+        "passed": false,
+        "confidence": 0.6404000000000001,
+        "method": "memory_reuse",
+        "time": 2.330049514770508
+      },
+      {
+        "task_id": "HumanEval/96",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.408536672592163
+      },
+      {
+        "task_id": "HumanEval/97",
+        "passed": false,
+        "confidence": 0.5807,
+        "method": "memory_reuse",
+        "time": 0.7301270961761475
+      },
+      {
+        "task_id": "HumanEval/98",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.24520659446716309
+      },
+      {
+        "task_id": "HumanEval/99",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.2481379508972168
+      },
+      {
+        "task_id": "HumanEval/100",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6922404766082764
+      },
+      {
+        "task_id": "HumanEval/101",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.554610013961792
+      },
+      {
+        "task_id": "HumanEval/102",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.41193246841430664
+      },
+      {
+        "task_id": "HumanEval/103",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7151284217834473
+      },
+      {
+        "task_id": "HumanEval/104",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6134867668151855
+      },
+      {
+        "task_id": "HumanEval/105",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 4.866039991378784
+      },
+      {
+        "task_id": "HumanEval/106",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8816523551940918
+      },
+      {
+        "task_id": "HumanEval/107",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.2573888301849365
+      },
+      {
+        "task_id": "HumanEval/108",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.29407429695129395
+      },
+      {
+        "task_id": "HumanEval/109",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.4378812313079834
+      },
+      {
+        "task_id": "HumanEval/110",
+        "passed": false,
+        "confidence": 0.6779999999999999,
+        "method": "memory_reuse",
+        "time": 1.3515634536743164
+      },
+      {
+        "task_id": "HumanEval/111",
+        "passed": false,
+        "confidence": 0.6784,
+        "method": "memory_reuse",
+        "time": 1.45878005027771
+      },
+      {
+        "task_id": "HumanEval/112",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.467386245727539
+      },
+      {
+        "task_id": "HumanEval/113",
+        "passed": false,
+        "confidence": 0.6151,
+        "method": "memory_reuse",
+        "time": 0.8640527725219727
+      },
+      {
+        "task_id": "HumanEval/114",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4339168071746826
+      },
+      {
+        "task_id": "HumanEval/115",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.3816909790039062
+      },
+      {
+        "task_id": "HumanEval/116",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.33569860458374023
+      },
+      {
+        "task_id": "HumanEval/117",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.4762115478515625
+      },
+      {
+        "task_id": "HumanEval/118",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.9569711685180664
+      },
+      {
+        "task_id": "HumanEval/119",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6552660465240479
+      },
+      {
+        "task_id": "HumanEval/120",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.2115585803985596
+      },
+      {
+        "task_id": "HumanEval/121",
+        "passed": false,
+        "confidence": 0.7968,
+        "method": "memory_reuse",
+        "time": 0.9072883129119873
+      },
+      {
+        "task_id": "HumanEval/122",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 1.3576264381408691
+      },
+      {
+        "task_id": "HumanEval/123",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.0983712673187256
+      },
+      {
+        "task_id": "HumanEval/124",
+        "passed": false,
+        "confidence": 0.5903,
+        "method": "memory_reuse",
+        "time": 3.30334210395813
+      },
+      {
+        "task_id": "HumanEval/125",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5383200645446777
+      },
+      {
+        "task_id": "HumanEval/126",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 8.804913520812988
+      },
+      {
+        "task_id": "HumanEval/127",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.050636053085327
+      },
+      {
+        "task_id": "HumanEval/128",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 0.31808996200561523
+      },
+      {
+        "task_id": "HumanEval/129",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.108956813812256
+      },
+      {
+        "task_id": "HumanEval/130",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.8471622467041016
+      },
+      {
+        "task_id": "HumanEval/131",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5295841693878174
+      },
+      {
+        "task_id": "HumanEval/132",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.517289400100708
+      },
+      {
+        "task_id": "HumanEval/133",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 3.2002995014190674
+      },
+      {
+        "task_id": "HumanEval/134",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5430667400360107
+      },
+      {
+        "task_id": "HumanEval/135",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8543083667755127
+      },
+      {
+        "task_id": "HumanEval/136",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7518117427825928
+      },
+      {
+        "task_id": "HumanEval/137",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6030759811401367
+      },
+      {
+        "task_id": "HumanEval/138",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.2919144630432129
+      },
+      {
+        "task_id": "HumanEval/139",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5690596103668213
+      },
+      {
+        "task_id": "HumanEval/140",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.4930102825164795
+      },
+      {
+        "task_id": "HumanEval/141",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.9280970096588135
+      },
+      {
+        "task_id": "HumanEval/142",
+        "passed": false,
+        "confidence": 0.8212,
+        "method": "memory_reuse",
+        "time": 1.0343132019042969
+      },
+      {
+        "task_id": "HumanEval/143",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.7176506519317627
+      },
+      {
+        "task_id": "HumanEval/144",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.8050990104675293
+      },
+      {
+        "task_id": "HumanEval/145",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6778485774993896
+      },
+      {
+        "task_id": "HumanEval/146",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.32395410537719727
+      },
+      {
+        "task_id": "HumanEval/147",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.8144221305847168
+      },
+      {
+        "task_id": "HumanEval/148",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.3676400184631348
+      },
+      {
+        "task_id": "HumanEval/149",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.3514831066131592
+      },
+      {
+        "task_id": "HumanEval/150",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4188213348388672
+      },
+      {
+        "task_id": "HumanEval/151",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.129591703414917
+      },
+      {
+        "task_id": "HumanEval/152",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 0.7571427822113037
+      },
+      {
+        "task_id": "HumanEval/153",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6573944091796875
+      },
+      {
+        "task_id": "HumanEval/154",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.3822171688079834
+      },
+      {
+        "task_id": "HumanEval/155",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.34839439392089844
+      },
+      {
+        "task_id": "HumanEval/156",
+        "passed": false,
+        "confidence": 0.5593,
+        "method": "memory_reuse",
+        "time": 0.1890277862548828
+      },
+      {
+        "task_id": "HumanEval/157",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.2581033706665039
+      },
+      {
+        "task_id": "HumanEval/158",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.691382646560669
+      },
+      {
+        "task_id": "HumanEval/159",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.707927942276001
+      },
+      {
+        "task_id": "HumanEval/160",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 2.342052698135376
+      },
+      {
+        "task_id": "HumanEval/161",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8170809745788574
+      },
+      {
+        "task_id": "HumanEval/162",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.2082967758178711
+      },
+      {
+        "task_id": "HumanEval/163",
+        "passed": false,
+        "confidence": 0.5831999999999999,
+        "method": "memory_reuse",
+        "time": 0.871342658996582
+      }
+    ],
+    "No constraint inference": [
+      {
+        "task_id": "HumanEval/0",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.5574371814727783
+      },
+      {
+        "task_id": "HumanEval/1",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3568897247314453
+      },
+      {
+        "task_id": "HumanEval/2",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3102855682373047
+      },
+      {
+        "task_id": "HumanEval/3",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.6153604984283447
+      },
+      {
+        "task_id": "HumanEval/4",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.45849108695983887
+      },
+      {
+        "task_id": "HumanEval/5",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 1.5850551128387451
+      },
+      {
+        "task_id": "HumanEval/6",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3823878765106201
+      },
+      {
+        "task_id": "HumanEval/7",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.7867946624755859
+      },
+      {
+        "task_id": "HumanEval/8",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.22193217277526855
+      },
+      {
+        "task_id": "HumanEval/9",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.6217646598815918
+      },
+      {
+        "task_id": "HumanEval/10",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.8141281604766846
+      },
+      {
+        "task_id": "HumanEval/11",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3430781364440918
+      },
+      {
+        "task_id": "HumanEval/12",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.32398176193237305
+      },
+      {
+        "task_id": "HumanEval/13",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.8606188297271729
+      },
+      {
+        "task_id": "HumanEval/14",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.17206621170043945
+      },
+      {
+        "task_id": "HumanEval/15",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.348752498626709
+      },
+      {
+        "task_id": "HumanEval/16",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.3029463291168213
+      },
+      {
+        "task_id": "HumanEval/17",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.8189146518707275
+      },
+      {
+        "task_id": "HumanEval/18",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.6383540630340576
+      },
+      {
+        "task_id": "HumanEval/19",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.4786858558654785
+      },
+      {
+        "task_id": "HumanEval/20",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.1882619857788086
+      },
+      {
+        "task_id": "HumanEval/21",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.9192876815795898
+      },
+      {
+        "task_id": "HumanEval/22",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.7771167755126953
+      },
+      {
+        "task_id": "HumanEval/23",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.10615038871765137
+      },
+      {
+        "task_id": "HumanEval/24",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.4441850185394287
+      },
+      {
+        "task_id": "HumanEval/25",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.3873121738433838
+      },
+      {
+        "task_id": "HumanEval/26",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.7197790145874023
+      },
+      {
+        "task_id": "HumanEval/27",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.40288877487182617
+      },
+      {
+        "task_id": "HumanEval/28",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.2635529041290283
+      },
+      {
+        "task_id": "HumanEval/29",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.7951803207397461
+      },
+      {
+        "task_id": "HumanEval/30",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.23969125747680664
+      },
+      {
+        "task_id": "HumanEval/31",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.6951248645782471
+      },
+      {
+        "task_id": "HumanEval/32",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.13134002685546875
+      },
+      {
+        "task_id": "HumanEval/33",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.3841097354888916
+      },
+      {
+        "task_id": "HumanEval/34",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.3741030693054199
+      },
+      {
+        "task_id": "HumanEval/35",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.34734654426574707
+      },
+      {
+        "task_id": "HumanEval/36",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.4867072105407715
+      },
+      {
+        "task_id": "HumanEval/37",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.4102637767791748
+      },
+      {
+        "task_id": "HumanEval/38",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.0452725887298584
+      },
+      {
+        "task_id": "HumanEval/39",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7283568382263184
+      },
+      {
+        "task_id": "HumanEval/40",
+        "passed": false,
+        "confidence": 0.565,
+        "method": "memory_reuse",
+        "time": 0.6725385189056396
+      },
+      {
+        "task_id": "HumanEval/41",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7442798614501953
+      },
+      {
+        "task_id": "HumanEval/42",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.39764952659606934
+      },
+      {
+        "task_id": "HumanEval/43",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 1.0379149913787842
+      },
+      {
+        "task_id": "HumanEval/44",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3120708465576172
+      },
+      {
+        "task_id": "HumanEval/45",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.7038755416870117
+      },
+      {
+        "task_id": "HumanEval/46",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.2259387969970703
+      },
+      {
+        "task_id": "HumanEval/47",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.8162374496459961
+      },
+      {
+        "task_id": "HumanEval/48",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.2280411720275879
+      },
+      {
+        "task_id": "HumanEval/49",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.9525351524353027
+      },
+      {
+        "task_id": "HumanEval/50",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.03888249397277832
+      },
+      {
+        "task_id": "HumanEval/51",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5844402313232422
+      },
+      {
+        "task_id": "HumanEval/52",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.2578749656677246
+      },
+      {
+        "task_id": "HumanEval/53",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.3235025405883789
+      },
+      {
+        "task_id": "HumanEval/54",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.8788816928863525
+      },
+      {
+        "task_id": "HumanEval/55",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.541114330291748
+      },
+      {
+        "task_id": "HumanEval/56",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.7433376312255859
+      },
+      {
+        "task_id": "HumanEval/57",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 1.0426151752471924
+      },
+      {
+        "task_id": "HumanEval/58",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.7448482513427734
+      },
+      {
+        "task_id": "HumanEval/59",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.4114832878112793
+      },
+      {
+        "task_id": "HumanEval/60",
+        "passed": false,
+        "confidence": 0.88,
+        "method": "execution_guided",
+        "time": 0.45300841331481934
+      },
+      {
+        "task_id": "HumanEval/61",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.7069947719573975
+      },
+      {
+        "task_id": "HumanEval/62",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.9367756843566895
+      },
+      {
+        "task_id": "HumanEval/63",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.1191761493682861
+      },
+      {
+        "task_id": "HumanEval/64",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.20805692672729492
+      },
+      {
+        "task_id": "HumanEval/65",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3962416648864746
+      },
+      {
+        "task_id": "HumanEval/66",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5719223022460938
+      },
+      {
+        "task_id": "HumanEval/67",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.482832431793213
+      },
+      {
+        "task_id": "HumanEval/68",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.679210662841797
+      },
+      {
+        "task_id": "HumanEval/69",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6604092121124268
+      },
+      {
+        "task_id": "HumanEval/70",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.45542311668395996
+      },
+      {
+        "task_id": "HumanEval/71",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.43944692611694336
+      },
+      {
+        "task_id": "HumanEval/72",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.310216188430786
+      },
+      {
+        "task_id": "HumanEval/73",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.035888671875
+      },
+      {
+        "task_id": "HumanEval/74",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.7559726238250732
+      },
+      {
+        "task_id": "HumanEval/75",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.41773271560668945
+      },
+      {
+        "task_id": "HumanEval/76",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6591122150421143
+      },
+      {
+        "task_id": "HumanEval/77",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6748950481414795
+      },
+      {
+        "task_id": "HumanEval/78",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.8003151416778564
+      },
+      {
+        "task_id": "HumanEval/79",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5120036602020264
+      },
+      {
+        "task_id": "HumanEval/80",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5140981674194336
+      },
+      {
+        "task_id": "HumanEval/81",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.873711347579956
+      },
+      {
+        "task_id": "HumanEval/82",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.24138665199279785
+      },
+      {
+        "task_id": "HumanEval/83",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.12033200263977051
+      },
+      {
+        "task_id": "HumanEval/84",
+        "passed": false,
+        "confidence": 0.5563,
+        "method": "memory_reuse",
+        "time": 1.1554579734802246
+      },
+      {
+        "task_id": "HumanEval/85",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.19022440910339355
+      },
+      {
+        "task_id": "HumanEval/86",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.419846773147583
+      },
+      {
+        "task_id": "HumanEval/87",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5874030590057373
+      },
+      {
+        "task_id": "HumanEval/88",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.5554139614105225
+      },
+      {
+        "task_id": "HumanEval/89",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3560185432434082
+      },
+      {
+        "task_id": "HumanEval/90",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.4783027172088623
+      },
+      {
+        "task_id": "HumanEval/91",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3414435386657715
+      },
+      {
+        "task_id": "HumanEval/92",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6848611831665039
+      },
+      {
+        "task_id": "HumanEval/93",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7187678813934326
+      },
+      {
+        "task_id": "HumanEval/94",
+        "passed": false,
+        "confidence": 0.6655,
+        "method": "memory_reuse",
+        "time": 3.0584850311279297
+      },
+      {
+        "task_id": "HumanEval/95",
+        "passed": false,
+        "confidence": 0.6366,
+        "method": "memory_reuse",
+        "time": 1.8655366897583008
+      },
+      {
+        "task_id": "HumanEval/96",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.0079481601715088
+      },
+      {
+        "task_id": "HumanEval/97",
+        "passed": false,
+        "confidence": 0.5779000000000001,
+        "method": "memory_reuse",
+        "time": 0.8043429851531982
+      },
+      {
+        "task_id": "HumanEval/98",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.24880003929138184
+      },
+      {
+        "task_id": "HumanEval/99",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.33226752281188965
+      },
+      {
+        "task_id": "HumanEval/100",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7038683891296387
+      },
+      {
+        "task_id": "HumanEval/101",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5331051349639893
+      },
+      {
+        "task_id": "HumanEval/102",
+        "passed": false,
+        "confidence": 0.55,
+        "method": "memory_reuse",
+        "time": 0.2725846767425537
+      },
+      {
+        "task_id": "HumanEval/103",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7872319221496582
+      },
+      {
+        "task_id": "HumanEval/104",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.8623020648956299
+      },
+      {
+        "task_id": "HumanEval/105",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 4.016360521316528
+      },
+      {
+        "task_id": "HumanEval/106",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6159930229187012
+      },
+      {
+        "task_id": "HumanEval/107",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.936138391494751
+      },
+      {
+        "task_id": "HumanEval/108",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.2710869312286377
+      },
+      {
+        "task_id": "HumanEval/109",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.8521792888641357
+      },
+      {
+        "task_id": "HumanEval/110",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.0638072490692139
+      },
+      {
+        "task_id": "HumanEval/111",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.2188947200775146
+      },
+      {
+        "task_id": "HumanEval/112",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.034843921661377
+      },
+      {
+        "task_id": "HumanEval/113",
+        "passed": false,
+        "confidence": 0.6175999999999999,
+        "method": "memory_reuse",
+        "time": 1.0923094749450684
+      },
+      {
+        "task_id": "HumanEval/114",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.2395164966583252
+      },
+      {
+        "task_id": "HumanEval/115",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.0121209621429443
+      },
+      {
+        "task_id": "HumanEval/116",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.20763564109802246
+      },
+      {
+        "task_id": "HumanEval/117",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.3562445640563965
+      },
+      {
+        "task_id": "HumanEval/118",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.1946382522583008
+      },
+      {
+        "task_id": "HumanEval/119",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6001753807067871
+      },
+      {
+        "task_id": "HumanEval/120",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.55295991897583
+      },
+      {
+        "task_id": "HumanEval/121",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5757646560668945
+      },
+      {
+        "task_id": "HumanEval/122",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.925177812576294
+      },
+      {
+        "task_id": "HumanEval/123",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.4058074951171875
+      },
+      {
+        "task_id": "HumanEval/124",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.837265968322754
+      },
+      {
+        "task_id": "HumanEval/125",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6542000770568848
+      },
+      {
+        "task_id": "HumanEval/126",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 13.618420362472534
+      },
+      {
+        "task_id": "HumanEval/127",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.133120059967041
+      },
+      {
+        "task_id": "HumanEval/128",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.1827385425567627
+      },
+      {
+        "task_id": "HumanEval/129",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.2331454753875732
+      },
+      {
+        "task_id": "HumanEval/130",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.2234206199645996
+      },
+      {
+        "task_id": "HumanEval/131",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.42703938484191895
+      },
+      {
+        "task_id": "HumanEval/132",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.8518838882446289
+      },
+      {
+        "task_id": "HumanEval/133",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 2.8001163005828857
+      },
+      {
+        "task_id": "HumanEval/134",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6500051021575928
+      },
+      {
+        "task_id": "HumanEval/135",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6010189056396484
+      },
+      {
+        "task_id": "HumanEval/136",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5556330680847168
+      },
+      {
+        "task_id": "HumanEval/137",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.522559642791748
+      },
+      {
+        "task_id": "HumanEval/138",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.2994663715362549
+      },
+      {
+        "task_id": "HumanEval/139",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6569249629974365
+      },
+      {
+        "task_id": "HumanEval/140",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.4630460739135742
+      },
+      {
+        "task_id": "HumanEval/141",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.1626176834106445
+      },
+      {
+        "task_id": "HumanEval/142",
+        "passed": false,
+        "confidence": 0.7804,
+        "method": "memory_reuse",
+        "time": 1.0550134181976318
+      },
+      {
+        "task_id": "HumanEval/143",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.031970739364624
+      },
+      {
+        "task_id": "HumanEval/144",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.8523519039154053
+      },
+      {
+        "task_id": "HumanEval/145",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.607337236404419
+      },
+      {
+        "task_id": "HumanEval/146",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.28394126892089844
+      },
+      {
+        "task_id": "HumanEval/147",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6351971626281738
+      },
+      {
+        "task_id": "HumanEval/148",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6572954654693604
+      },
+      {
+        "task_id": "HumanEval/149",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7100436687469482
+      },
+      {
+        "task_id": "HumanEval/150",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.22036504745483398
+      },
+      {
+        "task_id": "HumanEval/151",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.9819290637969971
+      },
+      {
+        "task_id": "HumanEval/152",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.547499418258667
+      },
+      {
+        "task_id": "HumanEval/153",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.741290807723999
+      },
+      {
+        "task_id": "HumanEval/154",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.0528275966644287
+      },
+      {
+        "task_id": "HumanEval/155",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.31717658042907715
+      },
+      {
+        "task_id": "HumanEval/156",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.14801931381225586
+      },
+      {
+        "task_id": "HumanEval/157",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.34220099449157715
+      },
+      {
+        "task_id": "HumanEval/158",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5036458969116211
+      },
+      {
+        "task_id": "HumanEval/159",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.3424808979034424
+      },
+      {
+        "task_id": "HumanEval/160",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.280351161956787
+      },
+      {
+        "task_id": "HumanEval/161",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.4083676338195801
+      },
+      {
+        "task_id": "HumanEval/162",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.17012858390808105
+      },
+      {
+        "task_id": "HumanEval/163",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5698373317718506
+      }
+    ],
+    "No confidence gating": [
+      {
+        "task_id": "HumanEval/0",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.43587636947631836
+      },
+      {
+        "task_id": "HumanEval/1",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.48398566246032715
+      },
+      {
+        "task_id": "HumanEval/2",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.45712757110595703
+      },
+      {
+        "task_id": "HumanEval/3",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.7674546241760254
+      },
+      {
+        "task_id": "HumanEval/4",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6925392150878906
+      },
+      {
+        "task_id": "HumanEval/5",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 1.443084716796875
+      },
+      {
+        "task_id": "HumanEval/6",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5009152889251709
+      },
+      {
+        "task_id": "HumanEval/7",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.7493183612823486
+      },
+      {
+        "task_id": "HumanEval/8",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.2583012580871582
+      },
+      {
+        "task_id": "HumanEval/9",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5416440963745117
+      },
+      {
+        "task_id": "HumanEval/10",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8052489757537842
+      },
+      {
+        "task_id": "HumanEval/11",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3331899642944336
+      },
+      {
+        "task_id": "HumanEval/12",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.312943696975708
+      },
+      {
+        "task_id": "HumanEval/13",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6829299926757812
+      },
+      {
+        "task_id": "HumanEval/14",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.2160782814025879
+      },
+      {
+        "task_id": "HumanEval/15",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.372603178024292
+      },
+      {
+        "task_id": "HumanEval/16",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4217228889465332
+      },
+      {
+        "task_id": "HumanEval/17",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.654329776763916
+      },
+      {
+        "task_id": "HumanEval/18",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6948611736297607
+      },
+      {
+        "task_id": "HumanEval/19",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8936519622802734
+      },
+      {
+        "task_id": "HumanEval/20",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.3427143096923828
+      },
+      {
+        "task_id": "HumanEval/21",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.9967303276062012
+      },
+      {
+        "task_id": "HumanEval/22",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.7783358097076416
+      },
+      {
+        "task_id": "HumanEval/23",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.16864442825317383
+      },
+      {
+        "task_id": "HumanEval/24",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5782158374786377
+      },
+      {
+        "task_id": "HumanEval/25",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5008609294891357
+      },
+      {
+        "task_id": "HumanEval/26",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.771989107131958
+      },
+      {
+        "task_id": "HumanEval/27",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5479855537414551
+      },
+      {
+        "task_id": "HumanEval/28",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.3469359874725342
+      },
+      {
+        "task_id": "HumanEval/29",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.7484462261199951
+      },
+      {
+        "task_id": "HumanEval/30",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.29804444313049316
+      },
+      {
+        "task_id": "HumanEval/31",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.9914534091949463
+      },
+      {
+        "task_id": "HumanEval/32",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.15430545806884766
+      },
+      {
+        "task_id": "HumanEval/33",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.59047269821167
+      },
+      {
+        "task_id": "HumanEval/34",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.24326419830322266
+      },
+      {
+        "task_id": "HumanEval/35",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.353654146194458
+      },
+      {
+        "task_id": "HumanEval/36",
+        "passed": false,
+        "confidence": 0.5649,
+        "method": "memory_reuse",
+        "time": 0.43251991271972656
+      },
+      {
+        "task_id": "HumanEval/37",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.5280563831329346
+      },
+      {
+        "task_id": "HumanEval/38",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.052431583404541016
+      },
+      {
+        "task_id": "HumanEval/39",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.9326367378234863
+      },
+      {
+        "task_id": "HumanEval/40",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.9795725345611572
+      },
+      {
+        "task_id": "HumanEval/41",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.8254258632659912
+      },
+      {
+        "task_id": "HumanEval/42",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.36574459075927734
+      },
+      {
+        "task_id": "HumanEval/43",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.1692593097686768
+      },
+      {
+        "task_id": "HumanEval/44",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.21675682067871094
+      },
+      {
+        "task_id": "HumanEval/45",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.4465031623840332
+      },
+      {
+        "task_id": "HumanEval/46",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.2231616973876953
+      },
+      {
+        "task_id": "HumanEval/47",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.853785514831543
+      },
+      {
+        "task_id": "HumanEval/48",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.312117338180542
+      },
+      {
+        "task_id": "HumanEval/49",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.1013402938842773
+      },
+      {
+        "task_id": "HumanEval/50",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.046668052673339844
+      },
+      {
+        "task_id": "HumanEval/51",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6208412647247314
+      },
+      {
+        "task_id": "HumanEval/52",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.3191685676574707
+      },
+      {
+        "task_id": "HumanEval/53",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.34836602210998535
+      },
+      {
+        "task_id": "HumanEval/54",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.762706995010376
+      },
+      {
+        "task_id": "HumanEval/55",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5382595062255859
+      },
+      {
+        "task_id": "HumanEval/56",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8350632190704346
+      },
+      {
+        "task_id": "HumanEval/57",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 1.0492064952850342
+      },
+      {
+        "task_id": "HumanEval/58",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8853335380554199
+      },
+      {
+        "task_id": "HumanEval/59",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4575350284576416
+      },
+      {
+        "task_id": "HumanEval/60",
+        "passed": false,
+        "confidence": 0.88,
+        "method": "execution_guided",
+        "time": 0.5045623779296875
+      },
+      {
+        "task_id": "HumanEval/61",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8224091529846191
+      },
+      {
+        "task_id": "HumanEval/62",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.0103979110717773
+      },
+      {
+        "task_id": "HumanEval/63",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.4752483367919922
+      },
+      {
+        "task_id": "HumanEval/64",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.23421835899353027
+      },
+      {
+        "task_id": "HumanEval/65",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.607914924621582
+      },
+      {
+        "task_id": "HumanEval/66",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6493594646453857
+      },
+      {
+        "task_id": "HumanEval/67",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.6029295921325684
+      },
+      {
+        "task_id": "HumanEval/68",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.8439862728118896
+      },
+      {
+        "task_id": "HumanEval/69",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 0.9418036937713623
+      },
+      {
+        "task_id": "HumanEval/70",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7789978981018066
+      },
+      {
+        "task_id": "HumanEval/71",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5102245807647705
+      },
+      {
+        "task_id": "HumanEval/72",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.6862597465515137
+      },
+      {
+        "task_id": "HumanEval/73",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.8083415031433105
+      },
+      {
+        "task_id": "HumanEval/74",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.2874488830566406
+      },
+      {
+        "task_id": "HumanEval/75",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6653945446014404
+      },
+      {
+        "task_id": "HumanEval/76",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.1612341403961182
+      },
+      {
+        "task_id": "HumanEval/77",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.8166007995605469
+      },
+      {
+        "task_id": "HumanEval/78",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.531048059463501
+      },
+      {
+        "task_id": "HumanEval/79",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5900347232818604
+      },
+      {
+        "task_id": "HumanEval/80",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8039443492889404
+      },
+      {
+        "task_id": "HumanEval/81",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.8574495315551758
+      },
+      {
+        "task_id": "HumanEval/82",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5047376155853271
+      },
+      {
+        "task_id": "HumanEval/83",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.16614055633544922
+      },
+      {
+        "task_id": "HumanEval/84",
+        "passed": false,
+        "confidence": 0.643,
+        "method": "memory_reuse",
+        "time": 1.1622109413146973
+      },
+      {
+        "task_id": "HumanEval/85",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.27927541732788086
+      },
+      {
+        "task_id": "HumanEval/86",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.932610034942627
+      },
+      {
+        "task_id": "HumanEval/87",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 1.052311897277832
+      },
+      {
+        "task_id": "HumanEval/88",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.613631248474121
+      },
+      {
+        "task_id": "HumanEval/89",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5169241428375244
+      },
+      {
+        "task_id": "HumanEval/90",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8308501243591309
+      },
+      {
+        "task_id": "HumanEval/91",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5099260807037354
+      },
+      {
+        "task_id": "HumanEval/92",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.798865795135498
+      },
+      {
+        "task_id": "HumanEval/93",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.579566478729248
+      },
+      {
+        "task_id": "HumanEval/94",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.9910714626312256
+      },
+      {
+        "task_id": "HumanEval/95",
+        "passed": false,
+        "confidence": 0.6389,
+        "method": "memory_reuse",
+        "time": 2.1423044204711914
+      },
+      {
+        "task_id": "HumanEval/96",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.9020116329193115
+      },
+      {
+        "task_id": "HumanEval/97",
+        "passed": false,
+        "confidence": 0.5794,
+        "method": "memory_reuse",
+        "time": 0.8497152328491211
+      },
+      {
+        "task_id": "HumanEval/98",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.30170130729675293
+      },
+      {
+        "task_id": "HumanEval/99",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5030617713928223
+      },
+      {
+        "task_id": "HumanEval/100",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6463379859924316
+      },
+      {
+        "task_id": "HumanEval/101",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5693135261535645
+      },
+      {
+        "task_id": "HumanEval/102",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.45483946800231934
+      },
+      {
+        "task_id": "HumanEval/103",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7310965061187744
+      },
+      {
+        "task_id": "HumanEval/104",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.0132646560668945
+      },
+      {
+        "task_id": "HumanEval/105",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 5.182604551315308
+      },
+      {
+        "task_id": "HumanEval/106",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.0414466857910156
+      },
+      {
+        "task_id": "HumanEval/107",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.4734621047973633
+      },
+      {
+        "task_id": "HumanEval/108",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.29357147216796875
+      },
+      {
+        "task_id": "HumanEval/109",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.355759620666504
+      },
+      {
+        "task_id": "HumanEval/110",
+        "passed": false,
+        "confidence": 0.6819,
+        "method": "memory_reuse",
+        "time": 1.5745737552642822
+      },
+      {
+        "task_id": "HumanEval/111",
+        "passed": false,
+        "confidence": 0.6783,
+        "method": "memory_reuse",
+        "time": 1.7322909832000732
+      },
+      {
+        "task_id": "HumanEval/112",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.6773014068603516
+      },
+      {
+        "task_id": "HumanEval/113",
+        "passed": false,
+        "confidence": 0.6158,
+        "method": "memory_reuse",
+        "time": 0.9862785339355469
+      },
+      {
+        "task_id": "HumanEval/114",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.39740562438964844
+      },
+      {
+        "task_id": "HumanEval/115",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.453073740005493
+      },
+      {
+        "task_id": "HumanEval/116",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.3542928695678711
+      },
+      {
+        "task_id": "HumanEval/117",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.21923828125
+      },
+      {
+        "task_id": "HumanEval/118",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.0128564834594727
+      },
+      {
+        "task_id": "HumanEval/119",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7696874141693115
+      },
+      {
+        "task_id": "HumanEval/120",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.1831233501434326
+      },
+      {
+        "task_id": "HumanEval/121",
+        "passed": false,
+        "confidence": 0.7972,
+        "method": "memory_reuse",
+        "time": 0.7352371215820312
+      },
+      {
+        "task_id": "HumanEval/122",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 1.4802827835083008
+      },
+      {
+        "task_id": "HumanEval/123",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.01405668258667
+      },
+      {
+        "task_id": "HumanEval/124",
+        "passed": false,
+        "confidence": 0.5909,
+        "method": "memory_reuse",
+        "time": 2.9376134872436523
+      },
+      {
+        "task_id": "HumanEval/125",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5954484939575195
+      },
+      {
+        "task_id": "HumanEval/126",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 9.042490243911743
+      },
+      {
+        "task_id": "HumanEval/127",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.5106077194213867
+      },
+      {
+        "task_id": "HumanEval/128",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 0.26614809036254883
+      },
+      {
+        "task_id": "HumanEval/129",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.938746929168701
+      },
+      {
+        "task_id": "HumanEval/130",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.524871587753296
+      },
+      {
+        "task_id": "HumanEval/131",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3872199058532715
+      },
+      {
+        "task_id": "HumanEval/132",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.3919708728790283
+      },
+      {
+        "task_id": "HumanEval/133",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 2.946486473083496
+      },
+      {
+        "task_id": "HumanEval/134",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.46678948402404785
+      },
+      {
+        "task_id": "HumanEval/135",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.0328083038330078
+      },
+      {
+        "task_id": "HumanEval/136",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8488204479217529
+      },
+      {
+        "task_id": "HumanEval/137",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5652940273284912
+      },
+      {
+        "task_id": "HumanEval/138",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.26583170890808105
+      },
+      {
+        "task_id": "HumanEval/139",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.933640718460083
+      },
+      {
+        "task_id": "HumanEval/140",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.4889693260192871
+      },
+      {
+        "task_id": "HumanEval/141",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.335245132446289
+      },
+      {
+        "task_id": "HumanEval/142",
+        "passed": false,
+        "confidence": 0.8217,
+        "method": "memory_reuse",
+        "time": 0.9865021705627441
+      },
+      {
+        "task_id": "HumanEval/143",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.582071304321289
+      },
+      {
+        "task_id": "HumanEval/144",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.9693021774291992
+      },
+      {
+        "task_id": "HumanEval/145",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8843479156494141
+      },
+      {
+        "task_id": "HumanEval/146",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.3535645008087158
+      },
+      {
+        "task_id": "HumanEval/147",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.8438918590545654
+      },
+      {
+        "task_id": "HumanEval/148",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.3305649757385254
+      },
+      {
+        "task_id": "HumanEval/149",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.0977611541748047
+      },
+      {
+        "task_id": "HumanEval/150",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5726954936981201
+      },
+      {
+        "task_id": "HumanEval/151",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.1499557495117188
+      },
+      {
+        "task_id": "HumanEval/152",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 1.005305290222168
+      },
+      {
+        "task_id": "HumanEval/153",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7261309623718262
+      },
+      {
+        "task_id": "HumanEval/154",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.499671220779419
+      },
+      {
+        "task_id": "HumanEval/155",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.4152700901031494
+      },
+      {
+        "task_id": "HumanEval/156",
+        "passed": false,
+        "confidence": 0.5593,
+        "method": "memory_reuse",
+        "time": 0.21010947227478027
+      },
+      {
+        "task_id": "HumanEval/157",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.297224760055542
+      },
+      {
+        "task_id": "HumanEval/158",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6763789653778076
+      },
+      {
+        "task_id": "HumanEval/159",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.66723370552063
+      },
+      {
+        "task_id": "HumanEval/160",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 2.0783846378326416
+      },
+      {
+        "task_id": "HumanEval/161",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7633438110351562
+      },
+      {
+        "task_id": "HumanEval/162",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.20404648780822754
+      },
+      {
+        "task_id": "HumanEval/163",
+        "passed": false,
+        "confidence": 0.5816,
+        "method": "memory_reuse",
+        "time": 0.6729347705841064
+      }
+    ],
+    "No workspace auction": [
+      {
+        "task_id": "HumanEval/0",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.45229315757751465
+      },
+      {
+        "task_id": "HumanEval/1",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4692988395690918
+      },
+      {
+        "task_id": "HumanEval/2",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5664699077606201
+      },
+      {
+        "task_id": "HumanEval/3",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.9241354465484619
+      },
+      {
+        "task_id": "HumanEval/4",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5660865306854248
+      },
+      {
+        "task_id": "HumanEval/5",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 1.28816556930542
+      },
+      {
+        "task_id": "HumanEval/6",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.512702465057373
+      },
+      {
+        "task_id": "HumanEval/7",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.6432998180389404
+      },
+      {
+        "task_id": "HumanEval/8",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.23508143424987793
+      },
+      {
+        "task_id": "HumanEval/9",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5304844379425049
+      },
+      {
+        "task_id": "HumanEval/10",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.758004903793335
+      },
+      {
+        "task_id": "HumanEval/11",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.38451576232910156
+      },
+      {
+        "task_id": "HumanEval/12",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.3531796932220459
+      },
+      {
+        "task_id": "HumanEval/13",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7530064582824707
+      },
+      {
+        "task_id": "HumanEval/14",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.2191333770751953
+      },
+      {
+        "task_id": "HumanEval/15",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.34250426292419434
+      },
+      {
+        "task_id": "HumanEval/16",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.44603443145751953
+      },
+      {
+        "task_id": "HumanEval/17",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7582249641418457
+      },
+      {
+        "task_id": "HumanEval/18",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7025926113128662
+      },
+      {
+        "task_id": "HumanEval/19",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6303615570068359
+      },
+      {
+        "task_id": "HumanEval/20",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.33309316635131836
+      },
+      {
+        "task_id": "HumanEval/21",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.9152865409851074
+      },
+      {
+        "task_id": "HumanEval/22",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.5784308910369873
+      },
+      {
+        "task_id": "HumanEval/23",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.09500885009765625
+      },
+      {
+        "task_id": "HumanEval/24",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4758789539337158
+      },
+      {
+        "task_id": "HumanEval/25",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.351517915725708
+      },
+      {
+        "task_id": "HumanEval/26",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.7402777671813965
+      },
+      {
+        "task_id": "HumanEval/27",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.40326929092407227
+      },
+      {
+        "task_id": "HumanEval/28",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.24570751190185547
+      },
+      {
+        "task_id": "HumanEval/29",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.6042718887329102
+      },
+      {
+        "task_id": "HumanEval/30",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.20926952362060547
+      },
+      {
+        "task_id": "HumanEval/31",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.702768087387085
+      },
+      {
+        "task_id": "HumanEval/32",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.14221954345703125
+      },
+      {
+        "task_id": "HumanEval/33",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.3412411212921143
+      },
+      {
+        "task_id": "HumanEval/34",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.21181035041809082
+      },
+      {
+        "task_id": "HumanEval/35",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.3209359645843506
+      },
+      {
+        "task_id": "HumanEval/36",
+        "passed": false,
+        "confidence": 0.565,
+        "method": "memory_reuse",
+        "time": 0.3918156623840332
+      },
+      {
+        "task_id": "HumanEval/37",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.2001845836639404
+      },
+      {
+        "task_id": "HumanEval/38",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.04401063919067383
+      },
+      {
+        "task_id": "HumanEval/39",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8081729412078857
+      },
+      {
+        "task_id": "HumanEval/40",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7607705593109131
+      },
+      {
+        "task_id": "HumanEval/41",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7517223358154297
+      },
+      {
+        "task_id": "HumanEval/42",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.32896947860717773
+      },
+      {
+        "task_id": "HumanEval/43",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.0255482196807861
+      },
+      {
+        "task_id": "HumanEval/44",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.19501757621765137
+      },
+      {
+        "task_id": "HumanEval/45",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.43892788887023926
+      },
+      {
+        "task_id": "HumanEval/46",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.065230131149292
+      },
+      {
+        "task_id": "HumanEval/47",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 0.6823246479034424
+      },
+      {
+        "task_id": "HumanEval/48",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.2685880661010742
+      },
+      {
+        "task_id": "HumanEval/49",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.901979923248291
+      },
+      {
+        "task_id": "HumanEval/50",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.04180335998535156
+      },
+      {
+        "task_id": "HumanEval/51",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5470142364501953
+      },
+      {
+        "task_id": "HumanEval/52",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.25345277786254883
+      },
+      {
+        "task_id": "HumanEval/53",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.2959253787994385
+      },
+      {
+        "task_id": "HumanEval/54",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6868896484375
+      },
+      {
+        "task_id": "HumanEval/55",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.49077606201171875
+      },
+      {
+        "task_id": "HumanEval/56",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7448277473449707
+      },
+      {
+        "task_id": "HumanEval/57",
+        "passed": true,
+        "confidence": 0.9,
+        "method": "compositional",
+        "time": 0.8393917083740234
+      },
+      {
+        "task_id": "HumanEval/58",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6887500286102295
+      },
+      {
+        "task_id": "HumanEval/59",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4418947696685791
+      },
+      {
+        "task_id": "HumanEval/60",
+        "passed": false,
+        "confidence": 0.88,
+        "method": "execution_guided",
+        "time": 0.4334845542907715
+      },
+      {
+        "task_id": "HumanEval/61",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7313263416290283
+      },
+      {
+        "task_id": "HumanEval/62",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.8785226345062256
+      },
+      {
+        "task_id": "HumanEval/63",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.2160000801086426
+      },
+      {
+        "task_id": "HumanEval/64",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.24351859092712402
+      },
+      {
+        "task_id": "HumanEval/65",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6293087005615234
+      },
+      {
+        "task_id": "HumanEval/66",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5993821620941162
+      },
+      {
+        "task_id": "HumanEval/67",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.3754291534423828
+      },
+      {
+        "task_id": "HumanEval/68",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.163675546646118
+      },
+      {
+        "task_id": "HumanEval/69",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 0.9705870151519775
+      },
+      {
+        "task_id": "HumanEval/70",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7505397796630859
+      },
+      {
+        "task_id": "HumanEval/71",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.4677083492279053
+      },
+      {
+        "task_id": "HumanEval/72",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.7655189037323
+      },
+      {
+        "task_id": "HumanEval/73",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.2885551452636719
+      },
+      {
+        "task_id": "HumanEval/74",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.48099684715271
+      },
+      {
+        "task_id": "HumanEval/75",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5180928707122803
+      },
+      {
+        "task_id": "HumanEval/76",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7924585342407227
+      },
+      {
+        "task_id": "HumanEval/77",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.646820068359375
+      },
+      {
+        "task_id": "HumanEval/78",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.1922178268432617
+      },
+      {
+        "task_id": "HumanEval/79",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.509211540222168
+      },
+      {
+        "task_id": "HumanEval/80",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8262608051300049
+      },
+      {
+        "task_id": "HumanEval/81",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.4314544200897217
+      },
+      {
+        "task_id": "HumanEval/82",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.49965405464172363
+      },
+      {
+        "task_id": "HumanEval/83",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.10819578170776367
+      },
+      {
+        "task_id": "HumanEval/84",
+        "passed": false,
+        "confidence": 0.643,
+        "method": "memory_reuse",
+        "time": 1.0000638961791992
+      },
+      {
+        "task_id": "HumanEval/85",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.20125269889831543
+      },
+      {
+        "task_id": "HumanEval/86",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7934515476226807
+      },
+      {
+        "task_id": "HumanEval/87",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 0.8639090061187744
+      },
+      {
+        "task_id": "HumanEval/88",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.886754035949707
+      },
+      {
+        "task_id": "HumanEval/89",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4096260070800781
+      },
+      {
+        "task_id": "HumanEval/90",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5203633308410645
+      },
+      {
+        "task_id": "HumanEval/91",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.32812952995300293
+      },
+      {
+        "task_id": "HumanEval/92",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6672232151031494
+      },
+      {
+        "task_id": "HumanEval/93",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.44811105728149414
+      },
+      {
+        "task_id": "HumanEval/94",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 3.205806255340576
+      },
+      {
+        "task_id": "HumanEval/95",
+        "passed": false,
+        "confidence": 0.639,
+        "method": "memory_reuse",
+        "time": 1.6928277015686035
+      },
+      {
+        "task_id": "HumanEval/96",
+        "passed": true,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.1418273448944092
+      },
+      {
+        "task_id": "HumanEval/97",
+        "passed": false,
+        "confidence": 0.5794,
+        "method": "memory_reuse",
+        "time": 0.5649490356445312
+      },
+      {
+        "task_id": "HumanEval/98",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.2203078269958496
+      },
+      {
+        "task_id": "HumanEval/99",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.31665706634521484
+      },
+      {
+        "task_id": "HumanEval/100",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5937919616699219
+      },
+      {
+        "task_id": "HumanEval/101",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5462863445281982
+      },
+      {
+        "task_id": "HumanEval/102",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.4107646942138672
+      },
+      {
+        "task_id": "HumanEval/103",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.829399585723877
+      },
+      {
+        "task_id": "HumanEval/104",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8849117755889893
+      },
+      {
+        "task_id": "HumanEval/105",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 4.851822137832642
+      },
+      {
+        "task_id": "HumanEval/106",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.8476834297180176
+      },
+      {
+        "task_id": "HumanEval/107",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.253751277923584
+      },
+      {
+        "task_id": "HumanEval/108",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.2793540954589844
+      },
+      {
+        "task_id": "HumanEval/109",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.9549775123596191
+      },
+      {
+        "task_id": "HumanEval/110",
+        "passed": false,
+        "confidence": 0.6819999999999999,
+        "method": "memory_reuse",
+        "time": 1.2482273578643799
+      },
+      {
+        "task_id": "HumanEval/111",
+        "passed": false,
+        "confidence": 0.6782,
+        "method": "memory_reuse",
+        "time": 1.3871243000030518
+      },
+      {
+        "task_id": "HumanEval/112",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.4527912139892578
+      },
+      {
+        "task_id": "HumanEval/113",
+        "passed": false,
+        "confidence": 0.6159,
+        "method": "memory_reuse",
+        "time": 0.943960428237915
+      },
+      {
+        "task_id": "HumanEval/114",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.32570886611938477
+      },
+      {
+        "task_id": "HumanEval/115",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.210358142852783
+      },
+      {
+        "task_id": "HumanEval/116",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.334216833114624
+      },
+      {
+        "task_id": "HumanEval/117",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.1455488204956055
+      },
+      {
+        "task_id": "HumanEval/118",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.959073543548584
+      },
+      {
+        "task_id": "HumanEval/119",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.687981128692627
+      },
+      {
+        "task_id": "HumanEval/120",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.8934695720672607
+      },
+      {
+        "task_id": "HumanEval/121",
+        "passed": false,
+        "confidence": 0.7973,
+        "method": "memory_reuse",
+        "time": 0.7040152549743652
+      },
+      {
+        "task_id": "HumanEval/122",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 1.2709243297576904
+      },
+      {
+        "task_id": "HumanEval/123",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.926302194595337
+      },
+      {
+        "task_id": "HumanEval/124",
+        "passed": false,
+        "confidence": 0.5909,
+        "method": "memory_reuse",
+        "time": 2.4814136028289795
+      },
+      {
+        "task_id": "HumanEval/125",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5205140113830566
+      },
+      {
+        "task_id": "HumanEval/126",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 7.912440299987793
+      },
+      {
+        "task_id": "HumanEval/127",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.6909830570220947
+      },
+      {
+        "task_id": "HumanEval/128",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 0.27440714836120605
+      },
+      {
+        "task_id": "HumanEval/129",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.6827313899993896
+      },
+      {
+        "task_id": "HumanEval/130",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 2.8208374977111816
+      },
+      {
+        "task_id": "HumanEval/131",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.35175347328186035
+      },
+      {
+        "task_id": "HumanEval/132",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.115790605545044
+      },
+      {
+        "task_id": "HumanEval/133",
+        "passed": false,
+        "confidence": 0.7,
+        "method": "induction_analogy",
+        "time": 2.4294850826263428
+      },
+      {
+        "task_id": "HumanEval/134",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.43857765197753906
+      },
+      {
+        "task_id": "HumanEval/135",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7557806968688965
+      },
+      {
+        "task_id": "HumanEval/136",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.632575273513794
+      },
+      {
+        "task_id": "HumanEval/137",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.463472843170166
+      },
+      {
+        "task_id": "HumanEval/138",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.2494971752166748
+      },
+      {
+        "task_id": "HumanEval/139",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.7080914974212646
+      },
+      {
+        "task_id": "HumanEval/140",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.45670008659362793
+      },
+      {
+        "task_id": "HumanEval/141",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 1.7591228485107422
+      },
+      {
+        "task_id": "HumanEval/142",
+        "passed": false,
+        "confidence": 0.8215,
+        "method": "memory_reuse",
+        "time": 0.9479584693908691
+      },
+      {
+        "task_id": "HumanEval/143",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.4626641273498535
+      },
+      {
+        "task_id": "HumanEval/144",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.6788594722747803
+      },
+      {
+        "task_id": "HumanEval/145",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6906330585479736
+      },
+      {
+        "task_id": "HumanEval/146",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.2988255023956299
+      },
+      {
+        "task_id": "HumanEval/147",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.7009782791137695
+      },
+      {
+        "task_id": "HumanEval/148",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.9955172538757324
+      },
+      {
+        "task_id": "HumanEval/149",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.1330456733703613
+      },
+      {
+        "task_id": "HumanEval/150",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.3936281204223633
+      },
+      {
+        "task_id": "HumanEval/151",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.9934473037719727
+      },
+      {
+        "task_id": "HumanEval/152",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 0.9037067890167236
+      },
+      {
+        "task_id": "HumanEval/153",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.5730206966400146
+      },
+      {
+        "task_id": "HumanEval/154",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 1.2833147048950195
+      },
+      {
+        "task_id": "HumanEval/155",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.29247379302978516
+      },
+      {
+        "task_id": "HumanEval/156",
+        "passed": false,
+        "confidence": 0.5593,
+        "method": "memory_reuse",
+        "time": 0.1873793601989746
+      },
+      {
+        "task_id": "HumanEval/157",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.25801992416381836
+      },
+      {
+        "task_id": "HumanEval/158",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.5715382099151611
+      },
+      {
+        "task_id": "HumanEval/159",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 2.4761364459991455
+      },
+      {
+        "task_id": "HumanEval/160",
+        "passed": false,
+        "confidence": 0.6,
+        "method": "constraint_inference",
+        "time": 1.8473963737487793
+      },
+      {
+        "task_id": "HumanEval/161",
+        "passed": false,
+        "confidence": 0.85,
+        "method": "constraint_inference",
+        "time": 0.6396892070770264
+      },
+      {
+        "task_id": "HumanEval/162",
+        "passed": false,
+        "confidence": 0.0,
+        "method": "failed",
+        "time": 0.16346144676208496
+      },
+      {
+        "task_id": "HumanEval/163",
+        "passed": false,
+        "confidence": 0.5816,
+        "method": "memory_reuse",
+        "time": 0.5652651786804199
+      }
+    ]
+  }
+}

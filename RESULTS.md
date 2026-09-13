@@ -237,28 +237,79 @@ ECS assigns hard-coded confidence per synthesis path:
 
 ## Phase 3: Session Learning
 
-*Results will be populated when experiment completes.*
+### Setup
+- 164 HumanEval problems, sequential processing
+- **With memory:** Single ECSOrchestrator, memory accumulates
+- **Without memory:** Fresh ECSOrchestrator per problem
+- 3 shuffled orderings (seeds 42, 123, 456)
 
-**Setup:** 164 HumanEval problems processed sequentially through a single ECSOrchestrator. Memory accumulates across problems. Control: fresh orchestrator per problem. 3 shuffled orderings.
+### Results
 
-**Hypothesis:** Pass rate improves from first half to second half due to procedural memory accumulation and induction pattern mining.
+| Condition | pass@1 | First Half | Second Half | Delta |
+|-----------|--------|------------|-------------|-------|
+| With memory | 22.0% | 23.6% | 20.3% | -3.3% |
+| Without memory | 22.0% | 23.6% | 20.3% | -3.3% |
+
+| Condition | Q1 | Q2 | Q3 | Q4 |
+|-----------|------|------|------|------|
+| With memory | 22.0% | 25.2% | 16.3% | 24.4% |
+| Without memory | 22.0% | 25.2% | 16.3% | 24.4% |
+
+Per-seed improvements (with memory): +2.4%, -4.9%, -7.3%
+
+### Interpretation
+
+**Memory accumulation has zero effect on HumanEval pass rate.** Both conditions produce identical results because:
+
+1. **Deterministic synthesis dominates.** Constraint inference and compositional synthesis match problems by keywords/types, not by memory similarity. The same problem gets the same template regardless of accumulated experience.
+
+2. **Memory reuse contributes 0 HumanEval passes** (confirmed by method breakdown: 0/12 memory_reuse problems passed). Retrieved code from memory doesn't match HumanEval's exact signatures.
+
+3. **Induction analogy contributes 0 passes** (0/5). The pattern mining and structural matching don't produce passing code on HumanEval.
+
+**This is a negative result for the within-session learning claim.** Session learning may work on the 20-problem custom benchmark (where memory reuse fires successfully), but does not transfer to HumanEval. The implication: memory-based synthesis needs the neural integration tier to be useful for novel problems.
 
 ---
 
-## Phase 4: Selection Ablation (HumanEval)
+## Phase 4: Selection Ablation (HumanEval, 164 Problems)
 
-*Results will be populated when experiment completes.*
+### Setup
+- All 164 HumanEval problems with prompt and entry_point
+- 6 conditions, monkey-patching to disable one component each
+- Full verification pipeline (SignatureAdapter + subprocess)
 
-**Setup:** 6 conditions on all 164 HumanEval problems with prompt/entry_point.
+### Results
 
-| Condition | What it tests |
-|-----------|--------------|
-| Full ECS | Baseline |
-| No HDC memory | Is memory retrieval contributing? |
-| No compositional | Does type-driven synthesis matter? |
-| No constraint inference | How much do templates contribute? |
-| No confidence gating | Does verification help? |
-| No workspace auction | Does module selection matter? |
+| Condition | Passed | Rate | Delta | Avg Conf |
+|-----------|--------|------|-------|----------|
+| **Full ECS** | **36/164** | **22.0%** | --- | 0.563 |
+| No HDC memory | 36/164 | 22.0% | 0.0% | 0.516 |
+| **No compositional** | **29/164** | **17.7%** | **-4.3%** | 0.535 |
+| **No constraint inference** | **29/164** | **17.7%** | **-4.3%** | 0.220 |
+| No confidence gating | 36/164 | 22.0% | 0.0% | 0.563 |
+| No workspace auction | 36/164 | 22.0% | 0.0% | 0.563 |
+
+### Component Importance (by pass rate drop)
+
+| Rank | Component | Drop | Remaining Rate |
+|------|-----------|------|----------------|
+| 1 | Compositional synthesis | -4.3% | 17.7% |
+| 1 | Constraint inference | -4.3% | 17.7% |
+| 3 | HDC memory | 0.0% | 22.0% |
+| 3 | Confidence gating | 0.0% | 22.0% |
+| 3 | Workspace auction | 0.0% | 22.0% |
+
+### Interpretation
+
+**Two components are necessary, each contributing ~7 problems:**
+
+1. **Compositional synthesis (-4.3%):** Removing it loses 7 problems (the ones solved by type-driven reasoning: filter, map, reduce patterns). These 7 are a subset of the 15 compositional successes — the other 8 apparently also match constraint templates as fallback.
+
+2. **Constraint inference (-4.3%):** Removing it loses 7 problems (the template-matched algorithmic problems with no compositional fallback). The other 14 constraint successes have a compositional fallback path.
+
+3. **Memory, confidence gating, and auction contribute nothing.** On HumanEval, the structured tier is purely template + compositional. The workspace dynamics (auction, attention) and memory system don't influence which problems get solved.
+
+**Key insight:** The two synthesis methods are partially redundant (8 problems solvable by both), and each has 7 unique contributions. Removing either drops pass rate by the same amount, confirming they are complementary with some overlap.
 
 ---
 
