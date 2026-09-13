@@ -10,15 +10,17 @@ Run on Kaggle: see notebooks/kaggle_phase0.ipynb
 
 import sys
 import json
+import re
 import time
 import subprocess
 import tempfile
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Optional
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from datasets import load_dataset
+from ecs.evaluation.signature_adapter import SignatureAdapter
 
 
 def verify_humaneval(code: str, problem: Dict) -> bool:
@@ -38,8 +40,21 @@ def verify_humaneval(code: str, problem: Dict) -> bool:
             return False
 
 
-def extract_function_body(text: str, prompt: str) -> str | None:
-    import re
+def strip_code_fences(text: str) -> str:
+    if "```python" in text:
+        start = text.find("```python") + len("```python")
+        end = text.find("```", start)
+        if end > start:
+            return text[start:end].strip()
+    if "```" in text:
+        start = text.find("```") + 3
+        end = text.find("```", start)
+        if end > start:
+            return text[start:end].strip()
+    return text.strip()
+
+
+def extract_function_body(text: str, prompt: str) -> Optional[str]:
     func_match = re.search(r'def\s+(\w+)', prompt)
     if func_match:
         name = func_match.group(1)
@@ -47,6 +62,27 @@ def extract_function_body(text: str, prompt: str) -> str | None:
         if body_match:
             return body_match.group(1)
     return None
+
+
+def try_verify(generated: str, problem: Dict, adapter: SignatureAdapter) -> bool:
+    code = strip_code_fences(generated)
+
+    if verify_humaneval(code, problem):
+        return True
+
+    body = extract_function_body(code, problem['prompt'])
+    if body and verify_humaneval(body, problem):
+        return True
+
+    adapted, _ = adapter.adapt_code(code, problem['prompt'])
+    if adapted:
+        abody = adapter._extract_function_body(adapted)
+        if abody and verify_humaneval(abody, problem):
+            return True
+        if verify_humaneval(adapted, problem):
+            return True
+
+    return False
 
 
 def main(max_problems: int = 164):
@@ -61,7 +97,7 @@ def main(max_problems: int = 164):
     print(f"Loading {model_name}...")
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(
-        model_name, torch_dtype=dtype, device_map="auto" if device == "cuda" else None
+        model_name, dtype=dtype, device_map="auto" if device == "cuda" else None
     )
     if device == "cpu":
         model = model.to(device)
@@ -70,14 +106,15 @@ def main(max_problems: int = 164):
     problems = list(ds)[:max_problems]
     print(f"Loaded {len(problems)} problems\n")
 
+    adapter = SignatureAdapter()
     results = []
     for i, problem in enumerate(problems):
         prompt = problem['prompt']
         entry_point = problem['entry_point']
 
         messages = [
-            {"role": "system", "content": "You are a helpful coding assistant. Complete the function body only."},
-            {"role": "user", "content": f"Complete the following Python function. Provide ONLY the function body (the code after the def line and docstring). Do not repeat the function signature.\n\n{prompt}\n"},
+            {"role": "system", "content": "Complete the function. Return ONLY the function body, no signature, no markdown."},
+            {"role": "user", "content": f"{prompt}"},
         ]
         text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
         inputs = tokenizer(text, return_tensors="pt").to(model.device)
@@ -92,13 +129,7 @@ def main(max_problems: int = 164):
 
         generated = tokenizer.decode(output[0][inputs['input_ids'].shape[1]:], skip_special_tokens=True)
 
-        passed = False
-        if generated:
-            passed = verify_humaneval(generated, problem)
-            if not passed:
-                body = extract_function_body(generated, prompt)
-                if body:
-                    passed = verify_humaneval(body, problem)
+        passed = try_verify(generated, problem, adapter) if generated else False
 
         results.append({
             "task_id": problem['task_id'],
@@ -107,7 +138,7 @@ def main(max_problems: int = 164):
             "generated_code": generated[:500] if generated else None,
         })
 
-        if (i + 1) % 20 == 0:
+        if (i + 1) % 10 == 0:
             rate = sum(1 for r in results if r["passed"]) / len(results)
             print(f"  [{i+1}/{len(problems)}] pass rate: {rate:.1%} ({elapsed:.1f}s)")
 
