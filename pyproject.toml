@@ -20,6 +20,13 @@ dev = [
     "pytest",
     "hypothesis",
 ]
+neural = [
+    "transformers",
+    "torch",
+    "accelerate",
+    "scikit-learn",
+    "matplotlib",
+]
 
 [build-system]
 requires = ["hatchling"]

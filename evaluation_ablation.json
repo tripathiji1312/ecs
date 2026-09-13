@@ -1,0 +1,86 @@
+{
+  "Full ECS (baseline)": {
+    "name": "Full ECS (baseline)",
+    "success_rate": 0.9,
+    "avg_confidence": 0.6889399999999999,
+    "avg_time_ms": 82.93886184692383,
+    "methods": {
+      "constraint_inference": 12,
+      "memory_reuse": 6,
+      "failed": 2
+    }
+  },
+  "No constraint inference": {
+    "name": "No constraint inference",
+    "success_rate": 0.0,
+    "avg_confidence": 0.0,
+    "avg_time_ms": 27.750027179718018,
+    "methods": {
+      "failed": 20
+    }
+  },
+  "No memory reuse": {
+    "name": "No memory reuse",
+    "success_rate": 0.9,
+    "avg_confidence": 0.7524999999999997,
+    "avg_time_ms": 104.59918975830078,
+    "methods": {
+      "constraint_inference": 18,
+      "failed": 2
+    }
+  },
+  "No attention adaptation": {
+    "name": "No attention adaptation",
+    "success_rate": 0.9,
+    "avg_confidence": 0.6889549999999999,
+    "avg_time_ms": 97.97612428665161,
+    "methods": {
+      "constraint_inference": 12,
+      "memory_reuse": 6,
+      "failed": 2
+    }
+  },
+  "No cross-domain bridges": {
+    "name": "No cross-domain bridges",
+    "success_rate": 0.9,
+    "avg_confidence": 0.6889449999999999,
+    "avg_time_ms": 88.82949352264404,
+    "methods": {
+      "constraint_inference": 12,
+      "memory_reuse": 6,
+      "failed": 2
+    }
+  },
+  "No temperature feedback": {
+    "name": "No temperature feedback",
+    "success_rate": 0.9,
+    "avg_confidence": 0.6889399999999999,
+    "avg_time_ms": 118.77243518829346,
+    "methods": {
+      "constraint_inference": 12,
+      "memory_reuse": 6,
+      "failed": 2
+    }
+  },
+  "No strategy module": {
+    "name": "No strategy module",
+    "success_rate": 0.9,
+    "avg_confidence": 0.68895,
+    "avg_time_ms": 98.16535711288452,
+    "methods": {
+      "constraint_inference": 12,
+      "memory_reuse": 6,
+      "failed": 2
+    }
+  },
+  "Constraints only (no memory/strat)": {
+    "name": "Constraints only (no memory/strat)",
+    "success_rate": 0.9,
+    "avg_confidence": 0.7524999999999997,
+    "avg_time_ms": 111.57646179199219,
+    "methods": {
+      "constraint_inference": 18,
+      "failed": 2
+    }
+  }
+}

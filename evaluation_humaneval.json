@@ -1,0 +1,3831 @@
+{
+  "summary": {
+    "total": 164,
+    "humaneval_passed": 36,
+    "humaneval_pass_rate": 0.21951219512195122,
+    "ecs_success": 113,
+    "ecs_success_rate": 0.6890243902439024,
+    "avg_latency_ms": 1195.2702781049215,
+    "signature_adapter": {
+      "adaptations_attempted": 113,
+      "adaptations_succeeded": 113,
+      "adapted_problems": 113
+    },
+    "confidence_calibration": {
+      "high_conf_count": 103,
+      "high_conf_pass_rate": 0.34951456310679613,
+      "low_conf_count": 61,
+      "low_conf_pass_rate": 0.0
+    },
+    "methods": {
+      "compositional": 15,
+      "constraint_inference": 80,
+      "failed": 51,
+      "induction_analogy": 5,
+      "memory_reuse": 12,
+      "execution_guided": 1
+    },
+    "method_passes": {
+      "compositional": 15,
+      "constraint_inference": 21
+    },
+    "emergence_events": 375
+  },
+  "results": [
+    {
+      "task_id": "HumanEval/0",
+      "entry_point": "has_close_elements",
+      "description": "Check if in given list of numbers, are any two numbers closer to each other than",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.9,
+      "method": "compositional",
+      "strategy": "neural_only",
+      "time": 0.5892088413238525,
+      "code_length": 225,
+      "emergence": [],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "has_close_elements",
+        "new_name": "has_close_elements",
+        "param_mapping": {
+          "numbers": "numbers",
+          "threshold": "threshold"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/1",
+      "entry_point": "separate_paren_groups",
+      "description": "Input to this function is a string containing multiple groups of nested parenthe",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 0.7090129852294922,
+      "code_length": 335,
+      "emergence": [
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_balanced",
+        "new_name": "separate_paren_groups",
+        "param_mapping": {
+          "s": "paren_string"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/2",
+      "entry_point": "truncate_number",
+      "description": "Given a positive floating point number, it can be decomposed into and integer pa",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.6720964908599854,
+      "code_length": 165,
+      "emergence": [],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_maximum",
+        "new_name": "truncate_number",
+        "param_mapping": {
+          "arr": "number"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/3",
+      "entry_point": "below_zero",
+      "description": "You're given a list of deposit and withdrawal operations on a bank account that ",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.9,
+      "method": "compositional",
+      "strategy": "neural_only",
+      "time": 0.7825489044189453,
+      "code_length": 157,
+      "emergence": [],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "below_zero",
+        "new_name": "below_zero",
+        "param_mapping": {
+          "operations": "operations"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/4",
+      "entry_point": "mean_absolute_deviation",
+      "description": "For a given list of input numbers, calculate Mean Absolute Deviation around the ",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.5742552280426025,
+      "code_length": 139,
+      "emergence": [],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "mean_absolute_deviation",
+        "new_name": "mean_absolute_deviation",
+        "param_mapping": {
+          "numbers": "numbers"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/5",
+      "entry_point": "intersperse",
+      "description": "Insert a number 'delimeter' between every two consecutive elements of input list",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.9,
+      "method": "compositional",
+      "strategy": "neural_only",
+      "time": 1.6532025337219238,
+      "code_length": 203,
+      "emergence": [],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "intersperse",
+        "new_name": "intersperse",
+        "param_mapping": {
+          "numbers": "numbers",
+          "delimeter": "delimeter"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/6",
+      "entry_point": "parse_nested_parens",
+      "description": "Input to this function is a string represented multiple groups for nested parent",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 0.5686089992523193,
+      "code_length": 335,
+      "emergence": [
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_balanced",
+        "new_name": "parse_nested_parens",
+        "param_mapping": {
+          "s": "paren_string"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/7",
+      "entry_point": "filter_by_substring",
+      "description": "Filter an input list of strings only for ones that contain given substring",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.9,
+      "method": "compositional",
+      "strategy": "sliding-window",
+      "time": 0.748408317565918,
+      "code_length": 95,
+      "emergence": [
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "filter_by_substring",
+        "new_name": "filter_by_substring",
+        "param_mapping": {
+          "strings": "strings",
+          "substring": "substring"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/8",
+      "entry_point": "sum_product",
+      "description": "For a given list of integers, return a tuple consisting of a sum and a product o",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.9,
+      "method": "compositional",
+      "strategy": "neural_only",
+      "time": 0.23286819458007812,
+      "code_length": 130,
+      "emergence": [],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "sum_product",
+        "new_name": "sum_product",
+        "param_mapping": {
+          "numbers": "numbers"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/9",
+      "entry_point": "rolling_max",
+      "description": "From a given list of integers, generate a list of rolling maximum element found ",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.6097486019134521,
+      "code_length": 219,
+      "emergence": [],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "rolling_max",
+        "new_name": "rolling_max",
+        "param_mapping": {
+          "numbers": "numbers"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/10",
+      "entry_point": "make_palindrome",
+      "description": "Test if given string is a palindrome \"\"\" return string == string[::-1] def make_",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 0.9487044811248779,
+      "code_length": 46,
+      "emergence": [
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_palindrome",
+        "new_name": "is_palindrome",
+        "param_mapping": {
+          "s": "string"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/11",
+      "entry_point": "string_xor",
+      "description": "Input are two strings a and b consisting only of 1s and 0s. Perform binary XOR o",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 0.5210614204406738,
+      "code_length": 0,
+      "emergence": [
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/12",
+      "entry_point": "longest",
+      "description": "Out of list of strings, return the longest one. Return the first one in case of ",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.9,
+      "method": "compositional",
+      "strategy": "sliding-window",
+      "time": 0.4380176067352295,
+      "code_length": 95,
+      "emergence": [
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "longest",
+        "new_name": "longest",
+        "param_mapping": {
+          "strings": "strings"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/13",
+      "entry_point": "greatest_common_divisor",
+      "description": "Return a greatest common divisor of two integers a and b",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.9444625377655029,
+      "code_length": 65,
+      "emergence": [],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "gcd",
+        "new_name": "greatest_common_divisor",
+        "param_mapping": {
+          "a": "a",
+          "b": "b"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/14",
+      "entry_point": "all_prefixes",
+      "description": "Return list of all prefixes from shortest to longest of the input string",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 0.25148892402648926,
+      "code_length": 134,
+      "emergence": [
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "all_prefixes",
+        "new_name": "all_prefixes",
+        "param_mapping": {
+          "string": "string"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/15",
+      "entry_point": "string_sequence",
+      "description": "Return a string containing space-delimited numbers starting from 0 upto n inclus",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 0.3493826389312744,
+      "code_length": 0,
+      "emergence": [
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/16",
+      "entry_point": "count_distinct_characters",
+      "description": "Given a string, find out how many distinct characters (regardless of case) does ",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 0.40266942977905273,
+      "code_length": 75,
+      "emergence": [
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "count_distinct_characters",
+        "new_name": "count_distinct_characters",
+        "param_mapping": {
+          "string": "string"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/17",
+      "entry_point": "parse_music",
+      "description": "Input to this function is a string representing musical notes in a special ASCII",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 0.6852648258209229,
+      "code_length": 0,
+      "emergence": [
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/18",
+      "entry_point": "how_many_times",
+      "description": "Find how many times a given substring can be found in the original string. Count",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 0.8732359409332275,
+      "code_length": 227,
+      "emergence": [
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "how_many_times",
+        "new_name": "how_many_times",
+        "param_mapping": {
+          "string": "string",
+          "substring": "substring"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/19",
+      "entry_point": "sort_numbers",
+      "description": "Input is a space-delimited string of numberals from 'zero' to 'nine'. Valid choi",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 0.7432467937469482,
+      "code_length": 165,
+      "emergence": [
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_minimum",
+        "new_name": "sort_numbers",
+        "param_mapping": {
+          "arr": "numbers"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/20",
+      "entry_point": "find_closest_elements",
+      "description": "From a supplied list of numbers (of length at least two) select and return two t",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.3745572566986084,
+      "code_length": 165,
+      "emergence": [],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_minimum",
+        "new_name": "find_closest_elements",
+        "param_mapping": {
+          "arr": "numbers"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/21",
+      "entry_point": "rescale_to_unit",
+      "description": "Given list of numbers (of at least two elements), apply a linear transform to th",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 1.1587779521942139,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=1.80",
+        "Attention spike: strategy=1.80"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_minimum",
+        "new_name": "rescale_to_unit",
+        "param_mapping": {
+          "arr": "numbers"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/22",
+      "entry_point": "filter_integers",
+      "description": "Filter given list of any python values only for integers",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.7,
+      "method": "induction_analogy",
+      "strategy": "neural_only",
+      "time": 0.8160476684570312,
+      "code_length": 95,
+      "emergence": [
+        "Attention spike: memory=1.85",
+        "Attention spike: strategy=1.85"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "filter_by_substring",
+        "new_name": "filter_integers",
+        "param_mapping": {
+          "strings": "values"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/23",
+      "entry_point": "strlen",
+      "description": "Return length of given string",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.9,
+      "method": "compositional",
+      "strategy": "sliding-window",
+      "time": 0.1285707950592041,
+      "code_length": 43,
+      "emergence": [
+        "Attention spike: memory=1.90",
+        "Attention spike: strategy=1.90",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "strlen",
+        "new_name": "strlen",
+        "param_mapping": {
+          "string": "string"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/24",
+      "entry_point": "largest_divisor",
+      "description": "For a given number n, find the largest number that divides n evenly, smaller tha",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "divide-and-conquer",
+      "time": 0.8962016105651855,
+      "code_length": 115,
+      "emergence": [
+        "Attention spike: memory=1.95",
+        "Attention spike: strategy=1.95"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "largest_divisor",
+        "new_name": "largest_divisor",
+        "param_mapping": {
+          "n": "n"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/25",
+      "entry_point": "factorize",
+      "description": "Return list of prime factors of given integer in the order from smallest to larg",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.5040004253387451,
+      "code_length": 217,
+      "emergence": [
+        "Cross-domain: 'searching' for 'sorting'",
+        "Attention spike: memory=2.00",
+        "Attention spike: strategy=2.00"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "factorize",
+        "new_name": "factorize",
+        "param_mapping": {
+          "n": "n"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/26",
+      "entry_point": "remove_duplicates",
+      "description": "From a list of integers, remove all elements that occur more than once. Keep ord",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.9,
+      "method": "compositional",
+      "strategy": "neural_only",
+      "time": 0.9456300735473633,
+      "code_length": 148,
+      "emergence": [
+        "Attention spike: memory=2.05",
+        "Attention spike: strategy=2.05"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "remove_duplicates",
+        "new_name": "remove_duplicates",
+        "param_mapping": {
+          "numbers": "numbers"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/27",
+      "entry_point": "flip_case",
+      "description": "For a given string, flip lowercase characters to uppercase and uppercase to lowe",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 0.54691481590271,
+      "code_length": 133,
+      "emergence": [
+        "Attention spike: memory=2.10",
+        "Attention spike: strategy=2.10",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "reverse_sequence",
+        "new_name": "flip_case",
+        "param_mapping": {
+          "seq": "string"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/28",
+      "entry_point": "concatenate",
+      "description": "Concatenate list of strings into a single string",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.9,
+      "method": "compositional",
+      "strategy": "sliding-window",
+      "time": 0.3371889591217041,
+      "code_length": 54,
+      "emergence": [
+        "Attention spike: memory=2.15",
+        "Attention spike: strategy=2.15",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "concatenate",
+        "new_name": "concatenate",
+        "param_mapping": {
+          "strings": "strings"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/29",
+      "entry_point": "filter_by_prefix",
+      "description": "Filter an input list of strings only for ones that start with a given prefix.",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.9,
+      "method": "compositional",
+      "strategy": "sliding-window",
+      "time": 0.8202621936798096,
+      "code_length": 95,
+      "emergence": [
+        "Attention spike: memory=2.20",
+        "Attention spike: strategy=2.20",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "filter_by_prefix",
+        "new_name": "filter_by_prefix",
+        "param_mapping": {
+          "strings": "strings",
+          "prefix": "prefix"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/30",
+      "entry_point": "get_positive",
+      "description": "Return only positive numbers in the list.",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.9,
+      "method": "compositional",
+      "strategy": "neural_only",
+      "time": 0.2563011646270752,
+      "code_length": 56,
+      "emergence": [
+        "Attention spike: memory=2.25",
+        "Attention spike: strategy=2.25"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "get_positive",
+        "new_name": "get_positive",
+        "param_mapping": {
+          "l": "l"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/31",
+      "entry_point": "is_prime",
+      "description": "Return true if a given number is prime, and false otherwise.",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 1.0150082111358643,
+      "code_length": 271,
+      "emergence": [
+        "Attention spike: memory=2.30",
+        "Attention spike: strategy=2.30"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_prime",
+        "new_name": "is_prime",
+        "param_mapping": {
+          "n": "n"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/32",
+      "entry_point": "find_zero",
+      "description": "Evaluates polynomial with coefficients xs at point x. return xs[0] + xs[1] * x +",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 0.30825042724609375,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.25",
+        "Attention spike: strategy=2.25"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/33",
+      "entry_point": "sort_third",
+      "description": "This function takes a list l and returns a list l' such that l' is identical to ",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 1.900264024734497,
+      "code_length": 277,
+      "emergence": [
+        "Attention spike: memory=2.30",
+        "Attention spike: strategy=2.30",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "sort_array",
+        "new_name": "sort_third",
+        "param_mapping": {
+          "arr": "l"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/34",
+      "entry_point": "unique",
+      "description": "Return sorted unique elements in a list",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 0.3888278007507324,
+      "code_length": 41,
+      "emergence": [
+        "Attention spike: memory=2.35",
+        "Attention spike: strategy=2.35",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "unique",
+        "new_name": "unique",
+        "param_mapping": {
+          "l": "l"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/35",
+      "entry_point": "max_element",
+      "description": "Return maximum element in the list.",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.40133023262023926,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.40",
+        "Attention spike: strategy=2.40"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_maximum",
+        "new_name": "max_element",
+        "param_mapping": {
+          "arr": "l"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/36",
+      "entry_point": "fizz_buzz",
+      "description": "Return the number of times the digit 7 appears in integers less than n which are",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.5649,
+      "method": "memory_reuse",
+      "strategy": "neural_only",
+      "time": 0.5036153793334961,
+      "code_length": 277,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "sort_array",
+        "new_name": "fizz_buzz",
+        "param_mapping": {
+          "arr": "n"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/37",
+      "entry_point": "sort_even",
+      "description": "This function takes a list l and returns a list l' such that l' is identical to ",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 1.5514848232269287,
+      "code_length": 277,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "sort_array",
+        "new_name": "sort_even",
+        "param_mapping": {
+          "arr": "l"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/38",
+      "entry_point": "decode_cyclic",
+      "description": "returns encoded string by cycling groups of three characters.",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 0.04712224006652832,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/39",
+      "entry_point": "prime_fib",
+      "description": "prime_fib returns n-th number that is a Fibonacci number and it's also prime.",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 1.0503907203674316,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "fibonacci",
+        "new_name": "prime_fib",
+        "param_mapping": {
+          "n": "n"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/40",
+      "entry_point": "triples_sum_to_zero",
+      "description": "triples_sum_to_zero takes a list of integers as an input. it returns True if the",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.9331912994384766,
+      "code_length": 231,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "triples_sum_to_zero",
+        "new_name": "triples_sum_to_zero",
+        "param_mapping": {
+          "l": "l"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/41",
+      "entry_point": "car_race_collision",
+      "description": "Imagine a road that's a perfectly straight infinitely long line. n cars are driv",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 0.7905614376068115,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/42",
+      "entry_point": "incr_list",
+      "description": "Return list with elements incremented by 1.",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.9,
+      "method": "compositional",
+      "strategy": "neural_only",
+      "time": 0.41155004501342773,
+      "code_length": 48,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "incr_list",
+        "new_name": "incr_list",
+        "param_mapping": {
+          "l": "l"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/43",
+      "entry_point": "pairs_sum_to_zero",
+      "description": "pairs_sum_to_zero takes a list of integers as an input. it returns True if there",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 1.447422742843628,
+      "code_length": 171,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "pairs_sum_to_zero",
+        "new_name": "pairs_sum_to_zero",
+        "param_mapping": {
+          "l": "l"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/44",
+      "entry_point": "change_base",
+      "description": "Change numerical base of input number x to base. return string representation af",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 0.22352862358093262,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/45",
+      "entry_point": "triangle_area",
+      "description": "Given length of a side and high return area for a triangle.",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.7,
+      "method": "induction_analogy",
+      "strategy": "neural_only",
+      "time": 0.5593245029449463,
+      "code_length": 43,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "strlen",
+        "new_name": "triangle_area",
+        "param_mapping": {
+          "string": "a"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/46",
+      "entry_point": "fib4",
+      "description": "The Fib4 number sequence is a sequence similar to the Fibbonacci sequnece that's",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "divide-and-conquer",
+      "time": 1.3955178260803223,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/47",
+      "entry_point": "median",
+      "description": "Return median of elements in the list l.",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.7,
+      "method": "induction_analogy",
+      "strategy": "neural_only",
+      "time": 0.9515776634216309,
+      "code_length": 41,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "unique",
+        "new_name": "median",
+        "param_mapping": {
+          "l": "l"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/48",
+      "entry_point": "is_palindrome",
+      "description": "Checks if given string is a palindrome",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 0.41142868995666504,
+      "code_length": 46,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_palindrome",
+        "new_name": "is_palindrome",
+        "param_mapping": {
+          "s": "text"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/49",
+      "entry_point": "modp",
+      "description": "Return 2^n modulo p (be aware of numerics).",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 1.3224656581878662,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/50",
+      "entry_point": "decode_shift",
+      "description": "returns encoded string by shifting every character by 5 in the alphabet.",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 0.05266857147216797,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.40",
+        "Attention spike: strategy=2.40",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/51",
+      "entry_point": "remove_vowels",
+      "description": "remove_vowels is a function that takes string and returns string without vowels.",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 0.8405587673187256,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.35",
+        "Attention spike: strategy=2.35",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/52",
+      "entry_point": "below_threshold",
+      "description": "Return True if all numbers in the list l are below threshold t.",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.9,
+      "method": "compositional",
+      "strategy": "neural_only",
+      "time": 0.34415388107299805,
+      "code_length": 60,
+      "emergence": [
+        "Attention spike: memory=2.40",
+        "Attention spike: strategy=2.40"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "below_threshold",
+        "new_name": "below_threshold",
+        "param_mapping": {
+          "l": "l",
+          "t": "t"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/53",
+      "entry_point": "add",
+      "description": "Add two numbers x and y",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.9,
+      "method": "compositional",
+      "strategy": "neural_only",
+      "time": 0.3636960983276367,
+      "code_length": 32,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "add",
+        "new_name": "add",
+        "param_mapping": {
+          "x": "x",
+          "y": "y"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/54",
+      "entry_point": "same_chars",
+      "description": "Check if two words have the same characters.",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 0.8499648571014404,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.40",
+        "Attention spike: strategy=2.40"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/55",
+      "entry_point": "fib",
+      "description": "Return n-th Fibonacci number.",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.6543560028076172,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "fibonacci",
+        "new_name": "fib",
+        "param_mapping": {
+          "n": "n"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/56",
+      "entry_point": "correct_bracketing",
+      "description": "brackets is a string of \"<\" and \">\". return True if every opening bracket has a ",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 1.530524492263794,
+      "code_length": 259,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "correct_bracketing",
+        "new_name": "correct_bracketing",
+        "param_mapping": {
+          "brackets": "brackets"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/57",
+      "entry_point": "monotonic",
+      "description": "Return True is list elements are monotonically increasing or decreasing.",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.9,
+      "method": "compositional",
+      "strategy": "neural_only",
+      "time": 1.424126148223877,
+      "code_length": 190,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "monotonic",
+        "new_name": "monotonic",
+        "param_mapping": {
+          "l": "l"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/58",
+      "entry_point": "common",
+      "description": "Return sorted unique common elements for two lists.",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 1.4853289127349854,
+      "code_length": 57,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "common",
+        "new_name": "common",
+        "param_mapping": {
+          "l1": "l1",
+          "l2": "l2"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/59",
+      "entry_point": "largest_prime_factor",
+      "description": "Return the largest prime factor of n. Assume n > 1 and is not a prime.",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.78399658203125,
+      "code_length": 215,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "largest_prime_factor",
+        "new_name": "largest_prime_factor",
+        "param_mapping": {
+          "n": "n"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/60",
+      "entry_point": "sum_to_n",
+      "description": "sum_to_n is a function that sums numbers from 1 to n.",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.88,
+      "method": "execution_guided",
+      "strategy": "neural_only",
+      "time": 0.8933861255645752,
+      "code_length": 80,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "sum_to_n",
+        "new_name": "sum_to_n",
+        "param_mapping": {
+          "n": "n"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/61",
+      "entry_point": "correct_bracketing",
+      "description": "brackets is a string of \"(\" and \")\". return True if every opening bracket has a ",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 1.0209972858428955,
+      "code_length": 259,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "correct_bracketing",
+        "new_name": "correct_bracketing",
+        "param_mapping": {
+          "brackets": "brackets"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/62",
+      "entry_point": "derivative",
+      "description": "xs represent coefficients of a polynomial. xs[0] + xs[1] * x + xs[2] * x^2 + ...",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 1.2352635860443115,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/63",
+      "entry_point": "fibfib",
+      "description": "The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 1.587512731552124,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "fibonacci",
+        "new_name": "fibfib",
+        "param_mapping": {
+          "n": "n"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/64",
+      "entry_point": "vowels_count",
+      "description": "Add more test cases.",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 0.2657642364501953,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/65",
+      "entry_point": "circular_shift",
+      "description": "Circular shift the digits of the integer x, shift the digits right by shift and ",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 0.6906440258026123,
+      "code_length": 113,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "rotate_array",
+        "new_name": "circular_shift",
+        "param_mapping": {
+          "arr": "x",
+          "k": "shift"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/66",
+      "entry_point": "digitSum",
+      "description": "Task Write a function that takes a string as input and returns the sum of the up",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 0.6753687858581543,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/67",
+      "entry_point": "fruit_distribution",
+      "description": "In this task, you will be given a string that represents a number of apples and ",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 1.928391933441162,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.40",
+        "Attention spike: strategy=2.40",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/68",
+      "entry_point": "pluck",
+      "description": "\"Given an array representing a branch of a tree that has non-negative integer no",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "graph-traversal",
+      "time": 4.2802734375,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_minimum",
+        "new_name": "pluck",
+        "param_mapping": {
+          "arr": "arr"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/69",
+      "entry_point": "search",
+      "description": "You are given a non-empty list of positive integers. Return the greatest integer",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.6,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 1.2434983253479004,
+      "code_length": 132,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "count_occurrences",
+        "new_name": "search",
+        "param_mapping": {
+          "lst": "lst"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/70",
+      "entry_point": "strange_sort_list",
+      "description": "Given list of integers, return list in strange order. Strange sorting, is when y",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 1.0606460571289062,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_minimum",
+        "new_name": "strange_sort_list",
+        "param_mapping": {
+          "arr": "lst"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/71",
+      "entry_point": "triangle_area",
+      "description": "Given the lengths of the three sides of a triangle. Return the area of the trian",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 0.5949244499206543,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/72",
+      "entry_point": "will_it_fly",
+      "description": "Write a function that returns True if the object q will fly, and False otherwise",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 3.944911479949951,
+      "code_length": 335,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_balanced",
+        "new_name": "will_it_fly",
+        "param_mapping": {
+          "s": "q"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/73",
+      "entry_point": "smallest_change",
+      "description": "Given an array arr of integers, find the minimum number of elements that need to",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 1.5313634872436523,
+      "code_length": 133,
+      "emergence": [
+        "Cross-domain: 'sorting' for 'searching'",
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "reverse_sequence",
+        "new_name": "smallest_change",
+        "param_mapping": {
+          "seq": "arr"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/74",
+      "entry_point": "total_match",
+      "description": "Write a function that accepts two lists of strings and returns the list that has",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 1.7938048839569092,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/75",
+      "entry_point": "is_multiply_prime",
+      "description": "Write a function that returns true if the given number is the multiplication of ",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.5928826332092285,
+      "code_length": 271,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_prime",
+        "new_name": "is_multiply_prime",
+        "param_mapping": {
+          "n": "a"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/76",
+      "entry_point": "is_simple_power",
+      "description": "Your task is to write a function that returns true if a number x is a simple pow",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 1.131335973739624,
+      "code_length": 175,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_simple_power",
+        "new_name": "is_simple_power",
+        "param_mapping": {
+          "x": "x",
+          "n": "n"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/77",
+      "entry_point": "iscube",
+      "description": "Write a function that takes an integer a and returns True if this ingeger is a c",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 1.0062859058380127,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/78",
+      "entry_point": "hex_key",
+      "description": "You have been tasked to write a function that receives a hexadecimal number as a",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 2.8559703826904297,
+      "code_length": 271,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_prime",
+        "new_name": "hex_key",
+        "param_mapping": {
+          "n": "num"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/79",
+      "entry_point": "decimal_to_binary",
+      "description": "You will be given a number in decimal form and your task is to convert it to bin",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 0.52671217918396,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/80",
+      "entry_point": "is_happy",
+      "description": "You are given a string s. Your task is to check if the string is happy or not. A",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 0.9458308219909668,
+      "code_length": 176,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "remove_duplicates",
+        "new_name": "is_happy",
+        "param_mapping": {
+          "arr": "s"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/81",
+      "entry_point": "numerical_letter_grade",
+      "description": "It is the last week of the semester and the teacher has to give the grades to st",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 1.7867529392242432,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/82",
+      "entry_point": "prime_length",
+      "description": "Write a function that takes a string and returns True if the string length is a ",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 0.4955570697784424,
+      "code_length": 271,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_prime",
+        "new_name": "prime_length",
+        "param_mapping": {
+          "n": "string"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/83",
+      "entry_point": "starts_one_ends",
+      "description": "Given a positive integer n, return the count of the numbers of n-digit positive ",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 0.14937496185302734,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/84",
+      "entry_point": "solve",
+      "description": "Given a positive integer N, return the total sum of its digits in binary. Exampl",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.643,
+      "method": "memory_reuse",
+      "strategy": "sliding-window",
+      "time": 1.0331206321716309,
+      "code_length": 271,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_prime",
+        "new_name": "solve",
+        "param_mapping": {
+          "n": "N"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/85",
+      "entry_point": "add",
+      "description": "Given a non-empty list of integers lst. add the even elements that are at odd in",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 0.25412535667419434,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/86",
+      "entry_point": "anti_shuffle",
+      "description": "Write a function that takes a string and returns an ordered version of it. Order",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 1.093841552734375,
+      "code_length": 277,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "sort_array",
+        "new_name": "anti_shuffle",
+        "param_mapping": {
+          "arr": "s"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/87",
+      "entry_point": "get_row",
+      "description": "You are given a 2 dimensional data, as a nested lists, which is similar to matri",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.6,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 1.2886779308319092,
+      "code_length": 195,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "flatten",
+        "new_name": "get_row",
+        "param_mapping": {
+          "lst": "lst"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/88",
+      "entry_point": "sort_array",
+      "description": "Given an array of non-negative integers, return a copy of the given array after ",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 5.196685552597046,
+      "code_length": 277,
+      "emergence": [
+        "Cross-domain: 'searching' for 'sorting'",
+        "Cross-domain: 'searching' for 'sorting'",
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "sort_array",
+        "new_name": "sort_array",
+        "param_mapping": {
+          "arr": "array"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/89",
+      "entry_point": "encrypt",
+      "description": "Create a function encrypt that takes a string as an argument and returns a strin",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 0.5211527347564697,
+      "code_length": 113,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "rotate_array",
+        "new_name": "encrypt",
+        "param_mapping": {
+          "arr": "s"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/90",
+      "entry_point": "next_smallest",
+      "description": "You are given a list of integers. Write a function next_smallest() that returns ",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.867323637008667,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_minimum",
+        "new_name": "next_smallest",
+        "param_mapping": {
+          "arr": "lst"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/91",
+      "entry_point": "is_bored",
+      "description": "You'll be given a string of words, and your task is to count the number of bored",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 0.6177332401275635,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/92",
+      "entry_point": "any_int",
+      "description": "Create a function that takes 3 numbers. Returns true if one of the numbers is eq",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 1.0415587425231934,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.40",
+        "Attention spike: strategy=2.40"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/93",
+      "entry_point": "encode",
+      "description": "Write a function that takes a message, and encodes in such a way that it swaps c",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 0.6797401905059814,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.35",
+        "Attention spike: strategy=2.35"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/94",
+      "entry_point": "skjkasdkd",
+      "description": "You are given a list of integers. You need to find the largest prime value and r",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 4.835392236709595,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.40",
+        "Attention spike: strategy=2.40",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_maximum",
+        "new_name": "skjkasdkd",
+        "param_mapping": {
+          "arr": "lst"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/95",
+      "entry_point": "check_dict_case",
+      "description": "Given a dictionary, return True if all keys are strings in lower case or all key",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.6388,
+      "method": "memory_reuse",
+      "strategy": "sliding-window",
+      "time": 2.5279736518859863,
+      "code_length": 157,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "below_zero",
+        "new_name": "check_dict_case",
+        "param_mapping": {
+          "operations": "dict"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/96",
+      "entry_point": "count_up_to",
+      "description": "Implement a function that takes an non-negative integer and returns an array of ",
+      "passed": true,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 1.7801320552825928,
+      "code_length": 268,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "count_up_to",
+        "new_name": "count_up_to",
+        "param_mapping": {
+          "n": "n"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/97",
+      "entry_point": "multiply",
+      "description": "Complete the function that takes two integers and returns the product of their u",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.5792999999999999,
+      "method": "memory_reuse",
+      "strategy": "neural_only",
+      "time": 0.747412919998169,
+      "code_length": 157,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "below_zero",
+        "new_name": "multiply",
+        "param_mapping": {
+          "operations": "a"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/98",
+      "entry_point": "count_upper",
+      "description": "Given a string s, count the number of uppercase vowels in even indices. For exam",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 0.32514166831970215,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/99",
+      "entry_point": "closest_integer",
+      "description": "Create a function that takes a value (string) representing a number and returns ",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 0.610529899597168,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.40",
+        "Attention spike: strategy=2.40",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/100",
+      "entry_point": "make_a_pile",
+      "description": "Given a positive integer n, you have to make a pile of n levels of stones. The f",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 0.9156863689422607,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.35",
+        "Attention spike: strategy=2.35"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/101",
+      "entry_point": "words_string",
+      "description": "You will be given a string of words separated by commas or spaces. Your task is ",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "divide-and-conquer",
+      "time": 0.6401729583740234,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.30",
+        "Attention spike: strategy=2.30",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/102",
+      "entry_point": "choose_num",
+      "description": "This function takes two positive numbers x and y and returns the biggest even in",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.5048151016235352,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.35",
+        "Attention spike: strategy=2.35"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_maximum",
+        "new_name": "choose_num",
+        "param_mapping": {
+          "arr": "x"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/103",
+      "entry_point": "rounded_avg",
+      "description": "You are given two positive integers n and m, and your task is to compute the ave",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 0.8559021949768066,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.30",
+        "Attention spike: strategy=2.30"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/104",
+      "entry_point": "unique_digits",
+      "description": "Given a list of positive integers x. return a sorted list of all elements that h",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 1.1519315242767334,
+      "code_length": 277,
+      "emergence": [
+        "Attention spike: memory=2.35",
+        "Attention spike: strategy=2.35",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "sort_array",
+        "new_name": "unique_digits",
+        "param_mapping": {
+          "arr": "x"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/105",
+      "entry_point": "by_length",
+      "description": "Given an array of integers, sort the integers that are between 1 and 9 inclusive",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 5.757547378540039,
+      "code_length": 133,
+      "emergence": [
+        "Attention spike: memory=2.40",
+        "Attention spike: strategy=2.40"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "reverse_sequence",
+        "new_name": "by_length",
+        "param_mapping": {
+          "seq": "arr"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/106",
+      "entry_point": "f",
+      "description": "Implement the function f that takes n as a parameter, and returns a list of size",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 1.0567314624786377,
+      "code_length": 133,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "factorial",
+        "new_name": "f",
+        "param_mapping": {
+          "n": "n"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/107",
+      "entry_point": "even_odd_palindrome",
+      "description": "Given a positive integer n, return a tuple that has the number of even and odd i",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 1.5318524837493896,
+      "code_length": 46,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_palindrome",
+        "new_name": "even_odd_palindrome",
+        "param_mapping": {
+          "s": "n"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/108",
+      "entry_point": "count_nums",
+      "description": "Write a function count_nums which takes an array of integers and returns the num",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 0.3954198360443115,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/109",
+      "entry_point": "move_one_ball",
+      "description": "We have an array 'arr' of N integers arr[1], arr[2], ..., arr[N].The numbers in ",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 2.5823240280151367,
+      "code_length": 176,
+      "emergence": [
+        "Cross-domain: 'searching' for 'sorting'",
+        "Cross-domain: 'searching' for 'sorting'",
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "remove_duplicates",
+        "new_name": "move_one_ball",
+        "param_mapping": {
+          "arr": "arr"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/110",
+      "entry_point": "exchange",
+      "description": "In this problem, you will implement a function that takes two lists of numbers, ",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.6819,
+      "method": "memory_reuse",
+      "strategy": "neural_only",
+      "time": 1.6319513320922852,
+      "code_length": 133,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "reverse_sequence",
+        "new_name": "exchange",
+        "param_mapping": {
+          "seq": "lst1"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/111",
+      "entry_point": "histogram",
+      "description": "Given a string representing a space separated lowercase letters, return a dictio",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.6783,
+      "method": "memory_reuse",
+      "strategy": "sliding-window",
+      "time": 1.557441234588623,
+      "code_length": 132,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "count_occurrences",
+        "new_name": "histogram",
+        "param_mapping": {
+          "lst": "test"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/112",
+      "entry_point": "reverse_delete",
+      "description": "Task We are given two strings s and c, you have to deleted all the characters in",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 1.967566967010498,
+      "code_length": 46,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_palindrome",
+        "new_name": "reverse_delete",
+        "param_mapping": {
+          "s": "s"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/113",
+      "entry_point": "odd_count",
+      "description": "Given a list of strings, where each string consists of only digits, return a lis",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.616,
+      "method": "memory_reuse",
+      "strategy": "sliding-window",
+      "time": 1.3392257690429688,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_maximum",
+        "new_name": "odd_count",
+        "param_mapping": {
+          "arr": "lst"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/114",
+      "entry_point": "minSubArraySum",
+      "description": "Given an array of integers nums, find the minimum sum of any non-empty sub-array",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 0.4046189785003662,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_minimum",
+        "new_name": "minSubArraySum",
+        "param_mapping": {
+          "arr": "nums"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/115",
+      "entry_point": "max_fill",
+      "description": "You are given a rectangular grid of wells. Each row represents a single well, an",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 2.798470973968506,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/116",
+      "entry_point": "sort_array",
+      "description": "In this Kata, you have to sort an array of non-negative integers according to nu",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 0.40663838386535645,
+      "code_length": 277,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "sort_array",
+        "new_name": "sort_array",
+        "param_mapping": {
+          "arr": "arr"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/117",
+      "entry_point": "select_words",
+      "description": "Given a string s and a natural number n, you have been tasked to implement a fun",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 1.8690571784973145,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/118",
+      "entry_point": "get_closest_vowel",
+      "description": "You are given a word. Your task is to find the closest vowel that stands between",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "two-pointer",
+      "time": 1.0843451023101807,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.40",
+        "Attention spike: strategy=2.40",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/119",
+      "entry_point": "match_parens",
+      "description": "You are given a list of two strings, both strings consist of open parentheses '(",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 0.8919901847839355,
+      "code_length": 335,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_balanced",
+        "new_name": "match_parens",
+        "param_mapping": {
+          "s": "lst"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/120",
+      "entry_point": "maximum",
+      "description": "Given an array arr of integers and a positive integer k, return a sorted list of",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 2.416482448577881,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_maximum",
+        "new_name": "maximum",
+        "param_mapping": {
+          "arr": "arr"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/121",
+      "entry_point": "solution",
+      "description": "Given a non-empty list of integers, return the sum of all of the odd elements th",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.7972,
+      "method": "memory_reuse",
+      "strategy": "neural_only",
+      "time": 0.9038803577423096,
+      "code_length": 132,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "count_occurrences",
+        "new_name": "solution",
+        "param_mapping": {
+          "lst": "lst"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/122",
+      "entry_point": "add_elements",
+      "description": "Given a non-empty array of integers arr and an integer k, return the sum of the ",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.7,
+      "method": "induction_analogy",
+      "strategy": "neural_only",
+      "time": 1.5369532108306885,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_maximum",
+        "new_name": "add_elements",
+        "param_mapping": {
+          "arr": "arr"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/123",
+      "entry_point": "get_odd_collatz",
+      "description": "Given a positive integer n, return a sorted list that has the odd numbers in col",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 2.4389681816101074,
+      "code_length": 277,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "sort_array",
+        "new_name": "get_odd_collatz",
+        "param_mapping": {
+          "arr": "n"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/124",
+      "entry_point": "valid_date",
+      "description": "You have to write a function which validates a given date string and returns Tru",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.5909,
+      "method": "memory_reuse",
+      "strategy": "sliding-window",
+      "time": 3.2121739387512207,
+      "code_length": 335,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_balanced",
+        "new_name": "valid_date",
+        "param_mapping": {
+          "s": "date"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/125",
+      "entry_point": "split_words",
+      "description": "Given a string of words, return a list of words split on whitespace, if no white",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "divide-and-conquer",
+      "time": 0.7010149955749512,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/126",
+      "entry_point": "is_sorted",
+      "description": "Given a list of numbers, return whether or not they are sorted in ascending orde",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 11.038370609283447,
+      "code_length": 277,
+      "emergence": [
+        "Cross-domain: 'searching' for 'sorting'",
+        "Cross-domain: 'searching' for 'sorting'",
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "sort_array",
+        "new_name": "is_sorted",
+        "param_mapping": {
+          "arr": "lst"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/127",
+      "entry_point": "intersection",
+      "description": "You are given two intervals, where each interval is a pair of integers. For exam",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 1.965956687927246,
+      "code_length": 271,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_prime",
+        "new_name": "intersection",
+        "param_mapping": {
+          "n": "interval1"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/128",
+      "entry_point": "prod_signs",
+      "description": "You are given an array arr of integers and you need to return sum of magnitudes ",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.6,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.3742692470550537,
+      "code_length": 54,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "absolute_value",
+        "new_name": "prod_signs",
+        "param_mapping": {
+          "x": "arr"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/129",
+      "entry_point": "minPath",
+      "description": "Given a grid with N rows and N columns (N >= 2) and a positive integer k, each c",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 3.8591582775115967,
+      "code_length": 176,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "remove_duplicates",
+        "new_name": "minPath",
+        "param_mapping": {
+          "arr": "grid"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/130",
+      "entry_point": "tri",
+      "description": "Everyone knows Fibonacci sequence, it was studied deeply by mathematicians in th",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 4.531902074813843,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "fibonacci",
+        "new_name": "tri",
+        "param_mapping": {
+          "n": "n"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/131",
+      "entry_point": "digits",
+      "description": "Given a positive integer n, return the product of the odd digits. Return 0 if al",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 0.4124619960784912,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/132",
+      "entry_point": "is_nested",
+      "description": "Create a function that takes a string as input which contains only square bracke",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 1.5020208358764648,
+      "code_length": 335,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_balanced",
+        "new_name": "is_nested",
+        "param_mapping": {
+          "s": "string"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/133",
+      "entry_point": "sum_squares",
+      "description": "You are given a list of numbers. You need to return the sum of squared numbers i",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.7,
+      "method": "induction_analogy",
+      "strategy": "neural_only",
+      "time": 3.070070266723633,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_maximum",
+        "new_name": "sum_squares",
+        "param_mapping": {
+          "arr": "lst"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/134",
+      "entry_point": "check_if_last_char_is_a_letter",
+      "description": "Create a function that returns True if the last character of a given string is a",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 0.5531518459320068,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/135",
+      "entry_point": "can_arrange",
+      "description": "Create a function which returns the largest index of an element which is not gre",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 1.004345178604126,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_maximum",
+        "new_name": "can_arrange",
+        "param_mapping": {
+          "arr": "arr"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/136",
+      "entry_point": "largest_smallest_integers",
+      "description": "Create a function that returns a tuple (a, b), where 'a' is the largest of negat",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.9637372493743896,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_minimum",
+        "new_name": "largest_smallest_integers",
+        "param_mapping": {
+          "arr": "lst"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/137",
+      "entry_point": "compare_one",
+      "description": "Create a function that takes integers, floats, or strings representing real numb",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 0.5883333683013916,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/138",
+      "entry_point": "is_equal_to_sum_even",
+      "description": "Evaluate whether the given number n can be written as the sum of exactly 4 posit",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 0.38791680335998535,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.40",
+        "Attention spike: strategy=2.40"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/139",
+      "entry_point": "special_factorial",
+      "description": "The Brazilian factorial is defined as: brazilian_factorial(n) = n! * (n-1)! * (n",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.8856050968170166,
+      "code_length": 133,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "factorial",
+        "new_name": "special_factorial",
+        "param_mapping": {
+          "n": "n"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/140",
+      "entry_point": "fix_spaces",
+      "description": "Given a string text, replace all spaces in it with underscores, and if a string ",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 0.5045368671417236,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.40",
+        "Attention spike: strategy=2.40",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/141",
+      "entry_point": "file_name_check",
+      "description": "Create a function which takes a string representing a file's name, and returns '",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 2.3711390495300293,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.35",
+        "Attention spike: strategy=2.35",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/142",
+      "entry_point": "sum_squares",
+      "description": "\" This function will take a list of integers. For all entries in the list, the f",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.8217,
+      "method": "memory_reuse",
+      "strategy": "neural_only",
+      "time": 1.007465124130249,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.40",
+        "Attention spike: strategy=2.40"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_maximum",
+        "new_name": "sum_squares",
+        "param_mapping": {
+          "arr": "lst"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/143",
+      "entry_point": "words_in_sentence",
+      "description": "You are given a string representing a sentence, the sentence contains some words",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 2.2133288383483887,
+      "code_length": 271,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_prime",
+        "new_name": "words_in_sentence",
+        "param_mapping": {
+          "n": "sentence"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/144",
+      "entry_point": "simplify",
+      "description": "Your task is to implement a function that will simplify the expression x * n. Th",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 0.7434329986572266,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.40",
+        "Attention spike: strategy=2.40",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/145",
+      "entry_point": "order_by_points",
+      "description": "Write a function which sorts the given list of integers in ascending order accor",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 0.77718186378479,
+      "code_length": 277,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "sort_array",
+        "new_name": "order_by_points",
+        "param_mapping": {
+          "arr": "nums"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/146",
+      "entry_point": "specialFilter",
+      "description": "Write a function that takes an array of numbers as input and returns the number ",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 0.3308253288269043,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.40",
+        "Attention spike: strategy=2.40"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/147",
+      "entry_point": "get_max_triples",
+      "description": "You are given a positive integer n. You have to create an integer array a of len",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 0.8249304294586182,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.35",
+        "Attention spike: strategy=2.35"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/148",
+      "entry_point": "bf",
+      "description": "There are eight planets in our solar system: the closerst to the Sun is Mercury,",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 1.0964701175689697,
+      "code_length": 277,
+      "emergence": [
+        "Attention spike: memory=2.40",
+        "Attention spike: strategy=2.40",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "sort_array",
+        "new_name": "bf",
+        "param_mapping": {
+          "arr": "planet1"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/149",
+      "entry_point": "sorted_list_sum",
+      "description": "Write a function that accepts a list of strings as a parameter, deletes the stri",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 1.2132620811462402,
+      "code_length": 277,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "sort_array",
+        "new_name": "sorted_list_sum",
+        "param_mapping": {
+          "arr": "lst"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/150",
+      "entry_point": "x_or_y",
+      "description": "A simple program which should return the value of x if n is a prime number and s",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.4180874824523926,
+      "code_length": 271,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_prime",
+        "new_name": "x_or_y",
+        "param_mapping": {
+          "n": "n"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/151",
+      "entry_point": "double_the_difference",
+      "description": "Given a list of numbers, return the sum of squares of the numbers in the list th",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 1.42276930809021,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/152",
+      "entry_point": "compare",
+      "description": "I think we all remember that feeling when the result of some long-awaited event ",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.6,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 0.8841748237609863,
+      "code_length": 54,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "absolute_value",
+        "new_name": "compare",
+        "param_mapping": {
+          "x": "game"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/153",
+      "entry_point": "Strongest_Extension",
+      "description": "You will be given the name of a class (a string) and a list of extensions. The e",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "two-pointer",
+      "time": 0.6761989593505859,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/154",
+      "entry_point": "cycpattern_check",
+      "description": "You are given 2 words. You need to return True if the second word or any of its ",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 1.556431531906128,
+      "code_length": 113,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "rotate_array",
+        "new_name": "cycpattern_check",
+        "param_mapping": {
+          "arr": "a",
+          "k": "b"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/155",
+      "entry_point": "even_odd_count",
+      "description": "Given an integer. return a tuple that has the number of even and odd digits resp",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 0.352644681930542,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/156",
+      "entry_point": "int_to_mini_roman",
+      "description": "Given a positive integer, obtain its roman numeral equivalent as a string, and r",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.5593,
+      "method": "memory_reuse",
+      "strategy": "sliding-window",
+      "time": 0.21615123748779297,
+      "code_length": 165,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "find_maximum",
+        "new_name": "int_to_mini_roman",
+        "param_mapping": {
+          "arr": "number"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/157",
+      "entry_point": "right_angle_triangle",
+      "description": "Given the lengths of the three sides of a triangle. Return True if the three sid",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 0.2833127975463867,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/158",
+      "entry_point": "find_max",
+      "description": "Write a function that accepts a list of strings. The list contains different wor",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "two-pointer",
+      "time": 0.647864818572998,
+      "code_length": 75,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "count_distinct_characters",
+        "new_name": "find_max",
+        "param_mapping": {
+          "string": "words"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/159",
+      "entry_point": "eat",
+      "description": "You're a hungry rabbit, and you already have eaten a certain number of carrots, ",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "neural_only",
+      "time": 2.9594624042510986,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/160",
+      "entry_point": "do_algebra",
+      "description": "Given two lists operator, and operand. The first list has basic algebra operatio",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.6,
+      "method": "constraint_inference",
+      "strategy": "neural_only",
+      "time": 2.3863160610198975,
+      "code_length": 233,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "power",
+        "new_name": "do_algebra",
+        "param_mapping": {
+          "base": "operator",
+          "exp": "operand"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/161",
+      "entry_point": "solve",
+      "description": "You are given a string s. if s[i] is a letter, reverse its case from lower to up",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.85,
+      "method": "constraint_inference",
+      "strategy": "sliding-window",
+      "time": 0.806135892868042,
+      "code_length": 133,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "reverse_sequence",
+        "new_name": "solve",
+        "param_mapping": {
+          "seq": "s"
+        }
+      }
+    },
+    {
+      "task_id": "HumanEval/162",
+      "entry_point": "string_to_md5",
+      "description": "Given a string 'text', return its md5 hash equivalent string. If 'text' is an em",
+      "passed": false,
+      "ecs_success": false,
+      "confidence": 0.0,
+      "method": "failed",
+      "strategy": "sliding-window",
+      "time": 0.2311384677886963,
+      "code_length": 0,
+      "emergence": [
+        "Attention spike: memory=2.45",
+        "Attention spike: strategy=2.45",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": false,
+      "adaptation_details": {}
+    },
+    {
+      "task_id": "HumanEval/163",
+      "entry_point": "generate_integers",
+      "description": "Given two positive integers a and b, return the even digits between a and b, in ",
+      "passed": false,
+      "ecs_success": true,
+      "confidence": 0.5816,
+      "method": "memory_reuse",
+      "strategy": "two-pointer",
+      "time": 0.7284233570098877,
+      "code_length": 175,
+      "emergence": [
+        "Attention spike: memory=2.50",
+        "Attention spike: strategy=2.50",
+        "Risk-taking: partial-match strategy"
+      ],
+      "adapted": true,
+      "adaptation_details": {
+        "adapted": true,
+        "old_name": "is_simple_power",
+        "new_name": "generate_integers",
+        "param_mapping": {
+          "x": "a",
+          "n": "b"
+        }
+      }
+    }
+  ]
+}

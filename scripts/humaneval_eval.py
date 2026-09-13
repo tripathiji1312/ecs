@@ -21,6 +21,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from datasets import load_dataset
 from ecs.orchestrator import ECSOrchestrator
 from ecs.verification.sandbox import SafeExecutor
+from ecs.evaluation.signature_adapter import SignatureAdapter
 
 
 def extract_problem_description(prompt: str) -> str:
@@ -108,9 +109,11 @@ def run_evaluation(max_problems: int = 164):
     print(f"Loaded {len(problems)} problems")
 
     orchestrator = ECSOrchestrator()
+    adapter = SignatureAdapter()
     results = []
 
     print(f"\nEvaluating ECS v3 (structured tier) on HumanEval...")
+    print(f"  SignatureAdapter: ENABLED")
     print("-" * 70)
 
     for i, problem in enumerate(problems):
@@ -123,8 +126,10 @@ def run_evaluation(max_problems: int = 164):
 
         start = time.time()
 
-        # Solve with ECS
-        ecs_result = orchestrator.solve_problem(description)
+        # Solve with ECS (pass prompt + entry_point for compositional synthesis)
+        ecs_result = orchestrator.solve_problem(
+            description, prompt=prompt, entry_point=entry_point
+        )
 
         elapsed = time.time() - start
 
@@ -133,13 +138,28 @@ def run_evaluation(max_problems: int = 164):
 
         # Try to verify against HumanEval tests
         passed = False
+        adapted_info = {}
         if generated_code:
-            # Try using code as function body directly
-            body = extract_function_body(generated_code, prompt)
-            if body:
-                passed = verify_humaneval(body, problem)
+            # Strategy 1: Use SignatureAdapter to align function signature
+            adapted_code, adapted_info = adapter.adapt_code(
+                generated_code, prompt
+            )
+            if adapted_code:
+                # Extract body from adapted code for HumanEval format
+                body = adapter._extract_function_body(adapted_code)
+                if body:
+                    passed = verify_humaneval(body, problem)
 
-            # If that fails, try the raw code
+                # If body extraction didn't work, try full adapted code
+                if not passed:
+                    passed = verify_humaneval(adapted_code, problem)
+
+            # Strategy 2: Fallback to original approaches
+            if not passed:
+                body = extract_function_body(generated_code, prompt)
+                if body:
+                    passed = verify_humaneval(body, problem)
+
             if not passed:
                 passed = verify_humaneval(generated_code, problem)
 
@@ -155,25 +175,32 @@ def run_evaluation(max_problems: int = 164):
             "time": elapsed,
             "code_length": len(generated_code) if generated_code else 0,
             "emergence": ecs_result.get("emergence_findings", []),
+            "adapted": adapted_info.get("adapted", False),
+            "adaptation_details": adapted_info,
         })
 
         status = "PASS" if passed else "FAIL"
         ecs_status = "ecs-ok" if ecs_result["success"] else "ecs-no"
-        print(f"  [{i+1:3d}/{len(problems)}] {status} ({ecs_status}) "
+        adapt_flag = "A" if adapted_info.get("adapted") else " "
+        print(f"  [{i+1:3d}/{len(problems)}] {status} ({ecs_status}) {adapt_flag} "
               f"[{ecs_result.get('synthesis_method', 'none'):21}] "
               f"{task_id}: {description[:35]}...")
 
     # Analysis
     print("\n" + "=" * 70)
-    print("  HUMANEVAL RESULTS")
+    print("  HUMANEVAL RESULTS (with SignatureAdapter)")
     print("=" * 70)
 
     passed_count = sum(1 for r in results if r["passed"])
     ecs_success_count = sum(1 for r in results if r["ecs_success"])
+    adapted_count = sum(1 for r in results if r.get("adapted"))
     total = len(results)
 
     print(f"\n  HumanEval pass@1: {passed_count}/{total} ({passed_count/total:.1%})")
     print(f"  ECS internal success: {ecs_success_count}/{total} ({ecs_success_count/total:.1%})")
+    print(f"  Signature adaptations: {adapted_count}/{total} ({adapted_count/total:.1%})")
+    print(f"  Adapter success rate: {adapter.success_count}/{adapter.adaptation_count} "
+          f"({adapter.success_count/max(1,adapter.adaptation_count):.1%})")
 
     # Method breakdown
     methods = {}
@@ -229,6 +256,11 @@ def run_evaluation(max_problems: int = 164):
                 "ecs_success": ecs_success_count,
                 "ecs_success_rate": ecs_success_count / total,
                 "avg_latency_ms": sum(r['time'] for r in results) / len(results) * 1000,
+                "signature_adapter": {
+                    "adaptations_attempted": adapter.adaptation_count,
+                    "adaptations_succeeded": adapter.success_count,
+                    "adapted_problems": adapted_count,
+                },
                 "confidence_calibration": {
                     "high_conf_count": len(high_conf),
                     "high_conf_pass_rate": high_pass,

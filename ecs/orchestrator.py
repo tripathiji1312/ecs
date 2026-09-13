@@ -27,6 +27,9 @@ from ecs.neural.module import NeuralModule
 from ecs.verification.unified_synth import UnifiedSynthesizer
 from ecs.verification.sandbox import SafeExecutor
 from ecs.verification.constraint_inference import ConstraintInferenceEngine
+from ecs.synthesis.compositional import CompositionalSynthesizer
+from ecs.synthesis.execution_guided import ExecutionGuidedSynthesizer
+from ecs.synthesis.induction import ProgramInductionEngine
 from ecs.persistence import SessionPersistence
 
 
@@ -52,6 +55,9 @@ class ECSOrchestrator:
         self.synthesizer = UnifiedSynthesizer(self.neural, self.strategies)
         self.executor = SafeExecutor(timeout=5.0)
         self.constraint_engine = ConstraintInferenceEngine()
+        self.compositional = CompositionalSynthesizer()
+        self.exec_guided = ExecutionGuidedSynthesizer()
+        self.induction = ProgramInductionEngine()
         self.persistence = SessionPersistence()
 
         # Register specialist modules
@@ -110,8 +116,18 @@ class ECSOrchestrator:
     # CORE PROBLEM-SOLVING LOOP
     # ═══════════════════════════════════════════
 
-    def solve_problem(self, problem: str) -> Dict:
-        """The complete problem-solving loop."""
+    def solve_problem(self, problem: str, prompt: str = "",
+                      entry_point: str = "") -> Dict:
+        """The complete problem-solving loop.
+
+        Args:
+            problem: Natural language problem description.
+            prompt: Optional full prompt with signature and docstring
+                    (enables compositional synthesis from examples).
+            entry_point: Optional expected function name.
+        """
+        self._current_prompt = prompt
+        self._current_entry_point = entry_point
         start_time = time.time()
 
         # ─── PHASE 1: UNDERSTANDING ───
@@ -229,13 +245,62 @@ class ECSOrchestrator:
     def _run_synthesis(self, problem: str, strategy_name: Optional[str],
                        problem_features: List[str],
                        retrieved_knowledge: List[str]) -> Optional[Dict]:
-        """Run the synthesis pipeline."""
-        # Path 1: Try code fragment retrieval from memory
-        retrieved_code = self._retrieve_code_from_memory(problem)
-        if retrieved_code:
-            return retrieved_code
+        """Run all synthesis paths and arbitrate by confidence.
 
-        # Path 2: Strategy-guided synthesis (Z3 + neural)
+        When neural is offline, falls back to constraint-first pipeline.
+        When neural is online, tries all paths and picks the best.
+        """
+        candidates = {}
+
+        # Path 1: Constraint inference (fast, <5ms)
+        constraint_result = self._try_constraint_synthesis(problem)
+        if constraint_result and constraint_result.get("success"):
+            candidates["constraint"] = constraint_result
+
+        # Path 2: Compositional synthesis (fast, <50ms)
+        compositional_result = self._try_compositional_synthesis(problem)
+        if compositional_result and compositional_result.get("success"):
+            candidates["compositional"] = compositional_result
+
+        # Path 2b: Execution-guided synthesis (medium, <500ms)
+        exec_result = self._try_exec_guided_synthesis(problem)
+        if exec_result and exec_result.get("success"):
+            candidates["exec_guided"] = exec_result
+
+        # Path 2c: Induction (analogy from past solutions)
+        induction_result = self._try_induction_synthesis(problem)
+        if induction_result and induction_result.get("success"):
+            candidates["induction"] = induction_result
+
+        # Path 3: Memory reuse (fast, <10ms)
+        memory_result = self._retrieve_code_from_memory(problem)
+        if memory_result and memory_result.get("success"):
+            candidates["memory"] = memory_result
+
+        # Path 4: Neural generation (slow, ~1-2s)
+        if self.neural.is_available():
+            neural_result = self._try_neural_synthesis(
+                problem, strategy_name, problem_features, retrieved_knowledge
+            )
+            if neural_result and neural_result.get("success"):
+                candidates["neural"] = neural_result
+
+        if not candidates:
+            return {"success": False, "code": None, "confidence": 0.0,
+                    "synthesis_method": "failed", "verification_level": "none"}
+
+        # Arbitration: high-confidence verified results beat neural
+        return self._arbitrate(candidates)
+
+    def _try_neural_synthesis(self, problem: str,
+                              strategy_name: Optional[str],
+                              problem_features: List[str],
+                              retrieved_knowledge: List[str],
+                              multi_sample: bool = False,
+                              k: int = 16,
+                              temperature: float = 0.8) -> Optional[Dict]:
+        """Try neural code generation. With multi_sample, generates K candidates and picks best."""
+        # Strategy-guided first
         if strategy_name:
             result = self.synthesizer.synthesize(
                 specification=problem,
@@ -244,32 +309,112 @@ class ECSOrchestrator:
                 retrieved_knowledge=retrieved_knowledge
             )
             if result.get("success"):
+                result["synthesis_method"] = "neural_strategy"
                 return result
 
-        # Path 3: Constraint inference (structured tier, no neural)
-        if not self.neural.is_available():
-            constraint_result = self._try_constraint_synthesis(problem)
-            if constraint_result:
-                return constraint_result
+        if multi_sample:
+            return self._try_neural_multi(problem, retrieved_knowledge, k, temperature)
 
-        # Path 4: Neural-only fallback
-        if self.neural.is_available():
-            response = self.neural.generate_code(
-                specification=problem,
-                strategy_context=None,
-                retrieved_knowledge=retrieved_knowledge
-            )
-            if response.code:
-                return {
-                    "success": True,
-                    "code": response.code,
-                    "confidence": response.confidence,
-                    "verification_level": "syntax_only",
-                    "synthesis_method": "neural_only",
-                }
+        # Direct generation
+        response = self.neural.generate_code(
+            specification=problem,
+            strategy_context=None,
+            retrieved_knowledge=retrieved_knowledge
+        )
+        if response.code:
+            return {
+                "success": True,
+                "code": response.code,
+                "confidence": response.confidence,
+                "verification_level": "syntax_only",
+                "synthesis_method": "neural_only",
+            }
+        return None
 
-        return {"success": False, "code": None, "confidence": 0.0,
-                "synthesis_method": "failed", "verification_level": "none"}
+    def _try_neural_multi(self, problem: str,
+                          retrieved_knowledge: List[str],
+                          k: int = 16,
+                          temperature: float = 0.8) -> Optional[Dict]:
+        """Generate K neural samples, verify each, return the best."""
+        responses = self.neural.generate_code_multi(
+            specification=problem, k=k, temperature=temperature,
+            retrieved_knowledge=retrieved_knowledge
+        )
+        candidates_with_code = [r for r in responses if r.code]
+        if not candidates_with_code:
+            return None
+
+        # If we have prompt/entry_point, verify each against examples
+        if self._current_prompt and self._current_entry_point:
+            import subprocess, tempfile, sys
+            best = None
+            for r in candidates_with_code:
+                full_program = (
+                    f"{self._current_prompt}{r.code}\n\n"
+                    f"# basic syntax check\nprint('OK')\n"
+                )
+                try:
+                    with tempfile.NamedTemporaryFile(mode='w', suffix='.py', delete=False) as f:
+                        f.write(full_program)
+                        f.flush()
+                        result = subprocess.run(
+                            [sys.executable, f.name],
+                            capture_output=True, text=True, timeout=5
+                        )
+                    if result.returncode == 0:
+                        best = r
+                        break
+                except Exception:
+                    continue
+            if best is None:
+                best = candidates_with_code[0]
+        else:
+            best = candidates_with_code[0]
+
+        return {
+            "success": True,
+            "code": best.code,
+            "confidence": best.confidence,
+            "verification_level": "syntax_only",
+            "synthesis_method": "neural_multi",
+            "candidates_generated": len(candidates_with_code),
+        }
+
+    def _arbitrate(self, candidates: Dict[str, Dict]) -> Dict:
+        """Pick the best synthesis result with tier preference.
+
+        Priority order:
+        1. Verified results (constraint/compositional/exec_guided with unit_tests, conf >= 0.8)
+        2. Neural (if available and confident) — handles novel problems
+        3. Any reasoning-based path at any confidence — deterministic
+        4. Induction analogy — structural match from past solutions
+        5. Memory reuse — associative match, less reliable
+        6. Best remaining by confidence
+        """
+        reasoning_keys = ("constraint", "compositional", "exec_guided")
+
+        # Verified reasoning results are gold standard
+        for key in reasoning_keys:
+            if key in candidates:
+                c = candidates[key]
+                if c.get("confidence", 0) >= 0.8 and c.get("verification_level") == "unit_tests":
+                    return c
+
+        # Neural beats unverified candidates when confident
+        if "neural" in candidates and candidates["neural"].get("confidence", 0) > 0.4:
+            return candidates["neural"]
+
+        # Prefer any reasoning path over memory/induction
+        for key in reasoning_keys:
+            if key in candidates:
+                return candidates[key]
+
+        # Induction analogy is better than raw memory reuse
+        if "induction" in candidates:
+            return candidates["induction"]
+
+        return max(candidates.values(),
+                   key=lambda r: r.get("confidence", 0))
 
     def _try_constraint_synthesis(self, problem: str) -> Optional[Dict]:
         """Attempt synthesis via constraint inference (no neural needed)."""
@@ -306,12 +451,69 @@ class ECSOrchestrator:
             "constraints_inferred": len(constraints),
         }
 
+    def _try_compositional_synthesis(self, problem: str) -> Optional[Dict]:
+        """Attempt synthesis by composing primitives from examples."""
+        prompt = getattr(self, '_current_prompt', '')
+        entry_point = getattr(self, '_current_entry_point', '')
+        if not prompt or not entry_point:
+            return None
+
+        code = self.compositional.synthesize(problem, prompt, entry_point)
+        if not code:
+            return None
+
+        return {
+            "success": True,
+            "code": code,
+            "confidence": 0.9,
+            "verification_level": "unit_tests",
+            "synthesis_method": "compositional",
+        }
+
+    def _try_exec_guided_synthesis(self, problem: str) -> Optional[Dict]:
+        """Attempt execution-guided synthesis: build by running + observing."""
+        prompt = getattr(self, '_current_prompt', '')
+        entry_point = getattr(self, '_current_entry_point', '')
+        if not prompt or not entry_point:
+            return None
+
+        code = self.exec_guided.synthesize(problem, prompt, entry_point)
+        if not code:
+            return None
+
+        return {
+            "success": True,
+            "code": code,
+            "confidence": 0.88,
+            "verification_level": "unit_tests",
+            "synthesis_method": "execution_guided",
+        }
+
+    def _try_induction_synthesis(self, problem: str) -> Optional[Dict]:
+        """Attempt synthesis via analogy to previously solved programs."""
+        code = self.induction.find_analogous_solution(problem)
+        if not code:
+            return None
+
+        valid, _ = self.executor.verify_syntax(code)
+        if not valid:
+            return None
+
+        return {
+            "success": True,
+            "code": code,
+            "confidence": 0.7,
+            "verification_level": "analogy",
+            "synthesis_method": "induction_analogy",
+        }
+
     def _find_code_pattern(self, constraints: List[Dict], code: str) -> str:
         """Determine which pattern actually produced the code."""
         import re
         func_match = re.search(r'def\s+(\w+)\s*\(', code)
         if not func_match:
-            return constraints[0]["pattern"]
+            by_spec = sorted(constraints, key=lambda c: c.get("specificity", 0), reverse=True)
+            return by_spec[0]["pattern"]
 
         func_name = func_match.group(1)
 
@@ -321,7 +523,9 @@ class ECSOrchestrator:
             if tests and tests[0].get("function") == func_name:
                 return c["pattern"]
 
-        return constraints[0]["pattern"]
+        # No test match — return most specific constraint
+        by_spec = sorted(constraints, key=lambda c: c.get("specificity", 0), reverse=True)
+        return by_spec[0]["pattern"]
 
     def _retrieve_code_from_memory(self, problem: str) -> Optional[Dict]:
         """Try to retrieve previously-successful code from memory."""
@@ -499,6 +703,12 @@ class ECSOrchestrator:
                     "problem": problem,
                 }
             )
+
+            # Feed induction engine for abstraction mining
+            entry_point = getattr(self, '_current_entry_point', '')
+            self.induction.record(problem, code, entry_point)
+            if len(self.induction.solved) % 10 == 0:
+                self.induction.mine_abstractions()
 
     # ═══════════════════════════════════════════
     # EMERGENCE DETECTION

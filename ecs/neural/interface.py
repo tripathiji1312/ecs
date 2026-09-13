@@ -43,15 +43,25 @@ class NeuralInterface:
     )
 
     def __init__(self, model_name: str = "qwen2.5-coder:0.5b",
-                 ollama_url: str = "http://localhost:11434"):
+                 ollama_url: str = "http://localhost:11434",
+                 backend: str = "ollama"):
         self.model_name = model_name
         self.ollama_url = ollama_url
+        self.backend = backend
+        self._hf_model = None
+        self._hf_tokenizer = None
         self.conversation_history: List[Dict] = []
         self.total_tokens: int = 0
         self.total_calls: int = 0
 
     def is_available(self) -> bool:
-        """Check if Ollama is running and model is available."""
+        """Check if the configured backend is available."""
+        if self.backend == "hf":
+            try:
+                self._init_hf()
+                return True
+            except Exception:
+                return False
         try:
             resp = requests.get(f"{self.ollama_url}/api/tags", timeout=2)
             if resp.status_code != 200:
@@ -61,6 +71,59 @@ class NeuralInterface:
                        for m in models)
         except (requests.ConnectionError, requests.Timeout):
             return False
+
+    def _init_hf(self):
+        """Lazy-init HuggingFace model + tokenizer."""
+        if self._hf_model is not None:
+            return
+        import torch
+        from transformers import AutoModelForCausalLM, AutoTokenizer
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        dtype = torch.float16 if device == "cuda" else torch.float32
+        self._hf_tokenizer = AutoTokenizer.from_pretrained(self.model_name)
+        self._hf_model = AutoModelForCausalLM.from_pretrained(
+            self.model_name, torch_dtype=dtype,
+            device_map="auto" if device == "cuda" else None
+        )
+        if device == "cpu":
+            self._hf_model = self._hf_model.to(device)
+
+    def _call_hf(self, prompt: str, system: Optional[str] = None,
+                 temperature: float = 0.7, max_tokens: int = 2048) -> Dict[str, Any]:
+        """Generate via HuggingFace Transformers. Same return format as _call_ollama."""
+        import torch
+        self._init_hf()
+        messages = []
+        if system or self.SYSTEM_PROMPT:
+            messages.append({"role": "system", "content": system or self.SYSTEM_PROMPT})
+        messages.append({"role": "user", "content": prompt})
+
+        text = self._hf_tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        inputs = self._hf_tokenizer(text, return_tensors="pt").to(self._hf_model.device)
+
+        start = time.time()
+        with torch.no_grad():
+            output = self._hf_model.generate(
+                **inputs, max_new_tokens=max_tokens,
+                do_sample=temperature > 0, temperature=temperature if temperature > 0 else None,
+                pad_token_id=self._hf_tokenizer.eos_token_id,
+            )
+        latency = (time.time() - start) * 1000
+        new_tokens = output[0][inputs['input_ids'].shape[1]:]
+        content = self._hf_tokenizer.decode(new_tokens, skip_special_tokens=True)
+        tokens = len(new_tokens)
+
+        self.total_tokens += tokens
+        self.total_calls += 1
+
+        return {"content": content, "tokens": tokens, "latency_ms": latency}
+
+    def _call_backend(self, prompt: str, system: Optional[str] = None,
+                      temperature: float = 0.7, max_tokens: int = 2048) -> Dict[str, Any]:
+        """Route to the configured backend."""
+        if self.backend == "hf":
+            return self._call_hf(prompt, system, temperature, max_tokens)
+        return self._call_ollama(prompt, system, temperature, max_tokens)
 
     def _call_ollama(self, prompt: str,
                      system: Optional[str] = None,
@@ -138,7 +201,7 @@ class NeuralInterface:
 
         prompt = "\n".join(prompt_parts)
 
-        result = self._call_ollama(prompt, temperature=0.3)
+        result = self._call_backend(prompt, temperature=0.3)
         code = self._extract_code(result["content"])
 
         return NeuralResponse(
@@ -148,6 +211,36 @@ class NeuralInterface:
             tokens_used=result["tokens"],
             latency_ms=result["latency_ms"]
         )
+
+    def generate_code_multi(self, specification: str, k: int = 16,
+                            temperature: float = 0.8,
+                            strategy_context: Optional[str] = None,
+                            retrieved_knowledge: Optional[List[str]] = None) -> List[NeuralResponse]:
+        """Generate K code samples for the same specification."""
+        prompt_parts = []
+        if retrieved_knowledge:
+            prompt_parts.append("Relevant knowledge from memory:")
+            for i, knowledge in enumerate(retrieved_knowledge, 1):
+                prompt_parts.append(f"  {i}. {knowledge}")
+            prompt_parts.append("")
+        if strategy_context:
+            prompt_parts.append(f"Approach to use: {strategy_context}")
+            prompt_parts.append("")
+        prompt_parts.append("Write Python code for the following:")
+        prompt_parts.append(f"Specification: {specification}")
+        prompt_parts.append("")
+        prompt_parts.append("Provide ONLY the code, wrapped in ```python ... ```")
+        prompt = "\n".join(prompt_parts)
+
+        responses = []
+        for _ in range(k):
+            result = self._call_backend(prompt, temperature=temperature)
+            code = self._extract_code(result["content"])
+            responses.append(NeuralResponse(
+                text=result["content"], code=code, confidence=0.7,
+                tokens_used=result["tokens"], latency_ms=result["latency_ms"]
+            ))
+        return responses
 
     def _extract_code(self, text: str) -> Optional[str]:
         """Extract code block from response."""
@@ -184,7 +277,7 @@ class NeuralInterface:
             "SUB_PROBLEMS: [semicolon-separated list of sub-problems, if any]"
         )
 
-        result = self._call_ollama(prompt, temperature=0.1)
+        result = self._call_backend(prompt, temperature=0.1)
         response = result["content"]
 
         features = []
@@ -228,7 +321,7 @@ class NeuralInterface:
             "3. Time and space complexity"
         )
 
-        result = self._call_ollama(prompt, temperature=0.5)
+        result = self._call_backend(prompt, temperature=0.5)
 
         return NeuralResponse(
             text=result["content"],
@@ -254,7 +347,7 @@ class NeuralInterface:
             "TYPE: [normal/edge_case/error_case]"
         )
 
-        result = self._call_ollama(prompt, temperature=0.5)
+        result = self._call_backend(prompt, temperature=0.5)
         response = result["content"]
 
         test_cases = []
@@ -297,7 +390,7 @@ class NeuralInterface:
             "Keep everything else the same."
         )
 
-        result = self._call_ollama(prompt, temperature=0.2)
+        result = self._call_backend(prompt, temperature=0.2)
         code = self._extract_code(result["content"])
 
         return NeuralResponse(

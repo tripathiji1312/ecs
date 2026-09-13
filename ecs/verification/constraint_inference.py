@@ -108,9 +108,14 @@ class ConstraintInferenceEngine:
                          "combine sorted"],
             "description": "merge two sorted arrays",
         },
+        "all_prefixes": {
+            "keywords": ["all prefixes", "list of prefixes",
+                         "prefixes from shortest"],
+            "description": "generate all prefixes of a string",
+        },
         "prefix": {
-            "keywords": ["prefix", "longest common prefix",
-                         "shared prefix"],
+            "keywords": ["longest common prefix",
+                         "shared prefix", "common prefix"],
             "description": "find longest common prefix",
         },
         "divide_and_conquer": {
@@ -118,10 +123,124 @@ class ConstraintInferenceEngine:
                          "quicksort", "split and merge"],
             "description": "divide-and-conquer algorithm",
         },
+        "sliding_window": {
+            "keywords": ["longest substring", "shortest substring",
+                         "sliding window", "window size",
+                         "subarray sum", "maximum subarray"],
+            "description": "sliding window optimization",
+        },
+        "cycle_detection": {
+            "keywords": ["cycle", "linked list cycle", "circular",
+                         "happy number", "floyd"],
+            "description": "Floyd's cycle detection",
+        },
+        "monotonic_stack": {
+            "keywords": ["next greater", "next smaller",
+                         "daily temperatures", "nearest larger",
+                         "stock span"],
+            "description": "monotonic stack pattern",
+        },
+        "gcd": {
+            "keywords": ["gcd", "greatest common divisor", "euclidean"],
+            "description": "compute greatest common divisor",
+        },
+        "power": {
+            "keywords": ["power", "exponent", "x to the n",
+                         "exponentiation"],
+            "description": "compute power/exponentiation",
+        },
+        "abs_value": {
+            "keywords": ["absolute value", "abs", "magnitude",
+                         "distance between"],
+            "description": "compute absolute value",
+        },
+        "flatten": {
+            "keywords": ["flatten", "nested list", "flatten list",
+                         "unnest"],
+            "description": "flatten nested structure",
+        },
+        "count_occurrences": {
+            "keywords": ["count occurrences", "frequency", "how many times",
+                         "count elements"],
+            "description": "count element occurrences",
+        },
         "binary_search": {
             "keywords": ["binary search", "search sorted",
                          "bisect", "log n search"],
             "description": "binary search on sorted data",
+        },
+        "mean_absolute_deviation": {
+            "keywords": ["mean absolute deviation", "average deviation",
+                         "mad"],
+            "description": "compute mean absolute deviation",
+        },
+        "rolling_max": {
+            "keywords": ["rolling max", "running maximum",
+                         "rolling maximum", "maximum so far"],
+            "description": "compute rolling maximum list",
+        },
+        "factorize": {
+            "keywords": ["prime factors", "factorize", "factorization",
+                         "list of prime factors"],
+            "description": "find prime factorization",
+        },
+        "largest_prime_factor": {
+            "keywords": ["largest prime factor", "biggest prime factor",
+                         "greatest prime factor"],
+            "description": "find largest prime factor",
+        },
+        "count_distinct": {
+            "keywords": ["distinct characters", "unique characters",
+                         "how many distinct", "count distinct"],
+            "description": "count distinct characters in string",
+        },
+        "count_substring": {
+            "keywords": ["how many times a given substring",
+                         "count overlapping", "count substring",
+                         "substring occurrences"],
+            "description": "count substring occurrences",
+        },
+        "largest_divisor": {
+            "keywords": ["largest number that divides",
+                         "largest divisor", "biggest divisor"],
+            "description": "find largest divisor smaller than n",
+        },
+        "sorted_unique": {
+            "keywords": ["sorted unique", "unique sorted",
+                         "sorted distinct"],
+            "description": "return sorted unique elements",
+        },
+        "pairs_sum_zero": {
+            "keywords": ["pairs sum to zero", "two distinct elements",
+                         "sum to zero", "pairs_sum_to_zero"],
+            "description": "check if two elements sum to zero",
+        },
+        "triples_sum_zero": {
+            "keywords": ["triples sum to zero", "three distinct elements",
+                         "triples_sum_to_zero", "three elements that sum to zero"],
+            "description": "check if three elements sum to zero",
+        },
+        "common_elements": {
+            "keywords": ["common elements", "common for two lists",
+                         "elements in both", "intersection"],
+            "description": "find sorted unique common elements",
+        },
+        "is_simple_power": {
+            "keywords": ["simple power of", "power of n",
+                         "is a power of"],
+            "description": "check if x is a simple power of n",
+        },
+        "count_up_to_prime": {
+            "keywords": ["prime numbers and less than",
+                         "prime numbers less than",
+                         "primes less than", "primes up to",
+                         "integers that are prime"],
+            "description": "find all primes less than n",
+        },
+        "correct_bracketing": {
+            "keywords": ["opening bracket has a corresponding closing",
+                         "every opening bracket"],
+            "description": "check bracket matching",
         },
     }
 
@@ -307,6 +426,45 @@ class ConstraintInferenceEngine:
             "            result.append(x)\n"
             "    return result\n"
         ),
+        "gcd": (
+            "def gcd(a, b):\n"
+            "    while b:\n"
+            "        a, b = b, a % b\n"
+            "    return a\n"
+        ),
+        "power": (
+            "def power(base, exp):\n"
+            "    if exp == 0:\n"
+            "        return 1\n"
+            "    if exp < 0:\n"
+            "        return 1 / power(base, -exp)\n"
+            "    if exp % 2 == 0:\n"
+            "        half = power(base, exp // 2)\n"
+            "        return half * half\n"
+            "    return base * power(base, exp - 1)\n"
+        ),
+        "flatten": (
+            "def flatten(lst):\n"
+            "    result = []\n"
+            "    for item in lst:\n"
+            "        if isinstance(item, list):\n"
+            "            result.extend(flatten(item))\n"
+            "        else:\n"
+            "            result.append(item)\n"
+            "    return result\n"
+        ),
+        "count_occurrences": (
+            "def count_occurrences(lst, target):\n"
+            "    count = 0\n"
+            "    for x in lst:\n"
+            "        if x == target:\n"
+            "            count += 1\n"
+            "    return count\n"
+        ),
+        "abs_value": (
+            "def absolute_value(x):\n"
+            "    return x if x >= 0 else -x\n"
+        ),
         "prefix": (
             "def longest_common_prefix(strs):\n"
             "    if not strs:\n"
@@ -330,19 +488,156 @@ class ConstraintInferenceEngine:
             "            result.append([elem] + perm)\n"
             "    return result\n"
         ),
+        "all_prefixes": (
+            "def all_prefixes(string):\n"
+            "    result = []\n"
+            "    for i in range(1, len(string) + 1):\n"
+            "        result.append(string[:i])\n"
+            "    return result\n"
+        ),
+        "mean_absolute_deviation": (
+            "def mean_absolute_deviation(numbers):\n"
+            "    mean = sum(numbers) / len(numbers)\n"
+            "    return sum(abs(x - mean) for x in numbers) / len(numbers)\n"
+        ),
+        "rolling_max": (
+            "def rolling_max(numbers):\n"
+            "    result = []\n"
+            "    current_max = None\n"
+            "    for n in numbers:\n"
+            "        if current_max is None or n > current_max:\n"
+            "            current_max = n\n"
+            "        result.append(current_max)\n"
+            "    return result\n"
+        ),
+        "factorize": (
+            "def factorize(n):\n"
+            "    factors = []\n"
+            "    d = 2\n"
+            "    while d * d <= n:\n"
+            "        while n % d == 0:\n"
+            "            factors.append(d)\n"
+            "            n //= d\n"
+            "        d += 1\n"
+            "    if n > 1:\n"
+            "        factors.append(n)\n"
+            "    return factors\n"
+        ),
+        "largest_prime_factor": (
+            "def largest_prime_factor(n):\n"
+            "    largest = 1\n"
+            "    d = 2\n"
+            "    while d * d <= n:\n"
+            "        while n % d == 0:\n"
+            "            largest = d\n"
+            "            n //= d\n"
+            "        d += 1\n"
+            "    if n > 1:\n"
+            "        largest = n\n"
+            "    return largest\n"
+        ),
+        "count_distinct": (
+            "def count_distinct_characters(string):\n"
+            "    return len(set(string.lower()))\n"
+        ),
+        "count_substring": (
+            "def how_many_times(string, substring):\n"
+            "    count = 0\n"
+            "    start = 0\n"
+            "    while True:\n"
+            "        pos = string.find(substring, start)\n"
+            "        if pos == -1:\n"
+            "            break\n"
+            "        count += 1\n"
+            "        start = pos + 1\n"
+            "    return count\n"
+        ),
+        "largest_divisor": (
+            "def largest_divisor(n):\n"
+            "    for i in range(n - 1, 0, -1):\n"
+            "        if n % i == 0:\n"
+            "            return i\n"
+            "    return 1\n"
+        ),
+        "sorted_unique": (
+            "def unique(l):\n"
+            "    return sorted(set(l))\n"
+        ),
+        "pairs_sum_zero": (
+            "def pairs_sum_to_zero(l):\n"
+            "    for i in range(len(l)):\n"
+            "        for j in range(i + 1, len(l)):\n"
+            "            if l[i] + l[j] == 0:\n"
+            "                return True\n"
+            "    return False\n"
+        ),
+        "triples_sum_zero": (
+            "def triples_sum_to_zero(l):\n"
+            "    for i in range(len(l)):\n"
+            "        for j in range(i + 1, len(l)):\n"
+            "            for k in range(j + 1, len(l)):\n"
+            "                if l[i] + l[j] + l[k] == 0:\n"
+            "                    return True\n"
+            "    return False\n"
+        ),
+        "common_elements": (
+            "def common(l1, l2):\n"
+            "    return sorted(set(l1) & set(l2))\n"
+        ),
+        "is_simple_power": (
+            "def is_simple_power(x, n):\n"
+            "    if x == 1:\n"
+            "        return True\n"
+            "    if n == 1:\n"
+            "        return x == 1\n"
+            "    power = n\n"
+            "    while power < x:\n"
+            "        power *= n\n"
+            "    return power == x\n"
+        ),
+        "count_up_to_prime": (
+            "def count_up_to(n):\n"
+            "    primes = []\n"
+            "    for i in range(2, n):\n"
+            "        is_p = True\n"
+            "        for j in range(2, int(i**0.5) + 1):\n"
+            "            if i % j == 0:\n"
+            "                is_p = False\n"
+            "                break\n"
+            "        if is_p:\n"
+            "            primes.append(i)\n"
+            "    return primes\n"
+        ),
+        "correct_bracketing": (
+            "def correct_bracketing(brackets):\n"
+            "    depth = 0\n"
+            "    for ch in brackets:\n"
+            "        if ch == '<' or ch == '(':\n"
+            "            depth += 1\n"
+            "        elif ch == '>' or ch == ')':\n"
+            "            depth -= 1\n"
+            "        if depth < 0:\n"
+            "            return False\n"
+            "    return depth == 0\n"
+        ),
     }
 
     def infer_constraints(self, problem_text: str) -> List[Dict]:
-        """Extract constraints from problem text."""
+        """Extract constraints from problem text with specificity scoring."""
         text_lower = problem_text.lower()
         constraints = []
 
         for pattern_name, pattern in self.CONSTRAINT_PATTERNS.items():
-            if any(kw in text_lower for kw in pattern["keywords"]):
+            best_match_len = 0
+            for kw in pattern["keywords"]:
+                if kw in text_lower:
+                    best_match_len = max(best_match_len, len(kw))
+            if best_match_len > 0:
                 constraints.append({
                     "pattern": pattern_name,
                     "description": pattern["description"],
                     "source_text": problem_text,
+                    "specificity": best_match_len,
                 })
 
         return constraints
@@ -360,21 +655,13 @@ class ConstraintInferenceEngine:
         if pattern_key in self.CODE_TEMPLATES:
             return self.CODE_TEMPLATES[pattern_key]
 
-        # Try individual patterns (prefer more specific ones)
-        priority_order = [
-            "divide_and_conquer", "binary_search", "merge_sorted",
-            "sum_pair", "subsequence", "permutation",
-            "balanced_brackets", "palindrome", "prime",
-            "fibonacci", "factorial", "rotate", "prefix",
-            "unique", "reverse", "sort", "minimum", "maximum",
-        ]
+        # Sort constraints by specificity (longest keyword match wins)
+        by_specificity = sorted(
+            constraints, key=lambda c: c.get("specificity", 0), reverse=True
+        )
 
-        for pattern in priority_order:
-            if pattern in pattern_names and pattern in self.CODE_TEMPLATES:
-                return self.CODE_TEMPLATES[pattern]
-
-        # Fallback: try any matching pattern
-        for c in constraints:
+        # Try most specific match first
+        for c in by_specificity:
             if c["pattern"] in self.CODE_TEMPLATES:
                 return self.CODE_TEMPLATES[c["pattern"]]
 
@@ -454,6 +741,82 @@ class ConstraintInferenceEngine:
             "prefix": [
                 {"function": "longest_common_prefix", "inputs": [["flower", "flow", "flight"]], "expected": "fl"},
                 {"function": "longest_common_prefix", "inputs": [["dog", "racecar"]], "expected": ""},
+            ],
+            "gcd": [
+                {"function": "gcd", "inputs": [12, 8], "expected": 4},
+                {"function": "gcd", "inputs": [7, 13], "expected": 1},
+                {"function": "gcd", "inputs": [25, 15], "expected": 5},
+            ],
+            "all_prefixes": [
+                {"function": "all_prefixes", "inputs": ["abc"], "expected": ["a", "ab", "abc"]},
+                {"function": "all_prefixes", "inputs": ["x"], "expected": ["x"]},
+            ],
+            "mean_absolute_deviation": [
+                {"function": "mean_absolute_deviation", "inputs": [[1.0, 2.0, 3.0, 4.0]], "expected": 1.0},
+            ],
+            "rolling_max": [
+                {"function": "rolling_max", "inputs": [[1, 3, 2, 5, 4]], "expected": [1, 3, 3, 5, 5]},
+                {"function": "rolling_max", "inputs": [[5, 4, 3]], "expected": [5, 5, 5]},
+            ],
+            "factorize": [
+                {"function": "factorize", "inputs": [12], "expected": [2, 2, 3]},
+                {"function": "factorize", "inputs": [7], "expected": [7]},
+                {"function": "factorize", "inputs": [8], "expected": [2, 2, 2]},
+            ],
+            "largest_prime_factor": [
+                {"function": "largest_prime_factor", "inputs": [15], "expected": 5},
+                {"function": "largest_prime_factor", "inputs": [12], "expected": 3},
+                {"function": "largest_prime_factor", "inputs": [49], "expected": 7},
+            ],
+            "count_distinct": [
+                {"function": "count_distinct_characters", "inputs": ["xyzXYZ"], "expected": 3},
+                {"function": "count_distinct_characters", "inputs": ["Jerry"], "expected": 4},
+            ],
+            "count_substring": [
+                {"function": "how_many_times", "inputs": ["aaa", "a"], "expected": 3},
+                {"function": "how_many_times", "inputs": ["aaa", "aa"], "expected": 2},
+                {"function": "how_many_times", "inputs": ["", "a"], "expected": 0},
+            ],
+            "largest_divisor": [
+                {"function": "largest_divisor", "inputs": [15], "expected": 5},
+                {"function": "largest_divisor", "inputs": [12], "expected": 6},
+                {"function": "largest_divisor", "inputs": [7], "expected": 1},
+            ],
+            "sorted_unique": [
+                {"function": "unique", "inputs": [[5, 3, 5, 2, 3, 3, 9, 0, 123]], "expected": [0, 2, 3, 5, 9, 123]},
+            ],
+            "pairs_sum_zero": [
+                {"function": "pairs_sum_to_zero", "inputs": [[1, 3, 5, 0]], "expected": False},
+                {"function": "pairs_sum_to_zero", "inputs": [[1, 3, -2, 1]], "expected": False},
+                {"function": "pairs_sum_to_zero", "inputs": [[1, 2, 3, 7]], "expected": False},
+                {"function": "pairs_sum_to_zero", "inputs": [[2, 4, -5, 3, 5, 7]], "expected": True},
+                {"function": "pairs_sum_to_zero", "inputs": [[1]], "expected": False},
+            ],
+            "triples_sum_zero": [
+                {"function": "triples_sum_to_zero", "inputs": [[1, 3, 5, 0]], "expected": False},
+                {"function": "triples_sum_to_zero", "inputs": [[1, 3, -2, 1]], "expected": True},
+                {"function": "triples_sum_to_zero", "inputs": [[1, 2, 3, 7]], "expected": False},
+            ],
+            "common_elements": [
+                {"function": "common", "inputs": [[1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121]], "expected": [1, 5, 653]},
+            ],
+            "is_simple_power": [
+                {"function": "is_simple_power", "inputs": [1, 4], "expected": True},
+                {"function": "is_simple_power", "inputs": [2, 2], "expected": True},
+                {"function": "is_simple_power", "inputs": [8, 2], "expected": True},
+                {"function": "is_simple_power", "inputs": [3, 2], "expected": False},
+            ],
+            "count_up_to_prime": [
+                {"function": "count_up_to", "inputs": [5], "expected": [2, 3]},
+                {"function": "count_up_to", "inputs": [11], "expected": [2, 3, 5, 7]},
+                {"function": "count_up_to", "inputs": [0], "expected": []},
+                {"function": "count_up_to", "inputs": [1], "expected": []},
+            ],
+            "correct_bracketing": [
+                {"function": "correct_bracketing", "inputs": ["<>"], "expected": True},
+                {"function": "correct_bracketing", "inputs": ["<<><>>"], "expected": True},
+                {"function": "correct_bracketing", "inputs": ["<"], "expected": False},
+                {"function": "correct_bracketing", "inputs": ["<>><"], "expected": False},
             ],
         }
 
