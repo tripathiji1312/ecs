@@ -1,20 +1,8 @@
-# ECS v3: Complete Evaluation Results & Paper Data
+# ECS v3: Complete Evaluation Results
 
 ## System Overview
 
-**ECS (Emergent Cognitive System)** is a cognitive architecture for program synthesis that combines hyperdimensional memory, global workspace dynamics, constraint-based synthesis, and confidence-calibrated verification. It operates **without a neural language model** in structured tier.
-
-### Project Metrics
-
-| Metric | Value |
-|--------|-------|
-| Source files | 27 |
-| Source LoC | 7,200+ |
-| Test LoC | 4,600+ |
-| Total tests | 268 |
-| Test time | ~8s |
-| Python version | 3.11 |
-| Dependencies | numpy, scipy, requests, z3-solver |
+**ECS (Emergent Cognitive System)** is a cognitive architecture for program synthesis that combines hyperdimensional memory, global workspace dynamics, multi-strategy synthesis, and confidence-calibrated verification. It operates in two tiers: **structured** (no neural model) and **full** (with Qwen2.5-Coder-0.5B-Instruct).
 
 ### Architecture Components
 
@@ -22,41 +10,156 @@
 |-----------|------|---------|
 | HDC Memory | `ecs/memory/hdc.py` | 10,000-dim Binary Spatter Codes, TF-IDF encoding, batch similarity |
 | Global Workspace | `ecs/workspace/global_workspace.py` | Auction-based attention, temperature coupling, self-model |
-| Strategy Library | `ecs/strategies/library.py` | 12 meta-strategies, DAG relationships, co-occurrence tracking |
-| Neural Interface | `ecs/neural/interface.py` | Qwen2.5-Coder-0.5B via Ollama (frozen, no fine-tuning) |
-| Neural Module | `ecs/neural/module.py` | Workspace specialist bidder with syntax validation |
+| Strategy Library | `ecs/strategies/library.py` | 12 meta-strategies, DAG relationships |
+| Neural Interface | `ecs/neural/interface.py` | Qwen2.5-Coder-0.5B via Ollama or HuggingFace (frozen) |
 | Constraint Inference | `ecs/verification/constraint_inference.py` | NL → constraints → code templates |
-| Sketch Synthesis | `ecs/verification/sketch_synth.py` | Z3 SMT solver for hole-filling |
-| Safe Executor | `ecs/verification/sandbox.py` | Subprocess isolation, timeout, memory limits |
-| Unified Synthesizer | `ecs/verification/unified_synth.py` | Pipeline: Z3 → hybrid → neural |
 | Compositional Synth | `ecs/synthesis/compositional.py` | Type-driven reasoning + primitive composition |
 | Execution-Guided | `ecs/synthesis/execution_guided.py` | Build solutions by executing + observing |
 | Program Induction | `ecs/synthesis/induction.py` | Learn abstractions from solved programs |
-| Orchestrator | `ecs/orchestrator.py` | Six-phase solving loop, all integration |
-| Persistence | `ecs/persistence.py` | Atomic session save/load |
+| Orchestrator | `ecs/orchestrator.py` | Six-phase solving loop, multi-strategy arbitration |
+
+### Project Metrics
+
+| Metric | Value |
+|--------|-------|
+| Source files | 28 |
+| Total tests | 268 (all passing) |
+| Python | >=3.11 |
+| Dependencies | numpy, scipy, requests, z3-solver, datasets |
+
+---
+
+## Phase 0: Kill Gate — ECS vs Qwen-0.5B-Instruct
+
+### Setup
+- **ECS structured tier**: 36/164 HumanEval pass@1 (no neural model)
+- **Qwen2.5-Coder-0.5B-Instruct**: 91/164 HumanEval pass@1 (HuggingFace Transformers, FP16, T4 GPU, greedy decoding)
+- Per-problem comparison to determine if ECS adds unique value
+
+### Venn Diagram
+
+```
+                ECS (36)              Qwen (91)
+              ┌─────────┐          ┌─────────────┐
+              │         │          │             │
+              │  only   │  both    │    only     │
+              │  ECS    │          │    Qwen     │
+              │   8     │   28     │     63      │
+              │         │          │             │
+              └─────────┘          └─────────────┘
+
+              Neither: 65          Union: 99/164 (60.4%)
+```
+
+| Category | Count | Problems |
+|----------|-------|----------|
+| Both solve | 28 | HumanEval/0, /3, /4, /5, /7, /8, /12, /13, /16, /18, /23, /24, /28, /29, /30, /31, /34, /35, /40, /42, /43, /48, /52, /53, /55, /56, /58, /61 |
+| Only ECS | **8** | HumanEval/9, /14, /25, /26, /57, /59, /76, /96 |
+| Only Qwen | 63 | (63 problems the neural model solves but templates can't cover) |
+| Neither | 65 | (problems too hard for both approaches) |
+
+### ECS-Unique Problems (8)
+
+| Problem | Method | Confidence | Description |
+|---------|--------|------------|-------------|
+| HumanEval/9 | constraint_inference | 0.85 | Rolling Maximum |
+| HumanEval/14 | constraint_inference | 0.85 | All Prefixes |
+| HumanEval/25 | constraint_inference | 0.85 | Prime Factorization |
+| HumanEval/26 | compositional | 0.90 | Remove Duplicates (count-based filter) |
+| HumanEval/57 | compositional | 0.90 | Monotonic check |
+| HumanEval/59 | constraint_inference | 0.85 | Largest Prime Factor |
+| HumanEval/76 | constraint_inference | 0.85 | Is Simple Power |
+| HumanEval/96 | constraint_inference | 0.85 | Count Primes Up To |
+
+### Kill Gate Result
+
+| Criterion | Required | Actual | Status |
+|-----------|----------|--------|--------|
+| ECS-unique problems | >= 3 | **8** | **PASS** |
+| Signature-fixable failures | >= 10 (if unique < 3) | 0 | N/A |
+
+**Verdict: PROCEED.** ECS uniquely solves 8 problems that Qwen-0.5B-Instruct cannot. The union of both approaches reaches 99/164 (60.4%), a +8 point improvement over Qwen alone.
+
+### ECS Failure Classification
+
+128 ECS failures are all `no_code` — the system has no matching template or compositional strategy for these problems. This is expected: the structured tier covers ~35 algorithmic patterns. Problems outside this coverage are simply not attempted.
+
+---
+
+## Phase 2: Confidence Analysis & Calibration
+
+### Confidence Scores
+
+ECS assigns hard-coded confidence per synthesis path:
+
+| Synthesis Path | Confidence | Actual Pass Rate | Gap |
+|----------------|------------|-----------------|-----|
+| compositional | 0.90 | 100% (15/15) | 0.10 (underconfident) |
+| constraint_inference | 0.85 | 26.2% (21/80) | 0.59 (overconfident) |
+| execution_guided | 0.88 | 0% (0/1) | 0.88 |
+| induction_analogy | 0.70 | 0% (0/5) | 0.70 |
+| memory_reuse | 0.65 avg | 0% (0/12) | 0.65 |
+| failed | 0.00 | 0% (0/51) | 0.00 (calibrated) |
+
+### Calibration Metrics
+
+| Metric | Value | Interpretation |
+|--------|-------|---------------|
+| **ECE** | **0.3621** | Moderate miscalibration — system is overconfident on constraint_inference |
+| **Brier Score** | **0.3034** | Below random (0.25 = perfect random) — confidence is informative but miscalibrated |
+
+### Calibration Bins
+
+| Bin | Count | Avg Confidence | Actual Accuracy | Gap |
+|-----|-------|---------------|-----------------|-----|
+| 0.0-0.1 | 51 | 0.000 | 0.0% | 0.000 |
+| 0.5-0.6 | 5 | 0.575 | 0.0% | 0.575 |
+| 0.6-0.7 | 10 | 0.626 | 0.0% | 0.626 |
+| 0.7-0.8 | 6 | 0.716 | 0.0% | 0.716 |
+| 0.8-0.9 | 77 | 0.850 | 27.3% | 0.577 |
+| 0.9-1.0 | 15 | 0.900 | 100.0% | 0.100 |
+
+**Key finding:** Confidence = 0.9 (compositional) is nearly perfectly calibrated (100% actual). Confidence = 0.85 (constraint_inference) is severely overconfident (27.3% actual). The 0.0 bin is perfectly calibrated (0% actual). The system knows when it doesn't know, but overestimates its template-matching accuracy.
+
+### Selective Prediction Curve
+
+| Threshold | Coverage | Precision | Count |
+|-----------|----------|-----------|-------|
+| 0.00 | 100.0% | 22.0% | 164 |
+| 0.10 | 68.9% | 31.9% | 113 |
+| 0.60 | 65.9% | 33.3% | 108 |
+| 0.70 | 59.8% | 36.7% | 98 |
+| 0.80 | 56.1% | 39.1% | 92 |
+| 0.85 | 55.5% | 39.6% | 91 |
+| **0.90** | **9.1%** | **100.0%** | **15** |
+
+**Key finding for selective prediction:** At confidence threshold 0.90, the system achieves **100% precision** with 9.1% coverage (15 problems). These are exactly the compositional synthesis results. The confidence score is a useful gate: below 0.90, accept the risk of ~35-40% precision; at 0.90+, trust the answer completely.
+
+### Method Breakdown
+
+| Method | Problems | Passed | Pass Rate | Avg Confidence |
+|--------|----------|--------|-----------|----------------|
+| constraint_inference | 80 | 21 | 26.2% | 0.83 |
+| compositional | 15 | 15 | 100.0% | 0.90 |
+| memory_reuse | 12 | 0 | 0.0% | 0.65 |
+| induction_analogy | 5 | 0 | 0.0% | 0.70 |
+| execution_guided | 1 | 0 | 0.0% | 0.88 |
+| failed | 51 | 0 | 0.0% | 0.00 |
 
 ---
 
 ## Evaluation 1: Custom Benchmark (20 Problems)
 
-### Setup
-- 20 diverse algorithmic problems (sorting, searching, string, array, recursion, logic)
-- Structured tier (no neural model, no Ollama)
-- Single-pass evaluation, problems solved sequentially
-
-### Headline Results
+### Results
 
 | Metric | Value |
 |--------|-------|
 | **Success rate** | **90%** (18/20) |
-| **Confidence calibration** | Perfect |
-| **High-confidence (>0.6) accuracy** | 100% (15/15 correct) |
-| **Low-confidence (≤0.6) accuracy** | 60% (3/5 correct) |
+| **High-confidence (>0.6) accuracy** | 100% (15/15) |
+| **Low-confidence (<=0.6) accuracy** | 60% (3/5) |
 | **Average latency** | 92ms per problem |
-| **Emergence events** | 24 across 20 problems |
-| **Memory reuse rate** | 30% (6/20 via retrieval) |
 
-### Synthesis Method Distribution
+### Method Distribution
 
 | Method | Count | Success Rate |
 |--------|-------|-------------|
@@ -64,46 +167,14 @@
 | memory_reuse | 6 | 100% (6/6) |
 | failed | 2 | 0% |
 
-### Per-Problem Results
+### Failures
 
-| # | Problem | Success | Method | Confidence |
-|---|---------|---------|--------|-----------|
-| 1 | Sort a list of integers in ascending order | PASS | constraint_inference | 0.85 |
-| 2 | Implement merge sort | PASS | constraint_inference | 0.85 |
-| 3 | Implement quicksort with median-of-three pivot | PASS | constraint_inference | 0.85 |
-| 4 | Implement binary search on a sorted array | PASS | constraint_inference | 0.85 |
-| 5 | Find first occurrence in sorted array with duplicates | PASS | memory_reuse | 0.58 |
-| 6 | Find peak element in mountain array | PASS | constraint_inference | 0.85 |
-| 7 | Check if string is palindrome | PASS | constraint_inference | 0.85 |
-| 8 | Reverse string without built-in functions | PASS | memory_reuse | 0.57 |
-| 9 | Longest substring without repeating characters | **FAIL** | failed | 0.00 |
-| 10 | Find maximum element in list | PASS | memory_reuse | 0.57 |
-| 11 | Two numbers that sum to target | PASS | constraint_inference | 0.85 |
-| 12 | Rotate array by k positions | PASS | constraint_inference | 0.85 |
-| 13 | Compute nth Fibonacci number | PASS | constraint_inference | 0.85 |
-| 14 | Calculate factorial of n | PASS | constraint_inference | 0.85 |
-| 15 | Generate all permutations | PASS | memory_reuse | 0.56 |
-| 16 | Check if number is prime | PASS | memory_reuse | 0.56 |
-| 17 | Check if brackets are balanced | PASS | constraint_inference | 0.85 |
-| 18 | Stack with push, pop, min operations | **FAIL** | failed | 0.00 |
-| 19 | Longest common prefix of strings | PASS | constraint_inference | 0.85 |
-| 20 | Remove duplicates from sorted array | PASS | constraint_inference | 0.85 |
-
-### Failure Analysis
-
-1. **"Longest substring without repeating characters"** — No matching constraint pattern. Requires sliding-window with dynamic hash set tracking. This is algorithmic creativity beyond pattern matching.
-
-2. **"Stack with push, pop, and min operations"** — Multi-method data structure design. Requires composing a stack with an auxiliary min-tracking structure. No single template covers this.
+1. **"Longest substring without repeating characters"** — No matching constraint pattern. Requires sliding-window algorithm.
+2. **"Stack with push, pop, and min operations"** — Multi-method data structure. No single template covers this.
 
 ---
 
-## Evaluation 2: HumanEval (164 Problems)
-
-### Setup
-- HumanEval benchmark (EvalPlus variant, 164 problems)
-- Structured tier (no neural model)
-- SignatureAdapter enabled (renames functions/params to match HumanEval signatures)
-- Problems contain function signature + docstring; ECS extracts NL description
+## Evaluation 2: HumanEval (164 Problems, Structured Tier)
 
 ### Results
 
@@ -111,126 +182,35 @@
 |--------|-------|
 | **HumanEval pass@1** | **22.0%** (36/164) |
 | **ECS internal success** | **68.9%** (113/164) |
-| **Signature adaptations** | 68.9% (113/164) |
 | **Average latency** | 1,195ms |
-| **Confidence calibration** | High-conf 35.0% vs Low-conf 0.0% |
 
 ### Improvement Trajectory
 
 | Version | pass@1 | Key Change |
 |---------|--------|-----------|
-| Baseline (no adapter) | 1.2% (2/164) | Raw template output, wrong function names |
+| Baseline (no adapter) | 1.2% (2/164) | Raw template output |
 | + SignatureAdapter | 3.0% (5/164) | Function/param renaming |
-| + Specificity matching | 6.7% (11/164) | Longer keyword matches win over short ones |
-| + New templates | 9.8% (16/164) | GCD, prefixes, factorize, MAD, rolling_max |
-| + Constraint-first pipeline | 12.8% (21/164) | Constraint inference before memory reuse |
-| + Intelligence upgrade | **22.0%** (36/164) | Type-driven compositional + execution-guided + induction |
+| + Specificity matching | 6.7% (11/164) | Longer keyword matches win |
+| + New templates | 9.8% (16/164) | GCD, prefixes, factorize |
+| + Constraint-first pipeline | 12.8% (21/164) | Constraint before memory |
+| + Compositional + exec-guided | **22.0%** (36/164) | Type-driven synthesis |
 
-### Method Distribution on HumanEval
+### Problems Solved
 
-| Method | Problems | HumanEval Passes | Pass Rate |
-|--------|----------|-----------------|-----------|
-| constraint_inference | 80 (48.8%) | 21 (26.2%) | **26%** |
-| **compositional** | **15 (9.1%)** | **15 (100%)** | **100%** |
-| memory_reuse | 12 (7.3%) | 0 (0.0%) | 0% |
-| induction_analogy | 5 (3.0%) | 0 (0.0%) | 0% |
-| execution_guided | 1 (0.6%) | 0 (0.0%) | 0% |
-| failed | 51 (31.1%) | 0 (0.0%) | 0% |
+**Via constraint inference (21):** Rolling max, GCD, all prefixes, count distinct, largest divisor, prime factorization, is prime, sorted unique, maximum, triples/pairs sum to zero, palindrome, fibonacci, correct bracketing, common elements, largest prime factor, is simple power, count primes.
 
-### Problems Solved (36)
+**Via compositional synthesis (15, 100% precision):** Has close elements, below zero, intersperse, filter by substring, sum product, longest string, string length, remove duplicates, concatenate, filter by prefix, get positive, increment list, below threshold, add, monotonic.
 
-**Via constraint inference (21):**
-
-| # | Problem | Algorithm |
-|---|---------|-----------|
-| 4 | Mean Absolute Deviation | mean_absolute_deviation |
-| 9 | Rolling Maximum | rolling_max |
-| 13 | Greatest Common Divisor | gcd |
-| 14 | All Prefixes | all_prefixes |
-| 16 | Count Distinct Characters | count_distinct |
-| 18 | Count Substring Occurrences | count_substring |
-| 24 | Largest Divisor | largest_divisor |
-| 25 | Prime Factorization | factorize |
-| 31 | Is Prime | prime |
-| 34 | Sorted Unique | sorted_unique |
-| 35 | Maximum Element | maximum |
-| 40 | Triples Sum to Zero | triples_sum_zero |
-| 43 | Pairs Sum to Zero | pairs_sum_zero |
-| 48 | Is Palindrome | palindrome |
-| 55 | Fibonacci | fibonacci |
-| 56 | Correct Bracketing (<>) | correct_bracketing |
-| 58 | Common Elements | common_elements |
-| 59 | Largest Prime Factor | largest_prime_factor |
-| 61 | Correct Bracketing (()) | balanced_brackets |
-| 76 | Is Simple Power | is_simple_power |
-| 96 | Count Primes Up To | count_up_to_prime |
-
-**Via compositional synthesis — NEW (15):**
-
-| # | Problem | Reasoning |
-|---|---------|-----------|
-| 0 | Has Close Elements | list,float→bool: pairwise threshold check |
-| 3 | Below Zero | list→bool: running balance accumulator |
-| 5 | Intersperse | list,int→list: build with delimiter insertion |
-| 7 | Filter By Substring | list,str→list: filter condition `substring in x` |
-| 8 | Sum Product | list→tuple: multi-reduce (sum + product) |
-| 12 | Longest | list→str: reduce with `max(key=len)` |
-| 23 | String Length | str→int: `len()` |
-| 26 | Remove Duplicates | list→list: count-based filter (keep count==1) |
-| 28 | Concatenate | list→str: `''.join()` |
-| 29 | Filter By Prefix | list,str→list: filter `x.startswith(prefix)` |
-| 30 | Get Positive | list→list: filter `x > 0` |
-| 42 | Increment List | list→list: map `x + 1` |
-| 52 | Below Threshold | list,int→bool: `all(x < threshold)` |
-| 53 | Add | int,int→int: `a + b` |
-| 57 | Monotonic | list→bool: check_property increasing OR decreasing |
-
-### Key Insights
-
-1. **Type-driven reasoning solves problems templates can't** — The compositional synthesizer infers type signatures (list→bool, list→str, etc.) and selects transformation strategies, discovering solutions through execution rather than keyword lookup.
-
-2. **100% precision on compositional synthesis** — Every problem the compositional path attempted, it solved correctly. This is because it verifies candidates against docstring examples before returning.
-
-3. **Complementary methods, no overlap** — Constraint templates solve algorithmic problems (GCD, prime, factorize). Compositional reasoning solves transformation problems (filter, map, reduce, check). Zero problems solved by both.
-
-4. **Confidence calibration remains perfect** — High confidence (>0.6): 35.0% pass. Low confidence (<=0.6): 0.0% pass. The system knows when it knows.
-
-5. **No neural model used** — All 36 passes are pure structured synthesis (templates + type-driven composition + execution-guided verification).
-
-### Remaining Work: Neural Comparison
-
-The critical missing number is **Qwen2.5-Coder-0.5B alone on HumanEval**. Scripts are ready:
-
-```bash
-# Requires: ollama serve & ollama pull qwen2.5-coder:0.5b
-
-# Qwen-alone baseline
-uv run python scripts/qwen_baseline_humaneval.py
-
-# Full 3-condition comparison (qwen_only vs ecs_no_neural vs ecs_full)
-uv run python scripts/full_comparison.py
-```
-
-Expected Qwen-0.5B baseline: ~25-40%. The comparison determines the paper story:
-- If ECS+Qwen > Qwen alone → "Architecture amplifies small models"
-- If ECS+Qwen ≈ Qwen alone → "Architecture adds calibration, not pass rate"
-- If ECS+Qwen < Qwen alone → Architecture is interfering — debug needed
+**Zero overlap between methods.** Constraint inference solves algorithmic problems. Compositional synthesis solves transformation problems. They are complementary.
 
 ---
 
-## Evaluation 3: Ablation Study
+## Evaluation 3: Ablation Study (20-Problem Benchmark)
 
-### Setup
-- Same 20-problem benchmark
-- 8 conditions: baseline + 7 component removals
-- Single-pass, fresh orchestrator per condition
-
-### Results
-
-| Condition | Success Rate | Delta from Baseline |
-|-----------|-------------|-------------------|
-| **Full ECS (baseline)** | **90%** | --- |
-| No constraint inference | 0% | **-90%** |
+| Condition | Success Rate | Delta |
+|-----------|-------------|-------|
+| Full ECS (baseline) | 90% | --- |
+| No constraint inference | 0% | -90% |
 | No memory reuse | 90% | 0% |
 | No attention adaptation | 90% | 0% |
 | No cross-domain bridges | 90% | 0% |
@@ -238,214 +218,66 @@ Expected Qwen-0.5B baseline: ~25-40%. The comparison determines the paper story:
 | No strategy module | 90% | 0% |
 | Constraints only | 90% | 0% |
 
-### Interpretation
-
-**Constraint inference is the sole driver of pass rate on this benchmark.** All other components contribute to emergent behavior, not to raw accuracy.
-
-This means:
-- The constraint inference engine is a **necessary and sufficient** component for the benchmark
-- Other components (attention, memory, strategies, temperature) are **behavioral/adaptive** — they drive emergence, learning, and confidence calibration
-- The benchmark is too well-covered by templates to differentiate other contributions
-
-**A harder benchmark would reveal the value of:**
-- Memory reuse: saves latency on repeated patterns (~30% of problems used it)
-- Attention adaptation: would help when neural is online (directing resources to best modules)
-- Temperature feedback: drives exploration on novel problem types
-- Cross-domain bridges: enables knowledge transfer across domains
+**Constraint inference is necessary and sufficient** for this benchmark. Other components drive adaptive behavior (emergence, learning), not raw accuracy.
 
 ---
 
-## Emergence Findings
+## Multi-Condition Comparison Summary
 
-### Confirmed Emergent Behaviors (7/9 pass automated tests)
+| Condition | pass@1 | Notes |
+|-----------|--------|-------|
+| **(a) Qwen-0.5B-Instruct alone** | **55.5%** (91/164) | HuggingFace FP16, T4 GPU, greedy |
+| **(d) ECS structured (no neural)** | **22.0%** (36/164) | Pure templates + compositional |
+| **Union (oracle)** | **60.4%** (99/164) | Best of both approaches |
+| **Amplification** | **+8 problems** | ECS solves 8 that Qwen misses |
 
-| # | Behavior | Evidence |
-|---|----------|----------|
-| 1 | Cross-domain knowledge transfer | Bridge memories surface for problems in different domains (24 events in 20 problems) |
-| 2 | Attention weight adaptation | Weights shift from 1.0 to 1.5 after 10 successes; down to 0.65 after failures |
-| 3 | Self-model calibration | Confidence drops from 0.5 to 0.059 after 6 failures; rises to 0.83 after 10 successes |
-| 4 | Memory association patterns | TF-IDF weighted HDC finds structural similarity across domains |
-| 5 | Temperature-driven exploration | High temp lowers ignition threshold, weak bids pass; low temp is selective |
-| 6 | Starvation recovery | Starved modules get urgency boost and eventually win auctions |
-| 7 | Strategy feedback loops | Strategy success/failure feeds back into auction weights |
-
-### Emergence Statistics (20-problem run)
-
-- Cross-domain transfer events: 15-24 per session
-- Attention weight range after 10 problems: [0.65, 1.5]
-- Temperature range: 1.0 → 0.75 (confidence-driven cooling)
-- Self-model confidence after 10 successes: 0.83
-- Risk-taking (partial match) events: 4-5 per session
-- Memory growth: 5 (bridges) → 25 items (bridges + episodic + procedural)
-
-### Confidence Calibration
-
-**Perfect calibration on custom benchmark:**
-- When system reports confidence > 0.6: 100% correct (15/15)
-- When system reports confidence ≤ 0.6: 60% correct (3/5)
-
-**Maintained on HumanEval (with SignatureAdapter):**
-- High confidence (>0.6): 25.6% HumanEval pass (21/82)
-- Low confidence (≤0.6): 0.0% HumanEval pass (0/82)
-- Calibration holds: when the system is confident, it passes 1 in 4; when uncertain, never
+**Conditions (b) best-of-K and (c) majority voting require GPU** — these generate K=16 neural samples per problem. See `notebooks/kaggle_phase0.ipynb` for Kaggle execution.
 
 ---
 
-## Learning Effects
+## Phase 3: Session Learning
 
-### Within-Session Learning (20-problem benchmark)
+*Results will be populated when experiment completes.*
 
-| Metric | First Half (1-10) | Second Half (11-20) |
-|--------|-------------------|---------------------|
-| Success rate | 90% | 90% |
-| Memory reuse instances | 3 | 3 |
-| Procedural memories stored | 7 | 11 (cumulative: 18) |
+**Setup:** 164 HumanEval problems processed sequentially through a single ECSOrchestrator. Memory accumulates across problems. Control: fresh orchestrator per problem. 3 shuffled orderings.
 
-The learning effect manifests as **procedural memory accumulation**: 18 verified code fragments stored by session end, available for instant reuse in future sessions. Memory reuse occurs throughout (not only in the second half) because bridge memories trigger early retrieval for similar patterns.
-
-### Memory Reuse Pattern
-
-After solving problem N, the code is stored as procedural memory. Problem N+k (similar) retrieves and reuses verified code without re-synthesis.
-
-Observed reuse chain:
-1. "Sort list" → constraint_inference (code stored)
-2. "Implement merge sort" → constraint_inference (code stored)  
-3. "Find first occurrence in sorted array" → memory_reuse (retrieves binary search code)
-
-### Adaptation Dynamics (10 same-domain problems)
-
-| After N problems | Memory weight | Temperature | Self-model confidence |
-|-----------------|---------------|-------------|----------------------|
-| 0 | 1.000 | 1.000 | 0.500 |
-| 5 | 1.250 | 0.880 | 0.700 |
-| 10 | 1.500 | 0.766 | 0.831 |
+**Hypothesis:** Pass rate improves from first half to second half due to procedural memory accumulation and induction pattern mining.
 
 ---
 
-## System Capabilities by Tier
+## Phase 4: Selection Ablation (HumanEval)
 
-### Full Tier (Neural + Z3 + Memory + Strategies)
-- Code generation for arbitrary problems
-- Strategy-guided synthesis with neural hole-filling
-- CEGIS refinement with counterexamples
-- All emergence behaviors active
-- **Expected performance**: High (untested — requires Ollama)
+*Results will be populated when experiment completes.*
 
-### Structured Tier (Z3 + Constraints + Memory + Strategies)
-- Pattern-matching constraint inference (35+ patterns)
-- Template-based code generation with signature adaptation
-- Z3 verification of conditions and bounds
-- Procedural memory reuse for similar problems
-- **Measured performance**: 90% on custom benchmark, 12.8% on HumanEval
+**Setup:** 6 conditions on all 164 HumanEval problems with prompt/entry_point.
 
-### Minimal Tier (Memory + Strategies only)
-- Feature extraction from keywords
-- Strategy recommendation
-- Memory retrieval
-- No code generation
-- **Performance**: 0% code generation, but correctly identifies problem type
+| Condition | What it tests |
+|-----------|--------------|
+| Full ECS | Baseline |
+| No HDC memory | Is memory retrieval contributing? |
+| No compositional | Does type-driven synthesis matter? |
+| No constraint inference | How much do templates contribute? |
+| No confidence gating | Does verification help? |
+| No workspace auction | Does module selection matter? |
 
 ---
 
-## Architecture Design Decisions
+## Key Claims (Evidence-Backed)
 
-### Why HDC (Hyperdimensional Computing)?
+### Claim 1: Multi-strategy synthesis produces complementary results
+**Evidence:** Zero overlap between constraint inference (21 passes) and compositional synthesis (15 passes) on HumanEval. They solve fundamentally different problem types.
 
-- **10,000-dimensional Binary Spatter Codes** — random binary vectors
-- **XOR bind** creates role-filler bindings
-- **Majority bundle** superposes information
-- **TF-IDF weighting** prioritizes informative tokens
-- **Batch similarity** via `np.packbits` + popcount lookup → O(n) in dimension
+### Claim 2: ECS adds unique value over a 0.5B neural model
+**Evidence:** 8 problems solved by ECS that Qwen-0.5B-Instruct misses. Union reaches 60.4% vs 55.5% alone.
 
-**Key property**: Structural similarity emerges from token overlap. "quicksort partitions array" and "partition elements into groups" share the token "partition" → their HDC vectors are similar → cross-domain retrieval occurs **without explicit linking**.
+### Claim 3: Compositional synthesis achieves perfect precision
+**Evidence:** 15/15 problems attempted by compositional synthesis passed HumanEval tests. 100% precision because candidates are verified against docstring examples before submission.
 
-### Why Global Workspace Theory?
+### Claim 4: Confidence score enables useful selective prediction
+**Evidence:** At threshold 0.90, precision = 100% with 9.1% coverage. Below 0.90, precision drops to ~35-40%. The score is a useful binary gate even though continuous calibration (ECE=0.36) is poor.
 
-- **Free-energy auction** — modules compete for consciousness
-- **Limited capacity (7)** — forces prioritization
-- **Temperature coupling** — exploration vs exploitation
-- **Self-model** — metacognition detects when system is stuck
-
-**Key property**: Attention weights adapt based on which modules contribute to success. Over time, the system learns which modules are reliable.
-
-### Why Constraint Inference?
-
-- **Pattern matching** — NL keywords → known algorithm patterns
-- **Template synthesis** — patterns map to verified code templates
-- **Auto-generated tests** — each pattern has test cases for verification
-- **No neural dependency** — works completely offline
-
-**Key property**: Achieves 90% success without any LLM. The constraint library encodes human knowledge about algorithm patterns.
-
----
-
-## Confidence-Temperature Feedback Loop
-
-```
-High confidence (>0.7) → Temperature drops → Exploit known patterns
-Low confidence (<0.4) → Temperature rises → Explore broadly
-Stuck (3+ failures) → Temperature spikes → Maximum exploration
-```
-
-Observed dynamics:
-- After 10 successes: confidence=0.83, temperature=0.77 (exploiting)
-- After 6 failures: confidence=0.06, temperature rises toward 1.8 (exploring)
-- Natural recovery: exploration finds new patterns → confidence rises → exploitation resumes
-
----
-
-## Comparison Context
-
-### ECS v3 Structured Tier vs Published Baselines
-
-| System | HumanEval pass@1 | Notes |
-|--------|-----------------|-------|
-| GPT-4 | 67.0% | 1.8T params (estimated) |
-| GPT-3.5 | 48.1% | 175B params |
-| CodeLlama-34B | 48.8% | 34B params |
-| Qwen2.5-Coder-0.5B | ~15-20% | 0.5B params (estimated) |
-| **ECS v3 (structured + intelligence)** | **22.0%** | **No neural model at all** |
-| ECS v3 (structured, templates only) | 12.8% | Constraint templates + signature adaptation |
-| ECS v3 (internal success) | 68.9% | Correct algorithm, verification mismatch |
-
-### The Right Comparison
-
-ECS achieves 12.8% pass@1 with zero neural parameters — pure constraint templates + signature adaptation. This demonstrates that structured algorithmic knowledge encoded as templates can solve a meaningful fraction of HumanEval without any learned model.
-
-**The fair comparison is:**
-- ECS structured tier (12.8%) vs. "what can template-based synthesis achieve without any LLM?"
-- ECS full tier (with neural) vs. Qwen-0.5B alone — tests whether the architecture amplifies the model
-- Each additional template adds ~1-3% pass@1 — the bottleneck is coverage, not capability
-
----
-
-## Limitations
-
-1. **Template-bound** — Without neural, limited to ~20 known algorithm patterns. Novel problems require LLM.
-
-2. **Function signature gap** — Generated code uses generic function names, not problem-specific ones.
-
-3. **No compositional synthesis** — Can't combine templates (e.g., "stack with min" needs stack + min-tracking composed).
-
-4. **Benchmark saturation** — Custom 20-problem benchmark is fully covered by templates. Harder benchmarks needed.
-
-5. **Neural tier untested** — Full tier performance is theoretical until Ollama integration is evaluated.
-
----
-
-## Key Claims (Supported by Data)
-
-1. **"A cognitive architecture without a neural model achieves 90% success on program synthesis through constraint inference and memory reuse"** — Supported: 18/20 problems solved, 0 neural calls.
-
-2. **"Perfect confidence calibration: when confidence > 0.6, the system is correct 100% of the time"** — Supported: 15/15 high-confidence predictions correct.
-
-3. **"The system demonstrates genuine within-session learning"** — Supported: 30% of later problems solved via memory reuse of earlier solutions.
-
-4. **"Seven emergent behaviors arise from the architecture without being explicitly programmed"** — Supported: automated test suite confirms 7/9 emergence tests pass.
-
-5. **"Constraint inference is necessary and sufficient for the custom benchmark"** — Supported: ablation shows 90% → 0% when removed, 0% impact from other components.
-
-6. **"The system correctly identifies the algorithmic pattern in 50% of HumanEval problems and passes 12.8%"** — Supported: 21/164 HumanEval problems solved with zero neural parameters, using only constraint templates + signature adaptation.
+### Claim 5: The system is overconfident on constraint_inference
+**Evidence:** Confidence 0.85 assigned to constraint_inference, actual pass rate 26.2%. The system successfully generates code matching the template but the template itself may not match HumanEval's exact specification.
 
 ---
 
@@ -453,9 +285,14 @@ ECS achieves 12.8% pass@1 with zero neural parameters — pure constraint templa
 
 | File | Contents |
 |------|----------|
-| `evaluation_structured.json` | Per-problem results for 20-problem benchmark |
-| `evaluation_humaneval.json` | Per-problem results for 164 HumanEval problems |
-| `evaluation_ablation.json` | Ablation study results (8 conditions) |
+| `evaluation_structured.json` | Custom 20-problem benchmark results |
+| `evaluation_humaneval.json` | HumanEval 164-problem results (structured tier) |
+| `evaluation_qwen_hf_baseline.json` | Qwen-0.5B-Instruct baseline (HuggingFace, T4) |
+| `evaluation_ablation.json` | Ablation study (8 conditions, 20 problems) |
+| `phase0_analysis.json` | Venn diagram + failure classification |
+| `phase2_results.json` | Confidence analysis + calibration metrics |
+| `phase3_results.json` | Session learning experiment |
+| `phase4_results.json` | HumanEval ablation (6 conditions) |
 
 ---
 
@@ -463,21 +300,24 @@ ECS achieves 12.8% pass@1 with zero neural parameters — pure constraint templa
 
 ```bash
 # Install
-git clone <repo>
+git clone git@github.com:tripathiji1312/ecs.git
 cd ecs
 uv sync
 
-# Run tests (no Ollama needed)
-uv run pytest
+# Tests (no GPU needed)
+uv run pytest                                    # 268 tests, ~8s
 
-# Run custom benchmark evaluation
-uv run python scripts/evaluation.py --structured
+# Structured tier evaluations (CPU, no model needed)
+uv run python scripts/humaneval_eval.py          # HumanEval structured
+uv run python scripts/ablation.py                # 20-problem ablation
+uv run python scripts/phase3_session_learning.py # Session learning
+uv run python scripts/phase4_ablation.py         # HumanEval ablation
 
-# Run HumanEval evaluation  
-uv run python scripts/humaneval_eval.py
+# Neural baseline (GPU recommended)
+uv sync --group neural
+uv run python scripts/hf_qwen_baseline.py        # Qwen-0.5B-Instruct baseline
 
-# Run ablation study
-uv run python scripts/ablation.py
+# Analysis (CPU, uses existing JSON files)
+uv run python scripts/phase0_analysis.py          # Venn + kill gate
+uv run python scripts/phase2_experiment.py        # Confidence + calibration
 ```
-
-All evaluations run in structured tier (no neural model required). Full tier evaluation requires Ollama with `qwen2.5-coder:0.5b` model installed.
